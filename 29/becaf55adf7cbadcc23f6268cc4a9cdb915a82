@@ -1,0 +1,23 @@
+src/style.css
+  s_5fd76648e6db37::t_f2cd05d2e39eb2 95-96,101-105,133-136,140
+src/ui/detail.ts
+  s_5fd76648e6db37::t_163f3619cb5945 137-141,144-147
+src/ui/format.ts
+  s_5fd76648e6db37::t_f1164c9fa82213 56-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "29becaf55adf7cbadcc23f6268cc4a9cdb915a82",
+  "prompts": {},
+  "sessions": {
+    "s_5fd76648e6db37": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a28ea299-0dd3-45e3-b81c-8e9b62a95532",
+        "model": "unknown"
+      },
+      "human_author": "Håkon Osland <hakon.osland.ettestol@gmail.com>"
+    }
+  }
+}
