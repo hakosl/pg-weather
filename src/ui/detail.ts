@@ -134,14 +134,17 @@ function strips(models: NonNullable<DetailData["models"]>, sel: DetailSelection,
   return el("section", { class: "strips" }, el("h3", {}, "Hour by hour, per model"), ...rows, axis);
 }
 
-const ROWS: [string, (r: HourRating) => string][] = [
-  ["Launch wind", (r) => (r.launchWind ? `${windText(r.launchWind)}${r.launchWindSource === "near-ground" ? " (near ground)" : ""}` : "–")],
+// A value with an optional muted second line, so narrow columns wrap cleanly.
+const twoLine = (main: string, sub: string | null) => el("span", {}, main, sub ? el("small", { class: "sub" }, sub) : null);
+
+const ROWS: [string, (r: HourRating) => Node | string][] = [
+  ["Launch wind", (r) => (r.launchWind ? twoLine(windText(r.launchWind), r.launchWindSource === "near-ground" ? "near ground" : null) : "–")],
   ["Direction", (r) => (r.direction ? FIT_LABEL[r.direction.fit] : "–")],
   ["Onto slope", (r) => (r.ontoSlopeMs != null ? r.ontoSlopeMs.toFixed(1) : "–")],
-  ["Max ≤500 m above", (r) => (r.above ? `${windText(r.above.wind)} @ ${fmtM(r.above.heightM)}` : "–")],
-  ["Gusts (10 m)", (r) => (r.sample.gust10m != null ? `${r.sample.wind10m?.speed.toFixed(1) ?? "–"} → ${r.sample.gust10m.toFixed(1)}` : "–")],
-  ["Thermals", (r) => (r.thermals && r.thermals.strength !== "none" ? `${r.thermals.strength} to ${fmtM(r.thermals.ceilingM)}` : r.thermals ? "none" : "–")],
-  ["Cloud", (r) => (r.thermals?.cumulus ? `Cu base ${fmtM(r.thermals.cloudBaseM!)}` : r.sample.cloudCover != null ? `${Math.round(r.sample.cloudCover)}%` : "–")],
+  ["Up to 500\u00a0m above", (r) => (r.above ? twoLine(windText(r.above.wind), `at ${fmtM(r.above.heightM)}`) : "–")],
+  ["Gusts", (r) => (r.sample.gust10m != null ? twoLine(`${r.sample.gust10m.toFixed(1)} gust`, `${r.sample.wind10m?.speed.toFixed(1) ?? "–"} mean`) : "–")],
+  ["Thermals", (r) => (r.thermals && r.thermals.strength !== "none" ? twoLine(r.thermals.strength, `to ${fmtM(r.thermals.ceilingM)}`) : r.thermals ? "none" : "–")],
+  ["Cloud", (r) => (r.thermals?.cumulus ? twoLine("Cu base", fmtM(r.thermals.cloudBaseM!)) : r.sample.cloudCover != null ? `${Math.round(r.sample.cloudCover)}%` : "–")],
   ["Rain", (r) => (r.sample.precipitation != null ? `${r.sample.precipitation.toFixed(1)} mm` : "–")],
 ];
 

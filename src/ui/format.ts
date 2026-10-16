@@ -53,4 +53,5 @@ export function el<K extends keyof HTMLElementTagNameMap>(
 
 export const hourOf = (iso: string) => Number(iso.slice(11, 13));
 export const pad2 = (n: number) => String(n).padStart(2, "0");
-export const fmtM = (v: number) => `${Math.round(v).toLocaleString("en-GB")} m`;
+// Non-breaking space keeps the number and its unit on one line in narrow columns.
+export const fmtM = (v: number) => `${Math.round(v).toLocaleString("en-GB")}\u00a0m`;
