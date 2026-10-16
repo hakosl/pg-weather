@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { angleDiff, directionFit, maxWindBetween, ontoSlope, windAt } from "../src/analysis/wind";
-import { hydnefossen, level, makeSite, sundvollen } from "./helpers";
+import { hydnefossen, level, makeSite, sundvollen, sundvollenRatingsOnly } from "./helpers";
 
 describe("windAt", () => {
   it("interpolates wind components between levels, not speed and direction separately", () => {
@@ -32,23 +32,46 @@ describe("maxWindBetween", () => {
 });
 
 describe("directionFit", () => {
-  it("uses Paragliding Earth ratings when the site has them", () => {
+  it("prefers the club's Holfuy zones: green good, yellow marginal, wrapping past north", () => {
+    expect(directionFit(sundvollen, 300)).toMatchObject({ fit: "good", source: "holfuy" });
     expect(directionFit(sundvollen, 0).fit).toBe("good");
-    expect(directionFit(sundvollen, 45).fit).toBe("marginal");
-    expect(directionFit(sundvollen, 225).fit).toBe("marginal");
-    expect(directionFit(sundvollen, 135).fit).toBe("behind");
-    expect(directionFit(sundvollen, 180).fit).toBe("behind");
+    expect(directionFit(sundvollen, 230).fit).toBe("marginal");
+    expect(directionFit(sundvollen, 10).fit).toBe("marginal");
+    expect(directionFit(sundvollen, 30).fit).toBe("cross");
+    expect(directionFit(sundvollen, 90).fit).toBe("behind");
   });
 
-  it("takes the facing from the rated sectors", () => {
-    expect(directionFit(sundvollen, 0).facing).toBeCloseTo(315, 0);
+  it("overrides Paragliding Earth with the Holfuy zones", () => {
+    expect(directionFit(sundvollenRatingsOnly, 45).fit).toBe("marginal");
+    expect(directionFit(sundvollen, 45)).toMatchObject({ fit: "cross", source: "holfuy" });
+  });
+
+  it("faces the slope the way the terrain does when it is clear, else the middle of the green zone", () => {
+    expect(directionFit(sundvollen, 300).facing).toBe(319);
+    expect(directionFit(makeSite({ ...hydnefossen, aspectReliable: false }), 60).facing).toBe(71);
+  });
+
+  it("treats a full-circle zone as good in every direction", () => {
+    const flat = makeSite({ holfuy: { id: 1, name: "Field", distanceM: 10, green: [0, 360], yellow: null }, aspect: 200 });
+    expect(directionFit(flat, 37).fit).toBe("good");
+    expect(directionFit(flat, 37).facing).toBe(200);
+  });
+
+  it("uses Paragliding Earth ratings when there is no Holfuy station", () => {
+    expect(directionFit(sundvollenRatingsOnly, 0)).toMatchObject({ fit: "good", source: "ratings" });
+    expect(directionFit(sundvollenRatingsOnly, 45).fit).toBe("marginal");
+    expect(directionFit(sundvollenRatingsOnly, 225).fit).toBe("marginal");
+    expect(directionFit(sundvollenRatingsOnly, 135).fit).toBe("behind");
+    expect(directionFit(sundvollenRatingsOnly, 180).fit).toBe("behind");
+    expect(directionFit(makeSite({ ...sundvollenRatingsOnly, aspectReliable: false }), 0).facing).toBeCloseTo(315, 0);
   });
 
   it("falls back to the terrain facing for unrated sites", () => {
-    expect(directionFit(hydnefossen, 60).fit).toBe("good");
-    expect(directionFit(hydnefossen, 110).fit).toBe("marginal");
-    expect(directionFit(hydnefossen, 160).fit).toBe("cross");
-    expect(directionFit(hydnefossen, 313).fit).toBe("behind");
+    const unrated = makeSite({ ...hydnefossen, holfuy: null });
+    expect(directionFit(unrated, 60).fit).toBe("good");
+    expect(directionFit(unrated, 110).fit).toBe("marginal");
+    expect(directionFit(unrated, 160).fit).toBe("cross");
+    expect(directionFit(unrated, 313).fit).toBe("behind");
   });
 
   it("reports unknown when there are no ratings and the terrain facing is unreliable", () => {

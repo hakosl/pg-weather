@@ -1,4 +1,4 @@
-// Builds src/data/sites.json from Paragliding Earth plus terrain-derived launch facing.
+// Builds src/data/sites.json from Paragliding Earth plus terrain-derived launch facing and Holfuy club wind zones.
 // Terrain: Kartverket's 1 m DTM (mainland Norway), falling back to Open-Meteo's 90 m DEM elsewhere (Svalbard).
 import { writeFile } from "node:fs/promises";
 
@@ -19,6 +19,13 @@ const MIN_DIRECTIONALITY = 0.35;
 const ALTITUDE_MISMATCH_M = 100;
 // A sector rated flyable that lies this far off the terrain facing would be a wind from behind.
 const DISAGREE_DEG = 100;
+const HOLFUY_URL = "https://api.holfuy.com/stations/stations.json";
+// Club and private stations; kiting, sailing and airfield stations set zones for other sports.
+const HOLFUY_TYPES = new Set(["Paragliding/HG", "Personal Weather station"]);
+// Stations further away are usually at a different launch on the same mountain.
+const HOLFUY_MAX_DISTANCE_M = 700;
+// A green zone pointing well away from the terrain belongs to another launch nearby.
+const HOLFUY_MAX_FACING_DIFF_DEG = 90;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -108,6 +115,63 @@ function repairName(name) {
   }
 }
 
+function distanceM(a, b) {
+  const rad = Math.PI / 180;
+  const h =
+    Math.sin(((b.lat - a.lat) * rad) / 2) ** 2 +
+    Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(((b.lon - a.lon) * rad) / 2) ** 2;
+  return 2 * 6_371_000 * Math.asin(Math.sqrt(h));
+}
+
+function holfuyZone(z) {
+  const from = Number(z?.start);
+  const to = Number(z?.stop);
+  return Number.isFinite(from) && Number.isFinite(to) && !(from === 0 && to === 0) ? [from, to] : null;
+}
+
+function zoneCentre(zone) {
+  if (!zone || zone[1] - zone[0] >= 360) return null;
+  return (zone[0] + (((zone[1] - zone[0]) % 360) + 360) % 360 / 2) % 360;
+}
+
+function holfuyStations(list) {
+  return list
+    .filter((s) => s.location?.countryCode === "NO" && HOLFUY_TYPES.has(s.type))
+    .filter((s) => Number.isFinite(s.location.latitude) && Number.isFinite(s.location.longitude))
+    .map((s) => ({
+      id: s.id,
+      name: String(s.name).trim(),
+      lat: s.location.latitude,
+      lon: s.location.longitude,
+      green: holfuyZone(s.directionZones?.green),
+      yellow: holfuyZone(s.directionZones?.yellow),
+    }))
+    .filter((s) => s.green || s.yellow);
+}
+
+// Pairs a launch with a Holfuy station only when each is the other's nearest, close by, and facing the same way.
+function withHolfuy(sites, stations) {
+  const nearest = (from, candidates) =>
+    candidates.reduce((best, c) => {
+      const d = distanceM(from, c);
+      return !best || d < best.d ? { item: c, d } : best;
+    }, null);
+  const siteOfStation = new Map(stations.map((st) => [st.id, nearest(st, sites)?.item]));
+  const rejected = [];
+  const result = sites.map((site) => {
+    const match = nearest(site, stations);
+    if (!match || match.d > HOLFUY_MAX_DISTANCE_M || siteOfStation.get(match.item.id) !== site) return { ...site, holfuy: null };
+    const st = match.item;
+    const centre = zoneCentre(st.green ?? st.yellow);
+    if (site.aspectReliable && centre != null && angleDiff(centre, site.aspect) > HOLFUY_MAX_FACING_DIFF_DEG) {
+      rejected.push(`${site.name} ↔ ${st.name}: zones face ${Math.round(centre)}°, terrain ${site.aspect}°`);
+      return { ...site, holfuy: null };
+    }
+    return { ...site, holfuy: { id: st.id, name: st.name, distanceM: Math.round(match.d), green: st.green, yellow: st.yellow } };
+  });
+  return { sites: result, rejected };
+}
+
 function toNumberOrNull(v) {
   const n = Number(v);
   return v === "" || v == null || !Number.isFinite(n) || n === 0 ? null : n;
@@ -174,9 +238,14 @@ async function main() {
   console.log(`Open-Meteo fallback: ${outsideKartverket.length - skipped.length}/${outsideKartverket.length} sites`);
   if (skipped.length) console.warn(`Skipped, rerun later:\n  ${skipped.join("\n  ")}`);
 
-  sites.sort((a, b) => a.name.localeCompare(b.name, "nb"));
-  await writeFile(new URL("../src/data/sites.json", import.meta.url), JSON.stringify(sites, null, 1) + "\n");
-  console.log(`Wrote ${sites.length} sites to src/data/sites.json`);
+  const holfuy = holfuyStations((await fetchJson(HOLFUY_URL)).holfuyStationsList ?? []);
+  const { sites: final, rejected } = withHolfuy(sites, holfuy);
+  console.log(`Holfuy: ${final.filter((s) => s.holfuy).length} launches matched to ${holfuy.length} stations with wind zones`);
+  if (rejected.length) console.log(`Not matched, zones face another way:\n  ${rejected.join("\n  ")}`);
+
+  final.sort((a, b) => a.name.localeCompare(b.name, "nb"));
+  await writeFile(new URL("../src/data/sites.json", import.meta.url), JSON.stringify(final, null, 1) + "\n");
+  console.log(`Wrote ${final.length} sites to src/data/sites.json`);
 }
 
 main().catch((err) => {

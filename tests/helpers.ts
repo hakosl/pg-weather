@@ -18,6 +18,7 @@ const baseSite: Site = {
   aspectReliable: true,
   terrainSource: "kartverket-dtm1",
   ratings: null,
+  holfuy: null,
   sourcesDisagree: false,
   altitudeMismatch: false,
   soaring: false,
@@ -42,8 +43,12 @@ export const sundvollen = makeSite({
   dropM: 251,
   riseM: 86,
   ratings: [2, 1, 0, 0, 0, 1, 2, 2],
+  holfuy: { id: 395, name: "OPK Sundvollen", distanceM: 97, green: [240, 0], yellow: [220, 20] },
   soaring: true,
 });
+
+// Sundvollen as Paragliding Earth alone rates it, for testing that source on its own.
+export const sundvollenRatingsOnly = makeSite({ ...sundvollen, holfuy: null });
 
 export const hydnefossen = makeSite({
   id: "hydnefossen",
@@ -55,6 +60,7 @@ export const hydnefossen = makeSite({
   aspect: 67,
   dropM: 271,
   riseM: 253,
+  holfuy: { id: 133, name: "OPK Hydnefossen", distanceM: 602, green: [30, 112], yellow: [20, 160] },
   altitudeMismatch: true,
 });
 

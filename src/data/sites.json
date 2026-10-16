@@ -26,7 +26,20 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22052"
+  "link": "https://www.paraglidingearth.com/?site=22052",
+  "holfuy": {
+   "id": 269,
+   "name": "THPK Aglapsvika",
+   "distanceM": 34,
+   "green": [
+    290,
+    340
+   ],
+   "yellow": [
+    270,
+    0
+   ]
+  }
  },
  {
   "id": "9692",
@@ -46,7 +59,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9692"
+  "link": "https://www.paraglidingearth.com/?site=9692",
+  "holfuy": null
  },
  {
   "id": "23721",
@@ -66,7 +80,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=23721"
+  "link": "https://www.paraglidingearth.com/?site=23721",
+  "holfuy": null
  },
  {
   "id": "22715",
@@ -95,7 +110,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22715"
+  "link": "https://www.paraglidingearth.com/?site=22715",
+  "holfuy": null
  },
  {
   "id": "9670",
@@ -115,7 +131,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9670"
+  "link": "https://www.paraglidingearth.com/?site=9670",
+  "holfuy": null
  },
  {
   "id": "22606",
@@ -144,7 +161,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22606"
+  "link": "https://www.paraglidingearth.com/?site=22606",
+  "holfuy": null
  },
  {
   "id": "22053",
@@ -173,7 +191,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22053"
+  "link": "https://www.paraglidingearth.com/?site=22053",
+  "holfuy": {
+   "id": 206,
+   "name": "THPK Andsfjellet",
+   "distanceM": 43,
+   "green": [
+    30,
+    145
+   ],
+   "yellow": [
+    20,
+    155
+   ]
+  }
  },
  {
   "id": "21915",
@@ -205,7 +236,8 @@
    "lat": 69.186,
    "lon": 15.9268
   },
-  "link": "https://www.paraglidingearth.com/?site=21915"
+  "link": "https://www.paraglidingearth.com/?site=21915",
+  "holfuy": null
  },
  {
   "id": "17099",
@@ -237,7 +269,8 @@
    "lat": 59.823,
    "lon": 10.4922
   },
-  "link": "https://www.paraglidingearth.com/?site=17099"
+  "link": "https://www.paraglidingearth.com/?site=17099",
+  "holfuy": null
  },
  {
   "id": "9537",
@@ -257,7 +290,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9537"
+  "link": "https://www.paraglidingearth.com/?site=9537",
+  "holfuy": null
  },
  {
   "id": "12426",
@@ -289,7 +323,20 @@
    "lat": 60.9136,
    "lon": 7.1921
   },
-  "link": "https://www.paraglidingearth.com/?site=12426"
+  "link": "https://www.paraglidingearth.com/?site=12426",
+  "holfuy": {
+   "id": 1437,
+   "name": "VossHPK Aurland",
+   "distanceM": 14,
+   "green": [
+    260,
+    320
+   ],
+   "yellow": [
+    90,
+    340
+   ]
+  }
  },
  {
   "id": "9672",
@@ -309,7 +356,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9672"
+  "link": "https://www.paraglidingearth.com/?site=9672",
+  "holfuy": null
  },
  {
   "id": "22574",
@@ -338,7 +386,20 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22574"
+  "link": "https://www.paraglidingearth.com/?site=22574",
+  "holfuy": {
+   "id": 1040,
+   "name": "Auvika - Mjelle",
+   "distanceM": 37,
+   "green": [
+    160,
+    250
+   ],
+   "yellow": [
+    150,
+    260
+   ]
+  }
  },
  {
   "id": "10253",
@@ -370,7 +431,8 @@
    "lat": 61.1588,
    "lon": 10.4274
   },
-  "link": "https://www.paraglidingearth.com/?site=10253"
+  "link": "https://www.paraglidingearth.com/?site=10253",
+  "holfuy": null
  },
  {
   "id": "22445",
@@ -399,7 +461,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22445"
+  "link": "https://www.paraglidingearth.com/?site=22445",
+  "holfuy": null
  },
  {
   "id": "19736",
@@ -428,7 +491,20 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=19736"
+  "link": "https://www.paraglidingearth.com/?site=19736",
+  "holfuy": {
+   "id": 791,
+   "name": "(HLSK) Bangsberg",
+   "distanceM": 22,
+   "green": [
+    70,
+    120
+   ],
+   "yellow": [
+    60,
+    130
+   ]
+  }
  },
  {
   "id": "22559",
@@ -457,7 +533,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22559"
+  "link": "https://www.paraglidingearth.com/?site=22559",
+  "holfuy": null
  },
  {
   "id": "21315",
@@ -489,7 +566,8 @@
    "lat": 61.2404,
    "lon": 7.11236
   },
-  "link": "https://www.paraglidingearth.com/?site=21315"
+  "link": "https://www.paraglidingearth.com/?site=21315",
+  "holfuy": null
  },
  {
   "id": "21760",
@@ -512,7 +590,20 @@
    "lat": 60.6471,
    "lon": 6.42803
   },
-  "link": "https://www.paraglidingearth.com/?site=21760"
+  "link": "https://www.paraglidingearth.com/?site=21760",
+  "holfuy": {
+   "id": 107,
+   "name": "VossHPK Hangur Øst",
+   "distanceM": 180,
+   "green": [
+    25,
+    135
+   ],
+   "yellow": [
+    15,
+    25
+   ]
+  }
  },
  {
   "id": "9563",
@@ -532,7 +623,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9563"
+  "link": "https://www.paraglidingearth.com/?site=9563",
+  "holfuy": null
  },
  {
   "id": "9545",
@@ -552,7 +644,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9545"
+  "link": "https://www.paraglidingearth.com/?site=9545",
+  "holfuy": null
  },
  {
   "id": "18329",
@@ -584,7 +677,8 @@
    "lat": 59.6642,
    "lon": 6.00694
   },
-  "link": "https://www.paraglidingearth.com/?site=18329"
+  "link": "https://www.paraglidingearth.com/?site=18329",
+  "holfuy": null
  },
  {
   "id": "9697",
@@ -604,7 +698,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9697"
+  "link": "https://www.paraglidingearth.com/?site=9697",
+  "holfuy": null
  },
  {
   "id": "6722",
@@ -633,7 +728,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=6722"
+  "link": "https://www.paraglidingearth.com/?site=6722",
+  "holfuy": null
  },
  {
   "id": "19762",
@@ -665,7 +761,20 @@
    "lat": 58.9074,
    "lon": 5.85964
   },
-  "link": "https://www.paraglidingearth.com/?site=19762"
+  "link": "https://www.paraglidingearth.com/?site=19762",
+  "holfuy": {
+   "id": 1938,
+   "name": "JLK Bjellandsfjell",
+   "distanceM": 232,
+   "green": [
+    230,
+    330
+   ],
+   "yellow": [
+    200,
+    0
+   ]
+  }
  },
  {
   "id": "13949",
@@ -694,7 +803,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=13949"
+  "link": "https://www.paraglidingearth.com/?site=13949",
+  "holfuy": null
  },
  {
   "id": "22554",
@@ -723,7 +833,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22554"
+  "link": "https://www.paraglidingearth.com/?site=22554",
+  "holfuy": null
  },
  {
   "id": "9698",
@@ -743,7 +854,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9698"
+  "link": "https://www.paraglidingearth.com/?site=9698",
+  "holfuy": null
  },
  {
   "id": "7311",
@@ -772,7 +884,20 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=7311"
+  "link": "https://www.paraglidingearth.com/?site=7311",
+  "holfuy": {
+   "id": 814,
+   "name": "VØH-Bondalseidet",
+   "distanceM": 61,
+   "green": [
+    135,
+    225
+   ],
+   "yellow": [
+    70,
+    290
+   ]
+  }
  },
  {
   "id": "9579",
@@ -792,7 +917,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9579"
+  "link": "https://www.paraglidingearth.com/?site=9579",
+  "holfuy": null
  },
  {
   "id": "12207",
@@ -821,7 +947,20 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=12207"
+  "link": "https://www.paraglidingearth.com/?site=12207",
+  "holfuy": {
+   "id": 200,
+   "name": "OPK Brandbukampen",
+   "distanceM": 150,
+   "green": [
+    200,
+    250
+   ],
+   "yellow": [
+    180,
+    270
+   ]
+  }
  },
  {
   "id": "16468",
@@ -841,7 +980,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=16468"
+  "link": "https://www.paraglidingearth.com/?site=16468",
+  "holfuy": null
  },
  {
   "id": "22571",
@@ -870,7 +1010,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22571"
+  "link": "https://www.paraglidingearth.com/?site=22571",
+  "holfuy": null
  },
  {
   "id": "14953",
@@ -899,7 +1040,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=14953"
+  "link": "https://www.paraglidingearth.com/?site=14953",
+  "holfuy": {
+   "id": 735,
+   "name": "HLSK Bryggefjell",
+   "distanceM": 253,
+   "green": [
+    100,
+    190
+   ],
+   "yellow": [
+    90,
+    205
+   ]
+  }
  },
  {
   "id": "9580",
@@ -919,7 +1073,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9580"
+  "link": "https://www.paraglidingearth.com/?site=9580",
+  "holfuy": null
  },
  {
   "id": "9581",
@@ -939,7 +1094,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9581"
+  "link": "https://www.paraglidingearth.com/?site=9581",
+  "holfuy": null
  },
  {
   "id": "9564",
@@ -959,7 +1115,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9564"
+  "link": "https://www.paraglidingearth.com/?site=9564",
+  "holfuy": null
  },
  {
   "id": "16125",
@@ -991,7 +1148,8 @@
    "lat": 60.3157,
    "lon": 6.6724
   },
-  "link": "https://www.paraglidingearth.com/?site=16125"
+  "link": "https://www.paraglidingearth.com/?site=16125",
+  "holfuy": null
  },
  {
   "id": "9538",
@@ -1011,7 +1169,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9538"
+  "link": "https://www.paraglidingearth.com/?site=9538",
+  "holfuy": null
  },
  {
   "id": "9539",
@@ -1031,7 +1190,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9539"
+  "link": "https://www.paraglidingearth.com/?site=9539",
+  "holfuy": null
  },
  {
   "id": "9540",
@@ -1051,7 +1211,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9540"
+  "link": "https://www.paraglidingearth.com/?site=9540",
+  "holfuy": null
  },
  {
   "id": "9541",
@@ -1071,7 +1232,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9541"
+  "link": "https://www.paraglidingearth.com/?site=9541",
+  "holfuy": null
  },
  {
   "id": "9542",
@@ -1091,7 +1253,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9542"
+  "link": "https://www.paraglidingearth.com/?site=9542",
+  "holfuy": null
  },
  {
   "id": "9543",
@@ -1123,7 +1286,8 @@
    "lat": 59.9356,
    "lon": 10.4648
   },
-  "link": "https://www.paraglidingearth.com/?site=9543"
+  "link": "https://www.paraglidingearth.com/?site=9543",
+  "holfuy": null
  },
  {
   "id": "9674",
@@ -1143,7 +1307,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9674"
+  "link": "https://www.paraglidingearth.com/?site=9674",
+  "holfuy": null
  },
  {
   "id": "9673",
@@ -1163,7 +1328,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9673"
+  "link": "https://www.paraglidingearth.com/?site=9673",
+  "holfuy": null
  },
  {
   "id": "9582",
@@ -1183,7 +1349,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9582"
+  "link": "https://www.paraglidingearth.com/?site=9582",
+  "holfuy": null
  },
  {
   "id": "19833",
@@ -1215,7 +1382,8 @@
    "lat": 58.9008,
    "lon": 5.7822
   },
-  "link": "https://www.paraglidingearth.com/?site=19833"
+  "link": "https://www.paraglidingearth.com/?site=19833",
+  "holfuy": null
  },
  {
   "id": "9693",
@@ -1235,7 +1403,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9693"
+  "link": "https://www.paraglidingearth.com/?site=9693",
+  "holfuy": null
  },
  {
   "id": "9675",
@@ -1255,7 +1424,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9675"
+  "link": "https://www.paraglidingearth.com/?site=9675",
+  "holfuy": null
  },
  {
   "id": "9676",
@@ -1275,7 +1445,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9676"
+  "link": "https://www.paraglidingearth.com/?site=9676",
+  "holfuy": null
  },
  {
   "id": "9583",
@@ -1307,7 +1478,20 @@
    "lat": 59.8296,
    "lon": 10.2205
   },
-  "link": "https://www.paraglidingearth.com/?site=9583"
+  "link": "https://www.paraglidingearth.com/?site=9583",
+  "holfuy": {
+   "id": 165,
+   "name": "OPK Eggekollen",
+   "distanceM": 108,
+   "green": [
+    120,
+    210
+   ],
+   "yellow": [
+    110,
+    230
+   ]
+  }
  },
  {
   "id": "9584",
@@ -1327,7 +1511,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9584"
+  "link": "https://www.paraglidingearth.com/?site=9584",
+  "holfuy": null
  },
  {
   "id": "9585",
@@ -1356,7 +1541,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9585"
+  "link": "https://www.paraglidingearth.com/?site=9585",
+  "holfuy": {
+   "id": 197,
+   "name": "OPK Solbergåsen",
+   "distanceM": 20,
+   "green": [
+    60,
+    160
+   ],
+   "yellow": [
+    40,
+    180
+   ]
+  }
  },
  {
   "id": "9586",
@@ -1385,7 +1583,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9586"
+  "link": "https://www.paraglidingearth.com/?site=9586",
+  "holfuy": null
  },
  {
   "id": "9587",
@@ -1414,7 +1613,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9587"
+  "link": "https://www.paraglidingearth.com/?site=9587",
+  "holfuy": null
  },
  {
   "id": "9588",
@@ -1443,7 +1643,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9588"
+  "link": "https://www.paraglidingearth.com/?site=9588",
+  "holfuy": null
  },
  {
   "id": "22212",
@@ -1472,7 +1673,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22212"
+  "link": "https://www.paraglidingearth.com/?site=22212",
+  "holfuy": null
  },
  {
   "id": "9565",
@@ -1492,7 +1694,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9565"
+  "link": "https://www.paraglidingearth.com/?site=9565",
+  "holfuy": {
+   "id": 253,
+   "name": "SPGK Einerfjell",
+   "distanceM": 579,
+   "green": [
+    130,
+    170
+   ],
+   "yellow": [
+    80,
+    200
+   ]
+  }
  },
  {
   "id": "22556",
@@ -1521,7 +1736,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22556"
+  "link": "https://www.paraglidingearth.com/?site=22556",
+  "holfuy": null
  },
  {
   "id": "9694",
@@ -1541,7 +1757,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9694"
+  "link": "https://www.paraglidingearth.com/?site=9694",
+  "holfuy": null
  },
  {
   "id": "6715",
@@ -1570,7 +1787,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=6715"
+  "link": "https://www.paraglidingearth.com/?site=6715",
+  "holfuy": null
  },
  {
   "id": "6773",
@@ -1599,7 +1817,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=6773"
+  "link": "https://www.paraglidingearth.com/?site=6773",
+  "holfuy": {
+   "id": 974,
+   "name": "Heidal, Espesetra",
+   "distanceM": 34,
+   "green": [
+    210,
+    270
+   ],
+   "yellow": [
+    182,
+    300
+   ]
+  }
  },
  {
   "id": "9589",
@@ -1619,7 +1850,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9589"
+  "link": "https://www.paraglidingearth.com/?site=9589",
+  "holfuy": null
  },
  {
   "id": "9699",
@@ -1639,7 +1871,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9699"
+  "link": "https://www.paraglidingearth.com/?site=9699",
+  "holfuy": null
  },
  {
   "id": "9546",
@@ -1659,7 +1892,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9546"
+  "link": "https://www.paraglidingearth.com/?site=9546",
+  "holfuy": null
  },
  {
   "id": "9590",
@@ -1679,7 +1913,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9590"
+  "link": "https://www.paraglidingearth.com/?site=9590",
+  "holfuy": null
  },
  {
   "id": "9700",
@@ -1699,7 +1934,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9700"
+  "link": "https://www.paraglidingearth.com/?site=9700",
+  "holfuy": null
  },
  {
   "id": "9701",
@@ -1719,7 +1955,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9701"
+  "link": "https://www.paraglidingearth.com/?site=9701",
+  "holfuy": null
  },
  {
   "id": "16418",
@@ -1739,7 +1976,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=16418"
+  "link": "https://www.paraglidingearth.com/?site=16418",
+  "holfuy": null
  },
  {
   "id": "10485",
@@ -1771,7 +2009,8 @@
    "lat": 68.622,
    "lon": 14.8261
   },
-  "link": "https://www.paraglidingearth.com/?site=10485"
+  "link": "https://www.paraglidingearth.com/?site=10485",
+  "holfuy": null
  },
  {
   "id": "9591",
@@ -1800,7 +2039,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9591"
+  "link": "https://www.paraglidingearth.com/?site=9591",
+  "holfuy": null
  },
  {
   "id": "9702",
@@ -1820,7 +2060,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9702"
+  "link": "https://www.paraglidingearth.com/?site=9702",
+  "holfuy": null
  },
  {
   "id": "10366",
@@ -1852,7 +2093,8 @@
    "lat": 63.5242,
    "lon": 10.8541
   },
-  "link": "https://www.paraglidingearth.com/?site=10366"
+  "link": "https://www.paraglidingearth.com/?site=10366",
+  "holfuy": null
  },
  {
   "id": "19331",
@@ -1884,7 +2126,8 @@
    "lat": 60.0551,
    "lon": 6.544
   },
-  "link": "https://www.paraglidingearth.com/?site=19331"
+  "link": "https://www.paraglidingearth.com/?site=19331",
+  "holfuy": null
  },
  {
   "id": "9703",
@@ -1904,7 +2147,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9703"
+  "link": "https://www.paraglidingearth.com/?site=9703",
+  "holfuy": null
  },
  {
   "id": "9592",
@@ -1933,7 +2177,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9592"
+  "link": "https://www.paraglidingearth.com/?site=9592",
+  "holfuy": null
  },
  {
   "id": "22211",
@@ -1962,7 +2207,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22211"
+  "link": "https://www.paraglidingearth.com/?site=22211",
+  "holfuy": null
  },
  {
   "id": "23253",
@@ -1982,7 +2228,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=23253"
+  "link": "https://www.paraglidingearth.com/?site=23253",
+  "holfuy": null
  },
  {
   "id": "9704",
@@ -2002,7 +2249,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9704"
+  "link": "https://www.paraglidingearth.com/?site=9704",
+  "holfuy": null
  },
  {
   "id": "11851",
@@ -2031,7 +2279,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=11851"
+  "link": "https://www.paraglidingearth.com/?site=11851",
+  "holfuy": null
  },
  {
   "id": "9705",
@@ -2060,7 +2309,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9705"
+  "link": "https://www.paraglidingearth.com/?site=9705",
+  "holfuy": null
  },
  {
   "id": "9593",
@@ -2080,7 +2330,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9593"
+  "link": "https://www.paraglidingearth.com/?site=9593",
+  "holfuy": null
  },
  {
   "id": "9594",
@@ -2109,7 +2360,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9594"
+  "link": "https://www.paraglidingearth.com/?site=9594",
+  "holfuy": null
  },
  {
   "id": "9695",
@@ -2129,7 +2381,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9695"
+  "link": "https://www.paraglidingearth.com/?site=9695",
+  "holfuy": null
  },
  {
   "id": "9677",
@@ -2149,7 +2402,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9677"
+  "link": "https://www.paraglidingearth.com/?site=9677",
+  "holfuy": null
  },
  {
   "id": "9595",
@@ -2181,7 +2435,8 @@
    "lat": 60.6819,
    "lon": 8.8519
   },
-  "link": "https://www.paraglidingearth.com/?site=9595"
+  "link": "https://www.paraglidingearth.com/?site=9595",
+  "holfuy": null
  },
  {
   "id": "9596",
@@ -2201,7 +2456,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9596"
+  "link": "https://www.paraglidingearth.com/?site=9596",
+  "holfuy": null
  },
  {
   "id": "10136",
@@ -2233,7 +2489,8 @@
    "lat": 59.9598,
    "lon": 10.7916
   },
-  "link": "https://www.paraglidingearth.com/?site=10136"
+  "link": "https://www.paraglidingearth.com/?site=10136",
+  "holfuy": null
  },
  {
   "id": "22054",
@@ -2262,7 +2519,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22054"
+  "link": "https://www.paraglidingearth.com/?site=22054",
+  "holfuy": null
  },
  {
   "id": "9706",
@@ -2282,7 +2540,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9706"
+  "link": "https://www.paraglidingearth.com/?site=9706",
+  "holfuy": null
  },
  {
   "id": "9566",
@@ -2302,7 +2561,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9566"
+  "link": "https://www.paraglidingearth.com/?site=9566",
+  "holfuy": null
  },
  {
   "id": "9547",
@@ -2322,7 +2582,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9547"
+  "link": "https://www.paraglidingearth.com/?site=9547",
+  "holfuy": null
  },
  {
   "id": "18835",
@@ -2354,7 +2615,17 @@
    "lat": 61.1929,
    "lon": 10.1361
   },
-  "link": "https://www.paraglidingearth.com/?site=18835"
+  "link": "https://www.paraglidingearth.com/?site=18835",
+  "holfuy": {
+   "id": 270,
+   "name": "Hammers",
+   "distanceM": 26,
+   "green": [
+    60,
+    120
+   ],
+   "yellow": null
+  }
  },
  {
   "id": "14849",
@@ -2386,7 +2657,20 @@
    "lat": 60.6265,
    "lon": 6.4128
   },
-  "link": "https://www.paraglidingearth.com/?site=14849"
+  "link": "https://www.paraglidingearth.com/?site=14849",
+  "holfuy": {
+   "id": 1438,
+   "name": "VossHPK Hangur Sør",
+   "distanceM": 105,
+   "green": [
+    135,
+    215
+   ],
+   "yellow": [
+    120,
+    230
+   ]
+  }
  },
  {
   "id": "10632",
@@ -2415,7 +2699,20 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=10632"
+  "link": "https://www.paraglidingearth.com/?site=10632",
+  "holfuy": {
+   "id": 1269,
+   "name": "STRATUS Vassverket N",
+   "distanceM": 109,
+   "green": [
+    340,
+    0
+   ],
+   "yellow": [
+    330,
+    10
+   ]
+  }
  },
  {
   "id": "9690",
@@ -2444,7 +2741,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9690"
+  "link": "https://www.paraglidingearth.com/?site=9690",
+  "holfuy": null
  },
  {
   "id": "9691",
@@ -2473,7 +2771,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9691"
+  "link": "https://www.paraglidingearth.com/?site=9691",
+  "holfuy": null
  },
  {
   "id": "9678",
@@ -2493,7 +2792,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9678"
+  "link": "https://www.paraglidingearth.com/?site=9678",
+  "holfuy": null
  },
  {
   "id": "9679",
@@ -2513,7 +2813,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9679"
+  "link": "https://www.paraglidingearth.com/?site=9679",
+  "holfuy": null
  },
  {
   "id": "9707",
@@ -2533,7 +2834,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9707"
+  "link": "https://www.paraglidingearth.com/?site=9707",
+  "holfuy": null
  },
  {
   "id": "9567",
@@ -2553,7 +2855,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9567"
+  "link": "https://www.paraglidingearth.com/?site=9567",
+  "holfuy": null
  },
  {
   "id": "9548",
@@ -2573,7 +2876,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9548"
+  "link": "https://www.paraglidingearth.com/?site=9548",
+  "holfuy": null
  },
  {
   "id": "9708",
@@ -2593,7 +2897,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9708"
+  "link": "https://www.paraglidingearth.com/?site=9708",
+  "holfuy": null
  },
  {
   "id": "9549",
@@ -2613,7 +2918,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9549"
+  "link": "https://www.paraglidingearth.com/?site=9549",
+  "holfuy": null
  },
  {
   "id": "21644",
@@ -2645,7 +2951,8 @@
    "lat": 66.0229,
    "lon": 13.8592
   },
-  "link": "https://www.paraglidingearth.com/?site=21644"
+  "link": "https://www.paraglidingearth.com/?site=21644",
+  "holfuy": null
  },
  {
   "id": "10197",
@@ -2674,7 +2981,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=10197"
+  "link": "https://www.paraglidingearth.com/?site=10197",
+  "holfuy": null
  },
  {
   "id": "22690",
@@ -2703,7 +3011,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22690"
+  "link": "https://www.paraglidingearth.com/?site=22690",
+  "holfuy": null
  },
  {
   "id": "9732",
@@ -2735,7 +3044,8 @@
    "lat": 66.21,
    "lon": 13.7824
   },
-  "link": "https://www.paraglidingearth.com/?site=9732"
+  "link": "https://www.paraglidingearth.com/?site=9732",
+  "holfuy": null
  },
  {
   "id": "9599",
@@ -2764,7 +3074,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9599"
+  "link": "https://www.paraglidingearth.com/?site=9599",
+  "holfuy": null
  },
  {
   "id": "9597",
@@ -2793,7 +3104,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9597"
+  "link": "https://www.paraglidingearth.com/?site=9597",
+  "holfuy": null
  },
  {
   "id": "9600",
@@ -2822,7 +3134,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9600"
+  "link": "https://www.paraglidingearth.com/?site=9600",
+  "holfuy": null
  },
  {
   "id": "9598",
@@ -2851,7 +3164,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9598"
+  "link": "https://www.paraglidingearth.com/?site=9598",
+  "holfuy": {
+   "id": 134,
+   "name": "OPK Grøndalen",
+   "distanceM": 15,
+   "green": [
+    160,
+    270
+   ],
+   "yellow": [
+    150,
+    280
+   ]
+  }
  },
  {
   "id": "9601",
@@ -2871,7 +3197,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9601"
+  "link": "https://www.paraglidingearth.com/?site=9601",
+  "holfuy": {
+   "id": 133,
+   "name": "OPK Hydnefossen",
+   "distanceM": 602,
+   "green": [
+    30,
+    112
+   ],
+   "yellow": [
+    20,
+    160
+   ]
+  }
  },
  {
   "id": "9602",
@@ -2891,7 +3230,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9602"
+  "link": "https://www.paraglidingearth.com/?site=9602",
+  "holfuy": null
  },
  {
   "id": "9603",
@@ -2920,7 +3260,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9603"
+  "link": "https://www.paraglidingearth.com/?site=9603",
+  "holfuy": null
  },
  {
   "id": "9604",
@@ -2940,7 +3281,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9604"
+  "link": "https://www.paraglidingearth.com/?site=9604",
+  "holfuy": null
  },
  {
   "id": "9605",
@@ -2960,7 +3302,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9605"
+  "link": "https://www.paraglidingearth.com/?site=9605",
+  "holfuy": null
  },
  {
   "id": "9606",
@@ -2980,7 +3323,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9606"
+  "link": "https://www.paraglidingearth.com/?site=9606",
+  "holfuy": null
  },
  {
   "id": "9607",
@@ -3009,7 +3353,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9607"
+  "link": "https://www.paraglidingearth.com/?site=9607",
+  "holfuy": null
  },
  {
   "id": "9608",
@@ -3029,7 +3374,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9608"
+  "link": "https://www.paraglidingearth.com/?site=9608",
+  "holfuy": null
  },
  {
   "id": "9609",
@@ -3049,7 +3395,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9609"
+  "link": "https://www.paraglidingearth.com/?site=9609",
+  "holfuy": null
  },
  {
   "id": "14008",
@@ -3081,7 +3428,8 @@
    "lat": 60.3749,
    "lon": 6.7169
   },
-  "link": "https://www.paraglidingearth.com/?site=14008"
+  "link": "https://www.paraglidingearth.com/?site=14008",
+  "holfuy": null
  },
  {
   "id": "22632",
@@ -3110,7 +3458,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22632"
+  "link": "https://www.paraglidingearth.com/?site=22632",
+  "holfuy": null
  },
  {
   "id": "13561",
@@ -3142,7 +3491,20 @@
    "lat": 59.6024,
    "lon": 8.7089
   },
-  "link": "https://www.paraglidingearth.com/?site=13561"
+  "link": "https://www.paraglidingearth.com/?site=13561",
+  "holfuy": {
+   "id": 314,
+   "name": "Hjartdal",
+   "distanceM": 324,
+   "green": [
+    180,
+    230
+   ],
+   "yellow": [
+    150,
+    260
+   ]
+  }
  },
  {
   "id": "19511",
@@ -3174,7 +3536,8 @@
    "lat": 60,
    "lon": 6
   },
-  "link": "https://www.paraglidingearth.com/?site=19511"
+  "link": "https://www.paraglidingearth.com/?site=19511",
+  "holfuy": null
  },
  {
   "id": "21756",
@@ -3206,7 +3569,20 @@
    "lat": 60.6117,
    "lon": 6.40975
   },
-  "link": "https://www.paraglidingearth.com/?site=21756"
+  "link": "https://www.paraglidingearth.com/?site=21756",
+  "holfuy": {
+   "id": 1436,
+   "name": "VossHPK Gjelle",
+   "distanceM": 24,
+   "green": [
+    0,
+    60
+   ],
+   "yellow": [
+    350,
+    80
+   ]
+  }
  },
  {
   "id": "9550",
@@ -3226,7 +3602,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9550"
+  "link": "https://www.paraglidingearth.com/?site=9550",
+  "holfuy": null
  },
  {
   "id": "9610",
@@ -3246,7 +3623,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9610"
+  "link": "https://www.paraglidingearth.com/?site=9610",
+  "holfuy": null
  },
  {
   "id": "9611",
@@ -3266,7 +3644,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9611"
+  "link": "https://www.paraglidingearth.com/?site=9611",
+  "holfuy": null
  },
  {
   "id": "22579",
@@ -3286,7 +3665,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22579"
+  "link": "https://www.paraglidingearth.com/?site=22579",
+  "holfuy": null
  },
  {
   "id": "9612",
@@ -3306,7 +3686,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9612"
+  "link": "https://www.paraglidingearth.com/?site=9612",
+  "holfuy": null
  },
  {
   "id": "19745",
@@ -3335,7 +3716,8 @@
   "soaring": false,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=19745"
+  "link": "https://www.paraglidingearth.com/?site=19745",
+  "holfuy": null
  },
  {
   "id": "9568",
@@ -3355,7 +3737,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9568"
+  "link": "https://www.paraglidingearth.com/?site=9568",
+  "holfuy": null
  },
  {
   "id": "21443",
@@ -3387,7 +3770,20 @@
    "lat": 61.8698,
    "lon": 6.85192
   },
-  "link": "https://www.paraglidingearth.com/?site=21443"
+  "link": "https://www.paraglidingearth.com/?site=21443",
+  "holfuy": {
+   "id": 586,
+   "name": "Loen Skylift",
+   "distanceM": 102,
+   "green": [
+    120,
+    235
+   ],
+   "yellow": [
+    90,
+    270
+   ]
+  }
  },
  {
   "id": "9551",
@@ -3407,7 +3803,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9551"
+  "link": "https://www.paraglidingearth.com/?site=9551",
+  "holfuy": null
  },
  {
   "id": "22594",
@@ -3436,7 +3833,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22594"
+  "link": "https://www.paraglidingearth.com/?site=22594",
+  "holfuy": null
  },
  {
   "id": "9613",
@@ -3465,7 +3863,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9613"
+  "link": "https://www.paraglidingearth.com/?site=9613",
+  "holfuy": null
  },
  {
   "id": "9614",
@@ -3494,7 +3893,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9614"
+  "link": "https://www.paraglidingearth.com/?site=9614",
+  "holfuy": {
+   "id": 119,
+   "name": "HLSK Brudeberget",
+   "distanceM": 78,
+   "green": [
+    315,
+    30
+   ],
+   "yellow": [
+    315,
+    30
+   ]
+  }
  },
  {
   "id": "9615",
@@ -3523,7 +3935,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9615"
+  "link": "https://www.paraglidingearth.com/?site=9615",
+  "holfuy": null
  },
  {
   "id": "9616",
@@ -3552,7 +3965,20 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9616"
+  "link": "https://www.paraglidingearth.com/?site=9616",
+  "holfuy": {
+   "id": 124,
+   "name": "HLSK Grøtterud",
+   "distanceM": 169,
+   "green": [
+    135,
+    205
+   ],
+   "yellow": [
+    120,
+    225
+   ]
+  }
  },
  {
   "id": "9617",
@@ -3581,7 +4007,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9617"
+  "link": "https://www.paraglidingearth.com/?site=9617",
+  "holfuy": null
  },
  {
   "id": "9618",
@@ -3610,7 +4037,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9618"
+  "link": "https://www.paraglidingearth.com/?site=9618",
+  "holfuy": null
  },
  {
   "id": "9619",
@@ -3639,7 +4067,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9619"
+  "link": "https://www.paraglidingearth.com/?site=9619",
+  "holfuy": null
  },
  {
   "id": "9620",
@@ -3668,7 +4097,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9620"
+  "link": "https://www.paraglidingearth.com/?site=9620",
+  "holfuy": null
  },
  {
   "id": "22213",
@@ -3697,7 +4127,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22213"
+  "link": "https://www.paraglidingearth.com/?site=22213",
+  "holfuy": null
  },
  {
   "id": "23933",
@@ -3717,7 +4148,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=23933"
+  "link": "https://www.paraglidingearth.com/?site=23933",
+  "holfuy": null
  },
  {
   "id": "22561",
@@ -3746,7 +4178,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22561"
+  "link": "https://www.paraglidingearth.com/?site=22561",
+  "holfuy": null
  },
  {
   "id": "12972",
@@ -3775,7 +4208,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=12972"
+  "link": "https://www.paraglidingearth.com/?site=12972",
+  "holfuy": null
  },
  {
   "id": "9710",
@@ -3795,7 +4229,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9710"
+  "link": "https://www.paraglidingearth.com/?site=9710",
+  "holfuy": null
  },
  {
   "id": "9711",
@@ -3824,7 +4259,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9711"
+  "link": "https://www.paraglidingearth.com/?site=9711",
+  "holfuy": null
  },
  {
   "id": "9621",
@@ -3844,7 +4280,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9621"
+  "link": "https://www.paraglidingearth.com/?site=9621",
+  "holfuy": null
  },
  {
   "id": "22605",
@@ -3873,7 +4310,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22605"
+  "link": "https://www.paraglidingearth.com/?site=22605",
+  "holfuy": null
  },
  {
   "id": "9680",
@@ -3893,7 +4331,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9680"
+  "link": "https://www.paraglidingearth.com/?site=9680",
+  "holfuy": null
  },
  {
   "id": "9712",
@@ -3925,7 +4364,8 @@
    "lat": 68.8349,
    "lon": 16.3425
   },
-  "link": "https://www.paraglidingearth.com/?site=9712"
+  "link": "https://www.paraglidingearth.com/?site=9712",
+  "holfuy": null
  },
  {
   "id": "16824",
@@ -3945,7 +4385,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=16824"
+  "link": "https://www.paraglidingearth.com/?site=16824",
+  "holfuy": {
+   "id": 2033,
+   "name": "Keiservarden",
+   "distanceM": 86,
+   "green": [
+    270,
+    45
+   ],
+   "yellow": [
+    247,
+    67
+   ]
+  }
  },
  {
   "id": "9336",
@@ -3977,7 +4430,8 @@
    "lat": 68.7909,
    "lon": 16.4507
   },
-  "link": "https://www.paraglidingearth.com/?site=9336"
+  "link": "https://www.paraglidingearth.com/?site=9336",
+  "holfuy": null
  },
  {
   "id": "22463",
@@ -4006,7 +4460,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22463"
+  "link": "https://www.paraglidingearth.com/?site=22463",
+  "holfuy": null
  },
  {
   "id": "9552",
@@ -4026,7 +4481,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9552"
+  "link": "https://www.paraglidingearth.com/?site=9552",
+  "holfuy": null
  },
  {
   "id": "12986",
@@ -4046,7 +4502,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=12986"
+  "link": "https://www.paraglidingearth.com/?site=12986",
+  "holfuy": {
+   "id": 1877,
+   "name": "RPK Nesaksla",
+   "distanceM": 570,
+   "green": [
+    180,
+    270
+   ],
+   "yellow": [
+    160,
+    300
+   ]
+  }
  },
  {
   "id": "22619",
@@ -4075,7 +4544,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22619"
+  "link": "https://www.paraglidingearth.com/?site=22619",
+  "holfuy": null
  },
  {
   "id": "16129",
@@ -4107,7 +4577,8 @@
    "lat": 60.3851,
    "lon": 6.18362
   },
-  "link": "https://www.paraglidingearth.com/?site=16129"
+  "link": "https://www.paraglidingearth.com/?site=16129",
+  "holfuy": null
  },
  {
   "id": "9622",
@@ -4127,7 +4598,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9622"
+  "link": "https://www.paraglidingearth.com/?site=9622",
+  "holfuy": null
  },
  {
   "id": "9569",
@@ -4147,7 +4619,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9569"
+  "link": "https://www.paraglidingearth.com/?site=9569",
+  "holfuy": null
  },
  {
   "id": "19332",
@@ -4179,7 +4652,8 @@
    "lat": 60.4256,
    "lon": 7.117
   },
-  "link": "https://www.paraglidingearth.com/?site=19332"
+  "link": "https://www.paraglidingearth.com/?site=19332",
+  "holfuy": null
  },
  {
   "id": "9713",
@@ -4199,7 +4673,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9713"
+  "link": "https://www.paraglidingearth.com/?site=9713",
+  "holfuy": null
  },
  {
   "id": "9553",
@@ -4219,7 +4694,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9553"
+  "link": "https://www.paraglidingearth.com/?site=9553",
+  "holfuy": null
  },
  {
   "id": "9681",
@@ -4239,7 +4715,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9681"
+  "link": "https://www.paraglidingearth.com/?site=9681",
+  "holfuy": null
  },
  {
   "id": "9623",
@@ -4259,7 +4736,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9623"
+  "link": "https://www.paraglidingearth.com/?site=9623",
+  "holfuy": null
  },
  {
   "id": "9624",
@@ -4279,7 +4757,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9624"
+  "link": "https://www.paraglidingearth.com/?site=9624",
+  "holfuy": null
  },
  {
   "id": "9625",
@@ -4299,7 +4778,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9625"
+  "link": "https://www.paraglidingearth.com/?site=9625",
+  "holfuy": null
  },
  {
   "id": "21621",
@@ -4328,7 +4808,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=21621"
+  "link": "https://www.paraglidingearth.com/?site=21621",
+  "holfuy": null
  },
  {
   "id": "9554",
@@ -4348,7 +4829,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9554"
+  "link": "https://www.paraglidingearth.com/?site=9554",
+  "holfuy": null
  },
  {
   "id": "14896",
@@ -4377,7 +4859,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=14896"
+  "link": "https://www.paraglidingearth.com/?site=14896",
+  "holfuy": {
+   "id": 570,
+   "name": "Øyer Kråbøl",
+   "distanceM": 208,
+   "green": [
+    150,
+    200
+   ],
+   "yellow": [
+    90,
+    210
+   ]
+  }
  },
  {
   "id": "9714",
@@ -4397,7 +4892,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9714"
+  "link": "https://www.paraglidingearth.com/?site=9714",
+  "holfuy": null
  },
  {
   "id": "9715",
@@ -4417,7 +4913,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9715"
+  "link": "https://www.paraglidingearth.com/?site=9715",
+  "holfuy": null
  },
  {
   "id": "14865",
@@ -4449,7 +4946,20 @@
    "lat": 59.9536,
    "lon": 5.9927
   },
-  "link": "https://www.paraglidingearth.com/?site=14865"
+  "link": "https://www.paraglidingearth.com/?site=14865",
+  "holfuy": {
+   "id": 566,
+   "name": "Kvittegga",
+   "distanceM": 65,
+   "green": [
+    190,
+    300
+   ],
+   "yellow": [
+    30,
+    320
+   ]
+  }
  },
  {
   "id": "22464",
@@ -4478,7 +4988,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22464"
+  "link": "https://www.paraglidingearth.com/?site=22464",
+  "holfuy": null
  },
  {
   "id": "22604",
@@ -4507,7 +5018,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22604"
+  "link": "https://www.paraglidingearth.com/?site=22604",
+  "holfuy": null
  },
  {
   "id": "9555",
@@ -4527,7 +5039,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9555"
+  "link": "https://www.paraglidingearth.com/?site=9555",
+  "holfuy": null
  },
  {
   "id": "9626",
@@ -4547,7 +5060,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9626"
+  "link": "https://www.paraglidingearth.com/?site=9626",
+  "holfuy": null
  },
  {
   "id": "22576",
@@ -4576,7 +5090,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22576"
+  "link": "https://www.paraglidingearth.com/?site=22576",
+  "holfuy": null
  },
  {
   "id": "16127",
@@ -4608,7 +5123,8 @@
    "lat": 59.825,
    "lon": 6.8222
   },
-  "link": "https://www.paraglidingearth.com/?site=16127"
+  "link": "https://www.paraglidingearth.com/?site=16127",
+  "holfuy": null
  },
  {
   "id": "9570",
@@ -4628,7 +5144,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9570"
+  "link": "https://www.paraglidingearth.com/?site=9570",
+  "holfuy": null
  },
  {
   "id": "9716",
@@ -4648,7 +5165,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9716"
+  "link": "https://www.paraglidingearth.com/?site=9716",
+  "holfuy": null
  },
  {
   "id": "9717",
@@ -4668,7 +5186,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9717"
+  "link": "https://www.paraglidingearth.com/?site=9717",
+  "holfuy": null
  },
  {
   "id": "9627",
@@ -4688,7 +5207,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9627"
+  "link": "https://www.paraglidingearth.com/?site=9627",
+  "holfuy": null
  },
  {
   "id": "9682",
@@ -4708,7 +5228,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9682"
+  "link": "https://www.paraglidingearth.com/?site=9682",
+  "holfuy": null
  },
  {
   "id": "18782",
@@ -4740,7 +5261,8 @@
    "lat": 59.1567,
    "lon": 6.1904
   },
-  "link": "https://www.paraglidingearth.com/?site=18782"
+  "link": "https://www.paraglidingearth.com/?site=18782",
+  "holfuy": null
  },
  {
   "id": "9683",
@@ -4760,7 +5282,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9683"
+  "link": "https://www.paraglidingearth.com/?site=9683",
+  "holfuy": null
  },
  {
   "id": "9628",
@@ -4780,7 +5303,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9628"
+  "link": "https://www.paraglidingearth.com/?site=9628",
+  "holfuy": null
  },
  {
   "id": "9629",
@@ -4800,7 +5324,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9629"
+  "link": "https://www.paraglidingearth.com/?site=9629",
+  "holfuy": null
  },
  {
   "id": "21758",
@@ -4823,7 +5348,20 @@
    "lat": 60.6986,
    "lon": 6.48574
   },
-  "link": "https://www.paraglidingearth.com/?site=21758"
+  "link": "https://www.paraglidingearth.com/?site=21758",
+  "holfuy": {
+   "id": 131,
+   "name": "VossHPK Liaset",
+   "distanceM": 57,
+   "green": [
+    240,
+    320
+   ],
+   "yellow": [
+    230,
+    330
+   ]
+  }
  },
  {
   "id": "12996",
@@ -4843,7 +5381,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=12996"
+  "link": "https://www.paraglidingearth.com/?site=12996",
+  "holfuy": null
  },
  {
   "id": "9718",
@@ -4863,7 +5402,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9718"
+  "link": "https://www.paraglidingearth.com/?site=9718",
+  "holfuy": null
  },
  {
   "id": "9719",
@@ -4883,7 +5423,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9719"
+  "link": "https://www.paraglidingearth.com/?site=9719",
+  "holfuy": null
  },
  {
   "id": "21646",
@@ -4915,7 +5456,8 @@
    "lat": 68.1339,
    "lon": 13.5003
   },
-  "link": "https://www.paraglidingearth.com/?site=21646"
+  "link": "https://www.paraglidingearth.com/?site=21646",
+  "holfuy": null
  },
  {
   "id": "9630",
@@ -4935,7 +5477,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9630"
+  "link": "https://www.paraglidingearth.com/?site=9630",
+  "holfuy": null
  },
  {
   "id": "9720",
@@ -4955,7 +5498,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9720"
+  "link": "https://www.paraglidingearth.com/?site=9720",
+  "holfuy": null
  },
  {
   "id": "21757",
@@ -4978,7 +5522,8 @@
    "lat": 60.6472,
    "lon": 6.42812
   },
-  "link": "https://www.paraglidingearth.com/?site=21757"
+  "link": "https://www.paraglidingearth.com/?site=21757",
+  "holfuy": null
  },
  {
   "id": "22573",
@@ -5007,7 +5552,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22573"
+  "link": "https://www.paraglidingearth.com/?site=22573",
+  "holfuy": null
  },
  {
   "id": "22572",
@@ -5036,7 +5582,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22572"
+  "link": "https://www.paraglidingearth.com/?site=22572",
+  "holfuy": null
  },
  {
   "id": "16586",
@@ -5065,7 +5612,8 @@
   "soaring": false,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=16586"
+  "link": "https://www.paraglidingearth.com/?site=16586",
+  "holfuy": null
  },
  {
   "id": "9631",
@@ -5094,7 +5642,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9631"
+  "link": "https://www.paraglidingearth.com/?site=9631",
+  "holfuy": null
  },
  {
   "id": "17055",
@@ -5126,7 +5675,8 @@
    "lat": 58.8886,
    "lon": 9.0101
   },
-  "link": "https://www.paraglidingearth.com/?site=17055"
+  "link": "https://www.paraglidingearth.com/?site=17055",
+  "holfuy": null
  },
  {
   "id": "15656",
@@ -5158,7 +5708,20 @@
    "lat": 63.4422,
    "lon": 11.6797
   },
-  "link": "https://www.paraglidingearth.com/?site=15656"
+  "link": "https://www.paraglidingearth.com/?site=15656",
+  "holfuy": {
+   "id": 301,
+   "name": "Meråker",
+   "distanceM": 510,
+   "green": [
+    70,
+    200
+   ],
+   "yellow": [
+    200,
+    250
+   ]
+  }
  },
  {
   "id": "22578",
@@ -5187,7 +5750,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22578"
+  "link": "https://www.paraglidingearth.com/?site=22578",
+  "holfuy": null
  },
  {
   "id": "22613",
@@ -5216,7 +5780,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22613"
+  "link": "https://www.paraglidingearth.com/?site=22613",
+  "holfuy": null
  },
  {
   "id": "22575",
@@ -5248,7 +5813,8 @@
    "lat": 67.4076,
    "lon": 14.6352
   },
-  "link": "https://www.paraglidingearth.com/?site=22575"
+  "link": "https://www.paraglidingearth.com/?site=22575",
+  "holfuy": null
  },
  {
   "id": "22581",
@@ -5277,7 +5843,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22581"
+  "link": "https://www.paraglidingearth.com/?site=22581",
+  "holfuy": null
  },
  {
   "id": "12969",
@@ -5297,7 +5864,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=12969"
+  "link": "https://www.paraglidingearth.com/?site=12969",
+  "holfuy": null
  },
  {
   "id": "9571",
@@ -5317,7 +5885,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9571"
+  "link": "https://www.paraglidingearth.com/?site=9571",
+  "holfuy": null
  },
  {
   "id": "11626",
@@ -5349,7 +5918,8 @@
    "lat": 62.9777,
    "lon": 12.0982
   },
-  "link": "https://www.paraglidingearth.com/?site=11626"
+  "link": "https://www.paraglidingearth.com/?site=11626",
+  "holfuy": null
  },
  {
   "id": "9632",
@@ -5369,7 +5939,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9632"
+  "link": "https://www.paraglidingearth.com/?site=9632",
+  "holfuy": null
  },
  {
   "id": "9633",
@@ -5389,7 +5960,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9633"
+  "link": "https://www.paraglidingearth.com/?site=9633",
+  "holfuy": null
  },
  {
   "id": "9634",
@@ -5409,7 +5981,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9634"
+  "link": "https://www.paraglidingearth.com/?site=9634",
+  "holfuy": null
  },
  {
   "id": "16428",
@@ -5441,7 +6014,8 @@
    "lat": 66.2022,
    "lon": 13.0403
   },
-  "link": "https://www.paraglidingearth.com/?site=16428"
+  "link": "https://www.paraglidingearth.com/?site=16428",
+  "holfuy": null
  },
  {
   "id": "17972",
@@ -5473,7 +6047,20 @@
    "lat": 59.1708,
    "lon": 6.1344
   },
-  "link": "https://www.paraglidingearth.com/?site=17972"
+  "link": "https://www.paraglidingearth.com/?site=17972",
+  "holfuy": {
+   "id": 1214,
+   "name": "JLK Nicostarten",
+   "distanceM": 252,
+   "green": [
+    240,
+    325
+   ],
+   "yellow": [
+    225,
+    340
+   ]
+  }
  },
  {
   "id": "9635",
@@ -5493,7 +6080,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9635"
+  "link": "https://www.paraglidingearth.com/?site=9635",
+  "holfuy": null
  },
  {
   "id": "16131",
@@ -5525,7 +6113,20 @@
    "lat": 60.3635,
    "lon": 5.48224
   },
-  "link": "https://www.paraglidingearth.com/?site=16131"
+  "link": "https://www.paraglidingearth.com/?site=16131",
+  "holfuy": {
+   "id": 117,
+   "name": "Bergen Skåldalsnipa",
+   "distanceM": 327,
+   "green": [
+    220,
+    305
+   ],
+   "yellow": [
+    205,
+    0
+   ]
+  }
  },
  {
   "id": "22557",
@@ -5554,7 +6155,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22557"
+  "link": "https://www.paraglidingearth.com/?site=22557",
+  "holfuy": null
  },
  {
   "id": "9636",
@@ -5574,7 +6176,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9636"
+  "link": "https://www.paraglidingearth.com/?site=9636",
+  "holfuy": null
  },
  {
   "id": "16124",
@@ -5606,7 +6209,20 @@
    "lat": 60.3155,
    "lon": 6.6731
   },
-  "link": "https://www.paraglidingearth.com/?site=16124"
+  "link": "https://www.paraglidingearth.com/?site=16124",
+  "holfuy": {
+   "id": 319,
+   "name": "Nosi, Lofthus",
+   "distanceM": 125,
+   "green": [
+    200,
+    310
+   ],
+   "yellow": [
+    180,
+    330
+   ]
+  }
  },
  {
   "id": "16126",
@@ -5635,7 +6251,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=16126"
+  "link": "https://www.paraglidingearth.com/?site=16126",
+  "holfuy": null
  },
  {
   "id": "19293",
@@ -5658,7 +6275,8 @@
    "lat": 59.4456,
    "lon": 5.27639
   },
-  "link": "https://www.paraglidingearth.com/?site=19293"
+  "link": "https://www.paraglidingearth.com/?site=19293",
+  "holfuy": null
  },
  {
   "id": "9572",
@@ -5678,7 +6296,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9572"
+  "link": "https://www.paraglidingearth.com/?site=9572",
+  "holfuy": null
  },
  {
   "id": "21849",
@@ -5710,7 +6329,8 @@
    "lat": 58.654,
    "lon": 5.56512
   },
-  "link": "https://www.paraglidingearth.com/?site=21849"
+  "link": "https://www.paraglidingearth.com/?site=21849",
+  "holfuy": null
  },
  {
   "id": "22996",
@@ -5730,7 +6350,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22996"
+  "link": "https://www.paraglidingearth.com/?site=22996",
+  "holfuy": null
  },
  {
   "id": "9684",
@@ -5750,7 +6371,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9684"
+  "link": "https://www.paraglidingearth.com/?site=9684",
+  "holfuy": null
  },
  {
   "id": "9721",
@@ -5770,7 +6392,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9721"
+  "link": "https://www.paraglidingearth.com/?site=9721",
+  "holfuy": null
  },
  {
   "id": "21759",
@@ -5793,7 +6416,20 @@
    "lat": 60.8551,
    "lon": 6.49335
   },
-  "link": "https://www.paraglidingearth.com/?site=21759"
+  "link": "https://www.paraglidingearth.com/?site=21759",
+  "holfuy": {
+   "id": 121,
+   "name": "VossHPK Myrkdalen",
+   "distanceM": 161,
+   "green": [
+    40,
+    270
+   ],
+   "yellow": [
+    20,
+    40
+   ]
+  }
  },
  {
   "id": "10484",
@@ -5825,7 +6461,8 @@
    "lat": 68.5553,
    "lon": 14.9252
   },
-  "link": "https://www.paraglidingearth.com/?site=10484"
+  "link": "https://www.paraglidingearth.com/?site=10484",
+  "holfuy": null
  },
  {
   "id": "21313",
@@ -5857,7 +6494,8 @@
    "lat": 61.2302,
    "lon": 7.12661
   },
-  "link": "https://www.paraglidingearth.com/?site=21313"
+  "link": "https://www.paraglidingearth.com/?site=21313",
+  "holfuy": null
  },
  {
   "id": "9685",
@@ -5877,7 +6515,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9685"
+  "link": "https://www.paraglidingearth.com/?site=9685",
+  "holfuy": null
  },
  {
   "id": "9639",
@@ -5897,7 +6536,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9639"
+  "link": "https://www.paraglidingearth.com/?site=9639",
+  "holfuy": null
  },
  {
   "id": "9640",
@@ -5917,7 +6557,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9640"
+  "link": "https://www.paraglidingearth.com/?site=9640",
+  "holfuy": null
  },
  {
   "id": "21762",
@@ -5940,7 +6581,8 @@
    "lat": 60.9001,
    "lon": 6.48764
   },
-  "link": "https://www.paraglidingearth.com/?site=21762"
+  "link": "https://www.paraglidingearth.com/?site=21762",
+  "holfuy": null
  },
  {
   "id": "9641",
@@ -5960,7 +6602,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9641"
+  "link": "https://www.paraglidingearth.com/?site=9641",
+  "holfuy": null
  },
  {
   "id": "21596",
@@ -5992,7 +6635,8 @@
    "lat": 69.2852,
    "lon": 16.0416
   },
-  "link": "https://www.paraglidingearth.com/?site=21596"
+  "link": "https://www.paraglidingearth.com/?site=21596",
+  "holfuy": null
  },
  {
   "id": "21622",
@@ -6024,7 +6668,8 @@
    "lat": 66.1831,
    "lon": 14.5583
   },
-  "link": "https://www.paraglidingearth.com/?site=21622"
+  "link": "https://www.paraglidingearth.com/?site=21622",
+  "holfuy": null
  },
  {
   "id": "21625",
@@ -6053,7 +6698,8 @@
   "soaring": false,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=21625"
+  "link": "https://www.paraglidingearth.com/?site=21625",
+  "holfuy": null
  },
  {
   "id": "21643",
@@ -6085,7 +6731,8 @@
    "lat": 66.3072,
    "lon": 14.1266
   },
-  "link": "https://www.paraglidingearth.com/?site=21643"
+  "link": "https://www.paraglidingearth.com/?site=21643",
+  "holfuy": null
  },
  {
   "id": "21626",
@@ -6117,7 +6764,8 @@
    "lat": 66.3759,
    "lon": 14.0022
   },
-  "link": "https://www.paraglidingearth.com/?site=21626"
+  "link": "https://www.paraglidingearth.com/?site=21626",
+  "holfuy": null
  },
  {
   "id": "21630",
@@ -6149,7 +6797,8 @@
    "lat": 66.188,
    "lon": 14.5675
   },
-  "link": "https://www.paraglidingearth.com/?site=21630"
+  "link": "https://www.paraglidingearth.com/?site=21630",
+  "holfuy": null
  },
  {
   "id": "9573",
@@ -6169,7 +6818,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9573"
+  "link": "https://www.paraglidingearth.com/?site=9573",
+  "holfuy": null
  },
  {
   "id": "16128",
@@ -6198,7 +6848,8 @@
   "soaring": false,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=16128"
+  "link": "https://www.paraglidingearth.com/?site=16128",
+  "holfuy": null
  },
  {
   "id": "21850",
@@ -6227,7 +6878,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=21850"
+  "link": "https://www.paraglidingearth.com/?site=21850",
+  "holfuy": null
  },
  {
   "id": "9642",
@@ -6256,7 +6908,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9642"
+  "link": "https://www.paraglidingearth.com/?site=9642",
+  "holfuy": {
+   "id": 120,
+   "name": "Ringerudkollen, Ådal",
+   "distanceM": 102,
+   "green": [
+    350,
+    200
+   ],
+   "yellow": [
+    340,
+    220
+   ]
+  }
  },
  {
   "id": "22580",
@@ -6285,7 +6950,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22580"
+  "link": "https://www.paraglidingearth.com/?site=22580",
+  "holfuy": null
  },
  {
   "id": "21761",
@@ -6317,7 +6983,20 @@
    "lat": 60.6266,
    "lon": 6.41778
   },
-  "link": "https://www.paraglidingearth.com/?site=21761"
+  "link": "https://www.paraglidingearth.com/?site=21761",
+  "holfuy": {
+   "id": 1374,
+   "name": "VossHPK Rokne",
+   "distanceM": 283,
+   "green": [
+    270,
+    330
+   ],
+   "yellow": [
+    260,
+    340
+   ]
+  }
  },
  {
   "id": "15657",
@@ -6349,7 +7028,20 @@
    "lat": 63.2712,
    "lon": 10.2957
   },
-  "link": "https://www.paraglidingearth.com/?site=15657"
+  "link": "https://www.paraglidingearth.com/?site=15657",
+  "holfuy": {
+   "id": 624,
+   "name": "NLSK Rye",
+   "distanceM": 134,
+   "green": [
+    270,
+    0
+   ],
+   "yellow": [
+    260,
+    10
+   ]
+  }
  },
  {
   "id": "9645",
@@ -6369,7 +7061,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9645"
+  "link": "https://www.paraglidingearth.com/?site=9645",
+  "holfuy": null
  },
  {
   "id": "9646",
@@ -6398,7 +7091,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9646"
+  "link": "https://www.paraglidingearth.com/?site=9646",
+  "holfuy": null
  },
  {
   "id": "9643",
@@ -6418,7 +7112,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9643"
+  "link": "https://www.paraglidingearth.com/?site=9643",
+  "holfuy": null
  },
  {
   "id": "9644",
@@ -6438,7 +7133,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9644"
+  "link": "https://www.paraglidingearth.com/?site=9644",
+  "holfuy": null
  },
  {
   "id": "22555",
@@ -6467,7 +7163,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22555"
+  "link": "https://www.paraglidingearth.com/?site=22555",
+  "holfuy": null
  },
  {
   "id": "22716",
@@ -6496,7 +7193,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22716"
+  "link": "https://www.paraglidingearth.com/?site=22716",
+  "holfuy": null
  },
  {
   "id": "22521",
@@ -6525,7 +7223,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22521"
+  "link": "https://www.paraglidingearth.com/?site=22521",
+  "holfuy": null
  },
  {
   "id": "22522",
@@ -6554,7 +7253,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22522"
+  "link": "https://www.paraglidingearth.com/?site=22522",
+  "holfuy": null
  },
  {
   "id": "22600",
@@ -6583,7 +7283,20 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22600"
+  "link": "https://www.paraglidingearth.com/?site=22600",
+  "holfuy": {
+   "id": 265,
+   "name": "Ise - Bjønnåsen",
+   "distanceM": 9,
+   "green": [
+    190,
+    270
+   ],
+   "yellow": [
+    180,
+    290
+   ]
+  }
  },
  {
   "id": "22599",
@@ -6612,7 +7325,20 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22599"
+  "link": "https://www.paraglidingearth.com/?site=22599",
+  "holfuy": {
+   "id": 1189,
+   "name": "Storedal",
+   "distanceM": 17,
+   "green": [
+    200,
+    270
+   ],
+   "yellow": [
+    180,
+    290
+   ]
+  }
  },
  {
   "id": "22607",
@@ -6641,7 +7367,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22607"
+  "link": "https://www.paraglidingearth.com/?site=22607",
+  "holfuy": null
  },
  {
   "id": "21848",
@@ -6673,7 +7400,8 @@
    "lat": 59.0881,
    "lon": 5.70135
   },
-  "link": "https://www.paraglidingearth.com/?site=21848"
+  "link": "https://www.paraglidingearth.com/?site=21848",
+  "holfuy": null
  },
  {
   "id": "9686",
@@ -6693,7 +7421,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9686"
+  "link": "https://www.paraglidingearth.com/?site=9686",
+  "holfuy": null
  },
  {
   "id": "9647",
@@ -6713,7 +7442,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9647"
+  "link": "https://www.paraglidingearth.com/?site=9647",
+  "holfuy": null
  },
  {
   "id": "9723",
@@ -6733,7 +7463,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9723"
+  "link": "https://www.paraglidingearth.com/?site=9723",
+  "holfuy": null
  },
  {
   "id": "10970",
@@ -6762,7 +7493,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=10970"
+  "link": "https://www.paraglidingearth.com/?site=10970",
+  "holfuy": null
  },
  {
   "id": "22618",
@@ -6791,7 +7523,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22618"
+  "link": "https://www.paraglidingearth.com/?site=22618",
+  "holfuy": null
  },
  {
   "id": "22577",
@@ -6811,7 +7544,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22577"
+  "link": "https://www.paraglidingearth.com/?site=22577",
+  "holfuy": null
  },
  {
   "id": "9648",
@@ -6831,7 +7565,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9648"
+  "link": "https://www.paraglidingearth.com/?site=9648",
+  "holfuy": null
  },
  {
   "id": "9649",
@@ -6851,7 +7586,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9649"
+  "link": "https://www.paraglidingearth.com/?site=9649",
+  "holfuy": null
  },
  {
   "id": "9724",
@@ -6871,7 +7607,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9724"
+  "link": "https://www.paraglidingearth.com/?site=9724",
+  "holfuy": null
  },
  {
   "id": "9650",
@@ -6891,7 +7628,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9650"
+  "link": "https://www.paraglidingearth.com/?site=9650",
+  "holfuy": null
  },
  {
   "id": "16132",
@@ -6923,7 +7661,8 @@
    "lat": 60.3635,
    "lon": 5.48235
   },
-  "link": "https://www.paraglidingearth.com/?site=16132"
+  "link": "https://www.paraglidingearth.com/?site=16132",
+  "holfuy": null
  },
  {
   "id": "9651",
@@ -6943,7 +7682,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9651"
+  "link": "https://www.paraglidingearth.com/?site=9651",
+  "holfuy": null
  },
  {
   "id": "9652",
@@ -6963,7 +7703,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9652"
+  "link": "https://www.paraglidingearth.com/?site=9652",
+  "holfuy": null
  },
  {
   "id": "22560",
@@ -6983,7 +7724,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22560"
+  "link": "https://www.paraglidingearth.com/?site=22560",
+  "holfuy": null
  },
  {
   "id": "22210",
@@ -7006,7 +7748,8 @@
    "lat": 59.0521,
    "lon": 5.66361
   },
-  "link": "https://www.paraglidingearth.com/?site=22210"
+  "link": "https://www.paraglidingearth.com/?site=22210",
+  "holfuy": null
  },
  {
   "id": "6603",
@@ -7026,7 +7769,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=6603"
+  "link": "https://www.paraglidingearth.com/?site=6603",
+  "holfuy": null
  },
  {
   "id": "9335",
@@ -7058,7 +7802,8 @@
    "lat": 68.8018,
    "lon": 16.4057
   },
-  "link": "https://www.paraglidingearth.com/?site=9335"
+  "link": "https://www.paraglidingearth.com/?site=9335",
+  "holfuy": null
  },
  {
   "id": "22714",
@@ -7087,7 +7832,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22714"
+  "link": "https://www.paraglidingearth.com/?site=22714",
+  "holfuy": null
  },
  {
   "id": "9687",
@@ -7107,7 +7853,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9687"
+  "link": "https://www.paraglidingearth.com/?site=9687",
+  "holfuy": null
  },
  {
   "id": "9688",
@@ -7127,7 +7874,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9688"
+  "link": "https://www.paraglidingearth.com/?site=9688",
+  "holfuy": null
  },
  {
   "id": "10488",
@@ -7159,7 +7907,8 @@
    "lat": 68.531,
    "lon": 14.8784
   },
-  "link": "https://www.paraglidingearth.com/?site=10488"
+  "link": "https://www.paraglidingearth.com/?site=10488",
+  "holfuy": null
  },
  {
   "id": "16123",
@@ -7191,7 +7940,8 @@
    "lat": 60.9131,
    "lon": 7.1896
   },
-  "link": "https://www.paraglidingearth.com/?site=16123"
+  "link": "https://www.paraglidingearth.com/?site=16123",
+  "holfuy": null
  },
  {
   "id": "22834",
@@ -7211,7 +7961,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22834"
+  "link": "https://www.paraglidingearth.com/?site=22834",
+  "holfuy": null
  },
  {
   "id": "9653",
@@ -7231,7 +7982,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9653"
+  "link": "https://www.paraglidingearth.com/?site=9653",
+  "holfuy": null
  },
  {
   "id": "7303",
@@ -7260,7 +8012,20 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=7303"
+  "link": "https://www.paraglidingearth.com/?site=7303",
+  "holfuy": {
+   "id": 149,
+   "name": "ÅPGK Sula, Blåfjell",
+   "distanceM": 485,
+   "green": [
+    315,
+    70
+   ],
+   "yellow": [
+    290,
+    90
+   ]
+  }
  },
  {
   "id": "9654",
@@ -7292,7 +8057,20 @@
    "lat": 60.0585,
    "lon": 10.3102
   },
-  "link": "https://www.paraglidingearth.com/?site=9654"
+  "link": "https://www.paraglidingearth.com/?site=9654",
+  "holfuy": {
+   "id": 395,
+   "name": "OPK Sundvollen",
+   "distanceM": 97,
+   "green": [
+    240,
+    0
+   ],
+   "yellow": [
+    220,
+    20
+   ]
+  }
  },
  {
   "id": "9558",
@@ -7312,7 +8090,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9558"
+  "link": "https://www.paraglidingearth.com/?site=9558",
+  "holfuy": null
  },
  {
   "id": "22667",
@@ -7332,7 +8111,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22667"
+  "link": "https://www.paraglidingearth.com/?site=22667",
+  "holfuy": null
  },
  {
   "id": "22835",
@@ -7352,7 +8132,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22835"
+  "link": "https://www.paraglidingearth.com/?site=22835",
+  "holfuy": null
  },
  {
   "id": "9655",
@@ -7372,7 +8153,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9655"
+  "link": "https://www.paraglidingearth.com/?site=9655",
+  "holfuy": null
  },
  {
   "id": "9656",
@@ -7392,7 +8174,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9656"
+  "link": "https://www.paraglidingearth.com/?site=9656",
+  "holfuy": null
  },
  {
   "id": "9726",
@@ -7412,7 +8195,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9726"
+  "link": "https://www.paraglidingearth.com/?site=9726",
+  "holfuy": null
  },
  {
   "id": "22209",
@@ -7435,7 +8219,20 @@
    "lat": 58.6893,
    "lon": 5.63541
   },
-  "link": "https://www.paraglidingearth.com/?site=22209"
+  "link": "https://www.paraglidingearth.com/?site=22209",
+  "holfuy": {
+   "id": 1683,
+   "name": "JLK Torland PPG",
+   "distanceM": 342,
+   "green": [
+    120,
+    30
+   ],
+   "yellow": [
+    30,
+    120
+   ]
+  }
  },
  {
   "id": "9727",
@@ -7455,7 +8252,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9727"
+  "link": "https://www.paraglidingearth.com/?site=9727",
+  "holfuy": null
  },
  {
   "id": "22498",
@@ -7484,7 +8282,8 @@
   "soaring": true,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22498"
+  "link": "https://www.paraglidingearth.com/?site=22498",
+  "holfuy": null
  },
  {
   "id": "22558",
@@ -7513,7 +8312,8 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22558"
+  "link": "https://www.paraglidingearth.com/?site=22558",
+  "holfuy": null
  },
  {
   "id": "9728",
@@ -7533,7 +8333,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9728"
+  "link": "https://www.paraglidingearth.com/?site=9728",
+  "holfuy": null
  },
  {
   "id": "9729",
@@ -7553,7 +8354,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9729"
+  "link": "https://www.paraglidingearth.com/?site=9729",
+  "holfuy": null
  },
  {
   "id": "22881",
@@ -7573,7 +8375,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22881"
+  "link": "https://www.paraglidingearth.com/?site=22881",
+  "holfuy": null
  },
  {
   "id": "22880",
@@ -7593,7 +8396,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=22880"
+  "link": "https://www.paraglidingearth.com/?site=22880",
+  "holfuy": {
+   "id": 299,
+   "name": "THPK Fjellheisen",
+   "distanceM": 331,
+   "green": [
+    230,
+    90
+   ],
+   "yellow": [
+    210,
+    116
+   ]
+  }
  },
  {
   "id": "13067",
@@ -7613,7 +8429,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=13067"
+  "link": "https://www.paraglidingearth.com/?site=13067",
+  "holfuy": null
  },
  {
   "id": "12967",
@@ -7633,7 +8450,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=12967"
+  "link": "https://www.paraglidingearth.com/?site=12967",
+  "holfuy": null
  },
  {
   "id": "12291",
@@ -7653,7 +8471,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=12291"
+  "link": "https://www.paraglidingearth.com/?site=12291",
+  "holfuy": {
+   "id": 205,
+   "name": "Molde, Tusten",
+   "distanceM": 164,
+   "green": [
+    0,
+    360
+   ],
+   "yellow": [
+    0,
+    1
+   ]
+  }
  },
  {
   "id": "10016",
@@ -7682,7 +8513,8 @@
   "soaring": false,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=10016"
+  "link": "https://www.paraglidingearth.com/?site=10016",
+  "holfuy": null
  },
  {
   "id": "9657",
@@ -7702,7 +8534,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9657"
+  "link": "https://www.paraglidingearth.com/?site=9657",
+  "holfuy": {
+   "id": 1095,
+   "name": "1095",
+   "distanceM": 28,
+   "green": [
+    57,
+    117
+   ],
+   "yellow": [
+    27,
+    147
+   ]
+  }
  },
  {
   "id": "9658",
@@ -7722,7 +8567,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9658"
+  "link": "https://www.paraglidingearth.com/?site=9658",
+  "holfuy": null
  },
  {
   "id": "16122",
@@ -7754,7 +8600,20 @@
    "lat": 60.369,
    "lon": 5.3567
   },
-  "link": "https://www.paraglidingearth.com/?site=16122"
+  "link": "https://www.paraglidingearth.com/?site=16122",
+  "holfuy": {
+   "id": 933,
+   "name": "Bergen Ulriken SV",
+   "distanceM": 28,
+   "green": [
+    190,
+    235
+   ],
+   "yellow": [
+    180,
+    250
+   ]
+  }
  },
  {
   "id": "13781",
@@ -7783,7 +8642,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=13781"
+  "link": "https://www.paraglidingearth.com/?site=13781",
+  "holfuy": null
  },
  {
   "id": "17831",
@@ -7812,7 +8672,20 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=17831"
+  "link": "https://www.paraglidingearth.com/?site=17831",
+  "holfuy": {
+   "id": 756,
+   "name": "STRATUS Hestelegda",
+   "distanceM": 97,
+   "green": [
+    280,
+    320
+   ],
+   "yellow": [
+    230,
+    30
+   ]
+  }
  },
  {
   "id": "13773",
@@ -7844,7 +8717,20 @@
    "lat": 60.3635,
    "lon": 5.48222
   },
-  "link": "https://www.paraglidingearth.com/?site=13773"
+  "link": "https://www.paraglidingearth.com/?site=13773",
+  "holfuy": {
+   "id": 935,
+   "name": "Bergen Vemånen",
+   "distanceM": 12,
+   "green": [
+    195,
+    255
+   ],
+   "yellow": [
+    180,
+    270
+   ]
+  }
  },
  {
   "id": "17347",
@@ -7864,7 +8750,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=17347"
+  "link": "https://www.paraglidingearth.com/?site=17347",
+  "holfuy": null
  },
  {
   "id": "9659",
@@ -7884,7 +8771,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9659"
+  "link": "https://www.paraglidingearth.com/?site=9659",
+  "holfuy": null
  },
  {
   "id": "9660",
@@ -7904,7 +8792,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9660"
+  "link": "https://www.paraglidingearth.com/?site=9660",
+  "holfuy": null
  },
  {
   "id": "9661",
@@ -7933,7 +8822,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9661"
+  "link": "https://www.paraglidingearth.com/?site=9661",
+  "holfuy": null
  },
  {
   "id": "9662",
@@ -7962,7 +8852,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9662"
+  "link": "https://www.paraglidingearth.com/?site=9662",
+  "holfuy": null
  },
  {
   "id": "9663",
@@ -7991,7 +8882,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9663"
+  "link": "https://www.paraglidingearth.com/?site=9663",
+  "holfuy": null
  },
  {
   "id": "9664",
@@ -8020,7 +8912,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9664"
+  "link": "https://www.paraglidingearth.com/?site=9664",
+  "holfuy": null
  },
  {
   "id": "9665",
@@ -8049,7 +8942,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9665"
+  "link": "https://www.paraglidingearth.com/?site=9665",
+  "holfuy": null
  },
  {
   "id": "9574",
@@ -8069,7 +8963,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9574"
+  "link": "https://www.paraglidingearth.com/?site=9574",
+  "holfuy": null
  },
  {
   "id": "9559",
@@ -8089,7 +8984,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9559"
+  "link": "https://www.paraglidingearth.com/?site=9559",
+  "holfuy": null
  },
  {
   "id": "9731",
@@ -8118,7 +9014,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9731"
+  "link": "https://www.paraglidingearth.com/?site=9731",
+  "holfuy": null
  },
  {
   "id": "22491",
@@ -8150,7 +9047,8 @@
    "lat": 65.9433,
    "lon": 13.1155
   },
-  "link": "https://www.paraglidingearth.com/?site=22491"
+  "link": "https://www.paraglidingearth.com/?site=22491",
+  "holfuy": null
  },
  {
   "id": "9666",
@@ -8170,7 +9068,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9666"
+  "link": "https://www.paraglidingearth.com/?site=9666",
+  "holfuy": null
  },
  {
   "id": "15165",
@@ -8199,7 +9098,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=15165"
+  "link": "https://www.paraglidingearth.com/?site=15165",
+  "holfuy": null
  },
  {
   "id": "21755",
@@ -8231,7 +9131,8 @@
    "lat": 60.5973,
    "lon": 4.99907
   },
-  "link": "https://www.paraglidingearth.com/?site=21755"
+  "link": "https://www.paraglidingearth.com/?site=21755",
+  "holfuy": null
  },
  {
   "id": "9733",
@@ -8251,7 +9152,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9733"
+  "link": "https://www.paraglidingearth.com/?site=9733",
+  "holfuy": null
  },
  {
   "id": "9667",
@@ -8271,7 +9173,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9667"
+  "link": "https://www.paraglidingearth.com/?site=9667",
+  "holfuy": null
  },
  {
   "id": "9668",
@@ -8291,7 +9194,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9668"
+  "link": "https://www.paraglidingearth.com/?site=9668",
+  "holfuy": null
  },
  {
   "id": "9669",
@@ -8311,7 +9215,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9669"
+  "link": "https://www.paraglidingearth.com/?site=9669",
+  "holfuy": null
  },
  {
   "id": "6716",
@@ -8340,7 +9245,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=6716"
+  "link": "https://www.paraglidingearth.com/?site=6716",
+  "holfuy": null
  },
  {
   "id": "16130",
@@ -8369,7 +9275,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=16130"
+  "link": "https://www.paraglidingearth.com/?site=16130",
+  "holfuy": null
  },
  {
   "id": "9734",
@@ -8398,7 +9305,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9734"
+  "link": "https://www.paraglidingearth.com/?site=9734",
+  "holfuy": null
  },
  {
   "id": "9730",
@@ -8418,7 +9326,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9730"
+  "link": "https://www.paraglidingearth.com/?site=9730",
+  "holfuy": null
  },
  {
   "id": "9556",
@@ -8438,7 +9347,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9556"
+  "link": "https://www.paraglidingearth.com/?site=9556",
+  "holfuy": null
  },
  {
   "id": "10201",
@@ -8467,7 +9377,20 @@
   "soaring": true,
   "thermals": true,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=10201"
+  "link": "https://www.paraglidingearth.com/?site=10201",
+  "holfuy": {
+   "id": 421,
+   "name": "Yesdal tarmac",
+   "distanceM": 23,
+   "green": [
+    245,
+    45
+   ],
+   "yellow": [
+    46,
+    244
+   ]
+  }
  },
  {
   "id": "10249",
@@ -8499,7 +9422,8 @@
    "lat": 58.7665,
    "lon": 5.97924
   },
-  "link": "https://www.paraglidingearth.com/?site=10249"
+  "link": "https://www.paraglidingearth.com/?site=10249",
+  "holfuy": null
  },
  {
   "id": "9637",
@@ -8528,7 +9452,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9637"
+  "link": "https://www.paraglidingearth.com/?site=9637",
+  "holfuy": null
  },
  {
   "id": "9638",
@@ -8548,7 +9473,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9638"
+  "link": "https://www.paraglidingearth.com/?site=9638",
+  "holfuy": null
  },
  {
   "id": "21314",
@@ -8580,7 +9506,8 @@
    "lat": 61.231,
    "lon": 7.07897
   },
-  "link": "https://www.paraglidingearth.com/?site=21314"
+  "link": "https://www.paraglidingearth.com/?site=21314",
+  "holfuy": null
  },
  {
   "id": "9575",
@@ -8600,7 +9527,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9575"
+  "link": "https://www.paraglidingearth.com/?site=9575",
+  "holfuy": null
  },
  {
   "id": "9560",
@@ -8620,7 +9548,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9560"
+  "link": "https://www.paraglidingearth.com/?site=9560",
+  "holfuy": null
  },
  {
   "id": "9561",
@@ -8640,7 +9569,20 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9561"
+  "link": "https://www.paraglidingearth.com/?site=9561",
+  "holfuy": {
+   "id": 252,
+   "name": "SPGK Åraksbø",
+   "distanceM": 196,
+   "green": [
+    290,
+    340
+   ],
+   "yellow": [
+    270,
+    360
+   ]
+  }
  },
  {
   "id": "9562",
@@ -8660,7 +9602,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9562"
+  "link": "https://www.paraglidingearth.com/?site=9562",
+  "holfuy": null
  },
  {
   "id": "9696",
@@ -8680,7 +9623,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9696"
+  "link": "https://www.paraglidingearth.com/?site=9696",
+  "holfuy": null
  },
  {
   "id": "9576",
@@ -8700,7 +9644,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9576"
+  "link": "https://www.paraglidingearth.com/?site=9576",
+  "holfuy": null
  },
  {
   "id": "10135",
@@ -8729,7 +9674,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=10135"
+  "link": "https://www.paraglidingearth.com/?site=10135",
+  "holfuy": null
  },
  {
   "id": "9577",
@@ -8761,7 +9707,8 @@
    "lat": 60.1278,
    "lon": 10.3709
   },
-  "link": "https://www.paraglidingearth.com/?site=9577"
+  "link": "https://www.paraglidingearth.com/?site=9577",
+  "holfuy": null
  },
  {
   "id": "9578",
@@ -8781,7 +9728,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9578"
+  "link": "https://www.paraglidingearth.com/?site=9578",
+  "holfuy": null
  },
  {
   "id": "9689",
@@ -8801,7 +9749,8 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9689"
+  "link": "https://www.paraglidingearth.com/?site=9689",
+  "holfuy": null
  },
  {
   "id": "9671",
@@ -8821,6 +9770,7 @@
   "soaring": false,
   "thermals": false,
   "landing": null,
-  "link": "https://www.paraglidingearth.com/?site=9671"
+  "link": "https://www.paraglidingearth.com/?site=9671",
+  "holfuy": null
  }
 ]

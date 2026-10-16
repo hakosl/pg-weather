@@ -82,7 +82,14 @@ button, select, input { font: inherit; color: inherit; }
   background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow);
   padding: 8px 12px; max-width: min(360px, calc(100% - 24px));
 }
-.legend summary { cursor: pointer; font-weight: 600; }
+/* Capped to the map's height and scrollable, with the heading pinned, so it can always be closed on a phone. */
+.legend[open] { max-height: calc(100% - 48px); overflow-y: auto; }
+.legend summary {
+  cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  position: sticky; top: -8px; background: var(--surface); padding-block: 2px;
+}
+.legend-close { display: none; border: 1px solid var(--line); background: var(--surface-2); border-radius: 999px; padding: 1px 10px; font-weight: 500; }
+.legend[open] .legend-close { display: inline-block; }
 .legend ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; }
 .legend li { display: grid; grid-template-columns: 14px 1fr; gap: 8px; align-items: start; }
 .legend p { margin: 8px 0 0; color: var(--muted); font-size: 12.5px; }
@@ -140,6 +147,15 @@ table.compare { border-collapse: collapse; width: 100%; table-layout: fixed; fon
 .compare tbody th { color: var(--muted); font-weight: 500; }
 .compare small { color: var(--muted); }
 
+.live { display: grid; gap: 12px; }
+.station { display: grid; gap: 2px; }
+.station-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
+.station-head .links { gap: 10px; font-size: 13px; }
+.station-meta, .reading { margin: 0; }
+.station-meta { font-size: 12.5px; }
+.wind-figure { margin: 6px 0 0; display: grid; gap: 2px; }
+.wind-chart { display: block; max-width: 100%; height: auto; touch-action: pan-y; }
+.chart-legend, .chart-readout { margin: 0; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .reasons { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .reasons li { display: grid; grid-template-columns: 16px 1fr; gap: 8px; }
 .reasons .mark { width: 10px; height: 10px; border-radius: 2px; margin-top: 5px; }

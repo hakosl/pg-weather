@@ -5,6 +5,6 @@ export default defineConfig({
   base: "./",
   test: {
     include: ["tests/**/*.test.ts"],
-    coverage: { include: ["src/analysis/**", "src/forecast/**"] },
+    coverage: { include: ["src/analysis/**", "src/forecast/**", "src/live/**"] },
   },
 });

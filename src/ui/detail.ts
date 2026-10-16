@@ -5,6 +5,7 @@ import { MODELS } from "../forecast/client";
 import type { SiteDay } from "../forecast/overview";
 import type { FlyState, ModelId, Site, Wind } from "../types";
 import { REASON_COLOR, STATE_META, blockersText, el, fmtM, hourOf, measuresText, pad2 } from "./format";
+import { renderLive, type LiveState } from "./live";
 
 export interface DetailData {
   site: Site;
@@ -12,6 +13,7 @@ export interface DetailData {
   error: string | null;
   /** When the oldest of the shown forecasts was fetched. */
   fetchedAt: number | null;
+  live: LiveState;
 }
 
 export interface DetailSelection {
@@ -36,11 +38,25 @@ function svg(tag: string, attrs: Record<string, string | number>): SVGElement {
   return node;
 }
 
+const ZONE_RING_R = 42;
+
+function zoneArc(zone: [number, number], color: string, at: (deg: number, r: number) => number[], c: number): SVGElement {
+  const style = { fill: "none", stroke: color, "stroke-width": 6 };
+  if (zone[1] - zone[0] >= 360) return svg("circle", { cx: c, cy: c, r: ZONE_RING_R, ...style });
+  const span = (((zone[1] - zone[0]) % 360) + 360) % 360;
+  const [x1, y1] = at(zone[0], ZONE_RING_R);
+  const [x2, y2] = at(zone[0] + span, ZONE_RING_R);
+  return svg("path", { d: `M${x1} ${y1} A${ZONE_RING_R} ${ZONE_RING_R} 0 ${span > 180 ? 1 : 0} 1 ${x2} ${y2}`, ...style });
+}
+
 function rose(site: Site, wind: Wind | null): SVGElement {
-  const c = 46;
-  const r = 40;
+  const c = 52;
+  const r = 36;
   const at = (deg: number, radius: number) => [c + radius * Math.sin((deg * Math.PI) / 180), c - radius * Math.cos((deg * Math.PI) / 180)];
-  const root = svg("svg", { width: 92, height: 92, viewBox: "0 0 92 92", role: "img", "aria-label": "Launch directions" });
+  const root = svg("svg", { width: 104, height: 104, viewBox: "0 0 104 104", role: "img", "aria-label": "Launch directions" });
+  root.append(svg("circle", { cx: c, cy: c, r: ZONE_RING_R, fill: "none", stroke: "var(--surface-2)", "stroke-width": 6 }));
+  if (site.holfuy?.yellow) root.append(zoneArc(site.holfuy.yellow, "var(--marginal)", at, c));
+  if (site.holfuy?.green) root.append(zoneArc(site.holfuy.green, "var(--soar)", at, c));
   for (let i = 0; i < 8; i++) {
     const [x1, y1] = at(i * 45 - 22.5, r);
     const [x2, y2] = at(i * 45 + 22.5, r);
@@ -57,7 +73,7 @@ function rose(site: Site, wind: Wind | null): SVGElement {
     const [tx, ty] = at(wind.direction, r - 12);
     root.append(svg("line", { x1: wx, y1: wy, x2: tx, y2: ty, stroke: "var(--accent)", "stroke-width": 3, "stroke-linecap": "round" }));
   }
-  const n = svg("text", { x: c, y: 9, "text-anchor": "middle", "font-size": 9, fill: "var(--muted)" });
+  const n = svg("text", { x: c, y: 7, "text-anchor": "middle", "font-size": 9, fill: "var(--muted)" });
   n.textContent = "N";
   root.append(n);
   return root;
@@ -65,9 +81,11 @@ function rose(site: Site, wind: Wind | null): SVGElement {
 
 function siteFlags(site: Site): HTMLElement {
   const items: [string, boolean][] = [];
-  if (site.ratings) items.push(["Wind directions rated on Paragliding Earth (filled sectors)", false]);
-  else if (site.aspectReliable) items.push(["Not rated on Paragliding Earth: facing estimated from terrain (black line)", false]);
-  else items.push(["Not rated on Paragliding Earth and the terrain shows no clear facing: direction checks are off", true]);
+  if (site.holfuy) items.push([`Outer ring: wind zones the club set on its Holfuy station, ${site.holfuy.name}`, false]);
+  if (site.ratings) items.push(["Filled sectors: Paragliding Earth's ratings", false]);
+  if (site.aspectReliable) items.push(["Black line: which way the terrain faces", false]);
+  else if (site.holfuy || site.ratings) items.push(["Dashed line: the terrain shows no clear facing here", false]);
+  else items.push(["No wind directions known for this launch: direction checks are off", true]);
   if (site.sourcesDisagree) items.push(["Paragliding Earth and the terrain point different ways: check locally", true]);
   if (site.altitudeMismatch)
     items.push([`Listed at ${fmtM(site.altPe!)}, but the terrain at the pin is ${fmtM(site.altDem)}: the pin may be off`, true]);
@@ -191,6 +209,7 @@ export function renderDetail(container: HTMLElement, data: DetailData, sel: Deta
     header(site, handlers.onClose),
     el("div", { class: "site-facts" }, rose(site, wind), siteFlags(site)),
     links,
+    renderLive(site, data.live),
   ];
   if (data.error) parts.push(el("p", { class: "error-text" }, data.error));
   else if (!data.models) parts.push(el("p", { class: "muted" }, "Loading all four models…"));

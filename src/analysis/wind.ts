@@ -5,8 +5,10 @@ export type DirectionFit = "good" | "marginal" | "cross" | "behind" | "unknown";
 export interface DirectionAssessment {
   fit: DirectionFit;
   facing: number | null;
-  source: "ratings" | "terrain" | "none";
+  source: "holfuy" | "ratings" | "terrain" | "none";
 }
+
+type Zone = [number, number];
 
 export const TERRAIN_GOOD_DEG = 30;
 export const TERRAIN_MARGINAL_DEG = 55;
@@ -75,20 +77,42 @@ function ratedFacing(ratings: number[]): number | null {
   return Math.hypot(x, y) < 1e-6 ? null : normalizeDeg(Math.atan2(x, y) / RAD);
 }
 
+const isFullCircle = ([from, to]: Zone) => to - from >= 360;
+
+export function inZone(direction: number, zone: Zone): boolean {
+  return isFullCircle(zone) || normalizeDeg(direction - zone[0]) <= normalizeDeg(zone[1] - zone[0]);
+}
+
+function zoneCentre(zone: Zone | null): number | null {
+  if (!zone || isFullCircle(zone)) return null;
+  return normalizeDeg(zone[0] + normalizeDeg(zone[1] - zone[0]) / 2);
+}
+
+/** Which way the slope faces, for ridge lift: terrain when it is clear, else the middle of the flyable directions. */
 export function siteFacing(site: Site): number | null {
-  const fromRatings = site.ratings ? ratedFacing(site.ratings) : null;
-  if (fromRatings != null) return fromRatings;
-  return site.aspectReliable ? site.aspect : null;
+  if (site.aspectReliable) return site.aspect;
+  const fromZones = zoneCentre(site.holfuy?.green ?? null) ?? zoneCentre(site.holfuy?.yellow ?? null);
+  if (fromZones != null) return fromZones;
+  return site.ratings ? ratedFacing(site.ratings) : null;
+}
+
+function offZone(windDirection: number, facing: number | null): DirectionFit {
+  return facing != null && angleDiff(windDirection, facing) > BEHIND_DEG ? "behind" : "cross";
 }
 
 export function directionFit(site: Site, windDirection: number): DirectionAssessment {
   const facing = siteFacing(site);
+  const { green, yellow } = site.holfuy ?? { green: null, yellow: null };
+  if (green || yellow) {
+    if (green && inZone(windDirection, green)) return { fit: "good", facing, source: "holfuy" };
+    if (yellow && inZone(windDirection, yellow)) return { fit: "marginal", facing, source: "holfuy" };
+    return { fit: offZone(windDirection, facing), facing, source: "holfuy" };
+  }
   if (site.ratings) {
     const rating = site.ratings[Math.round(normalizeDeg(windDirection) / 45) % 8];
     if (rating >= 2) return { fit: "good", facing, source: "ratings" };
     if (rating === 1) return { fit: "marginal", facing, source: "ratings" };
-    const behind = facing != null && angleDiff(windDirection, facing) > BEHIND_DEG;
-    return { fit: behind ? "behind" : "cross", facing, source: "ratings" };
+    return { fit: offZone(windDirection, facing), facing, source: "ratings" };
   }
   if (facing == null) return { fit: "unknown", facing: null, source: "none" };
   const diff = angleDiff(windDirection, facing);

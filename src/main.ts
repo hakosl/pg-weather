@@ -4,9 +4,11 @@ import sitesData from "./data/sites.json";
 import { browserStore } from "./forecast/cache";
 import { RateLimitError } from "./forecast/client";
 import { loadSiteModels, rateForecast, rateSites, type SiteDay } from "./forecast/overview";
+import { nearbyStations, stationHistory } from "./live/windsMobi";
 import type { ModelForecast, Site } from "./types";
 import { dayRange, setupControls, type Selection } from "./ui/controls";
 import { renderDetail, type DetailSelection } from "./ui/detail";
+import type { LiveState } from "./ui/live";
 import { renderLegend } from "./ui/legend";
 import { SiteLayer, createMap } from "./ui/map";
 
@@ -40,7 +42,13 @@ let ratings = new Map<string, SiteDay>();
 let ratingsKey = "";
 let overviewAbort: AbortController | null = null;
 let retryTimer: number | undefined;
-let detail: { site: Site; forecasts: ModelForecast[] | null; error: string | null; sel: DetailSelection } | null = null;
+let detail: {
+  site: Site;
+  forecasts: ModelForecast[] | null;
+  error: string | null;
+  live: LiveState;
+  sel: DetailSelection;
+} | null = null;
 let detailAbort: AbortController | null = null;
 const range = dayRange();
 
@@ -85,10 +93,10 @@ function drawDetail(): void {
     detailEl.hidden = true;
     return;
   }
-  const { site, forecasts, error } = detail;
+  const { site, forecasts, error, live } = detail;
   const models = forecasts?.map((f) => ({ id: f.model, day: rateForecast(site, f, selection.day) })) ?? null;
   const fetchedAt = forecasts ? Math.min(...forecasts.map((f) => f.fetchedAt ?? Date.now())) : null;
-  renderDetail(detailEl, { site, models, error, fetchedAt }, detail.sel, {
+  renderDetail(detailEl, { site, models, error, fetchedAt, live }, detail.sel, {
     onClose: () => {
       detailAbort?.abort();
       detail = null;
@@ -104,6 +112,25 @@ function drawDetail(): void {
   });
 }
 
+async function loadLive(site: Site, signal: AbortSignal): Promise<void> {
+  let live: LiveState;
+  try {
+    const stations = await nearbyStations(site, { signal });
+    const history = stations[0]
+      ? await stationHistory(stations[0].id, { signal }).catch((err) => {
+          console.warn("Could not load station history", err);
+          return null;
+        })
+      : null;
+    live = { status: "ready", stations, history };
+  } catch (err) {
+    live = { status: "error", message: message(err) };
+  }
+  if (signal.aborted || detail?.site !== site) return;
+  detail.live = live;
+  drawDetail();
+}
+
 function startHour(site: Site): number {
   if (selection.hour != null) return selection.hour;
   const window = ratings.get(site.id)?.summary.window;
@@ -113,8 +140,9 @@ function startHour(site: Site): number {
 async function openDetail(site: Site): Promise<void> {
   detailAbort?.abort();
   const abort = (detailAbort = new AbortController());
-  detail = { site, forecasts: null, error: null, sel: { model: selection.model, hour: startHour(site) } };
+  detail = { site, forecasts: null, error: null, live: { status: "loading" }, sel: { model: selection.model, hour: startHour(site) } };
   drawDetail();
+  void loadLive(site, abort.signal);
   try {
     const forecasts = await loadSiteModels(site, range, { store, signal: abort.signal });
     if (abort.signal.aborted || !detail) return;

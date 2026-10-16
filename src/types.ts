@@ -12,6 +12,14 @@ export interface Site {
   terrainSource: "kartverket-dtm1" | "copernicus-90m";
   /** Paragliding Earth ratings per sector N, NE, E, SE, S, SW, W, NW (0 bad, 1 marginal, 2 good); null when unrated. */
   ratings: number[] | null;
+  /** The Holfuy station at the launch and its club-set wind zones: clockwise [from, to] in degrees. */
+  holfuy: {
+    id: number;
+    name: string;
+    distanceM: number;
+    green: [number, number] | null;
+    yellow: [number, number] | null;
+  } | null;
   sourcesDisagree: boolean;
   altitudeMismatch: boolean;
   soaring: boolean;

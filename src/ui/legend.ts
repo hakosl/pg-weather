@@ -13,6 +13,7 @@ export function renderLegend(container: HTMLElement): void {
   const L = LIMITS;
   const rules = [
     `Launch wind is the model's wind at launch height, taken from its pressure levels (MEPS: wind 10 m above its 2.5 km terrain).`,
+    `Wind directions come from the club's zones on the launch's Holfuy station where there is one, else Paragliding Earth's ratings, else the terrain.`,
     `No-go: rain ≥ ${L.rainNoGo} mm/h, launch wind ≥ ${L.launchTooStrong} m/s, ≥ ${L.aboveTooStrong} m/s within ${L.aboveBandM} m above launch, gusts ≥ ${L.gustTooStrong} m/s, ≥ ${L.tailwindNoGo} m/s from behind, or crosswind ≥ ${L.crossTooStrong} m/s.`,
     `Marginal: launch wind ${L.launchStrong}–${L.launchTooStrong} m/s, ${L.aboveStrong}–${L.aboveTooStrong} m/s just above, gusts ≥ ${L.gustStrong} m/s or ≥ ${L.gustFactor}× the mean, a marginal direction, crosswind, a light tailwind or low cloud.`,
     `Soarable: ${L.ridgeMin}–${L.ridgeMax} m/s blowing onto the slope, or moderate thermals reaching ${L.thermalMinAboveLaunchM} m above launch.`,
@@ -20,7 +21,7 @@ export function renderLegend(container: HTMLElement): void {
     `When a site isn't flyable, its tooltip and panel name what holds it back, with how many daylight hours each measure blocks.`,
   ];
   container.replaceChildren(
-    el("summary", {}, "Legend and rules"),
+    el("summary", {}, el("span", {}, "Legend and rules"), el("span", { class: "legend-close", "aria-hidden": "true" }, "Close")),
     el("ul", {}, ...items),
     ...rules.map((r) => el("p", {}, r)),
   );
