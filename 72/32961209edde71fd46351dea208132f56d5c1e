@@ -1,0 +1,115 @@
+src/ui/controls.ts
+  s_5fd76648e6db37::t_1918d5ecf934de 1-94
+  s_5fd76648e6db37::t_b8c1d8ace12b47 95-99
+tests/forecasts.test.ts
+  s_5fd76648e6db37::t_330fda9b3239bd 1-99
+src/analysis/rating.ts
+  s_5fd76648e6db37::t_d9d534eb8cfe9e 1-205
+  s_5fd76648e6db37::t_e6ac5f38d2c364 206-238
+src/ui/legend.ts
+  s_5fd76648e6db37::t_8a00d4434c1f9d 1-27
+src/main.ts
+  s_5fd76648e6db37::t_259e912048157a 1-128
+  s_5fd76648e6db37::t_bd411d619b787c 129-142
+src/forecast/client.ts
+  s_5fd76648e6db37::t_ac5681ed9a98f2 1-57,61,63,67-69,74
+  s_5fd76648e6db37::t_cf7a4bf5136083 58-60,62,64-66,70-73,75-83
+tests/wind.test.ts
+  s_5fd76648e6db37::t_8f73294d34e7eb 1-66
+tests/rating.test.ts
+  s_5fd76648e6db37::t_a2469bdce3a97b 1-114
+  s_5fd76648e6db37::t_5e0bf3794cd806 115-159
+src/forecast/parse.ts
+  s_5fd76648e6db37::t_d37c9eb4eac045 1-115
+  s_5fd76648e6db37::t_86d6e166127d4b 116-122
+tests/client.test.ts
+  s_5fd76648e6db37::t_039ea4f4205bf4 1,4,9-10,13-14,16-18,20-23,25-27,36,40-41,48-49,55,57-60,62-63
+  s_5fd76648e6db37::t_bae1eccee3594a 2-3,6-8,12,19,24,28-35,37-39,44,52,61
+  s_5fd76648e6db37::t_64fa7c1b4aff86 5
+  s_5fd76648e6db37::t_3d3157e2454904 11
+  s_5fd76648e6db37::t_7c94c122411a4d 15
+  s_5fd76648e6db37::t_24532f1b362dd6 42-43
+  s_5fd76648e6db37::t_24e699b0fad5c4 45-47
+  s_5fd76648e6db37::t_dfecb077e1a06c 50-51
+  s_5fd76648e6db37::t_f706972f21b53e 53-54
+  s_5fd76648e6db37::t_e762ec50764b12 56
+tests/helpers.ts
+  s_5fd76648e6db37::t_a35f47beacbcbe 1-67
+  s_5fd76648e6db37::t_a8f68ed0a647cb 68
+src/style.css
+  s_5fd76648e6db37::t_911c0534b49dec 1-138
+  s_5fd76648e6db37::t_f921a695d6d7c3 139-143
+scripts/build-sites.mjs
+  s_5fd76648e6db37::t_808d690535d4ef 1-2,6-11,14,16,28-30,34-35,51-64,108-131,140,144,146-148,150-151,154-167
+  s_5fd76648e6db37::t_4f628a7679c73c 3-5,12-13,15,17-27,32-33,36-50,65-107,132-139,141-143,145,149,152-153,168-176
+  s_5fd76648e6db37::t_fa01c0bc20c6ac 31,177-185
+src/forecast/overview.ts
+  s_5fd76648e6db37::t_116961e663bcf3 1-2,6-11,21-23,66-69,71-72,74,76-77,80-81,88
+  s_5fd76648e6db37::t_b9ba81e814a4d7 24-25,70,79
+  s_5fd76648e6db37::t_0b522174688c2d 3-5,12-20,26-65,73,75,78,82-87
+tests/thermals.test.ts
+  s_5fd76648e6db37::t_f47981700822a7 1-54
+src/analysis/thermals.ts
+  s_5fd76648e6db37::t_1fe23a80abec81 1-79
+src/analysis/wind.ts
+  s_5fd76648e6db37::t_ba3a3ce114ab73 1-107
+  s_5fd76648e6db37::t_983a93373decc3 108
+tests/parse.test.ts
+  s_5fd76648e6db37::t_b5efa89ceb6f4a 1-56
+  s_5fd76648e6db37::t_54a363b315b0b0 57-66
+src/ui/format.ts
+  s_5fd76648e6db37::t_afb5b39e77eb3e 1-31
+  s_5fd76648e6db37::t_deacf79722d225 32-56
+src/ui/map.ts
+  s_5fd76648e6db37::t_9b3b3281f85eba 1-87
+  s_5fd76648e6db37::t_c7f22499b1f48a 88-98
+src/types.ts
+  s_5fd76648e6db37::t_d33f80694797d8 1-65
+  s_5fd76648e6db37::t_841bb52a400eb1 66-83
+index.html
+  s_5fd76648e6db37::t_b2970097b889eb 1-29
+src/ui/detail.ts
+  s_5fd76648e6db37::t_9948a0cf1c8017 1-167
+  s_5fd76648e6db37::t_673fb7a5fbfab6 168-204
+README.md
+  s_5fd76648e6db37::t_4c9142098fa411 1-29
+  s_5fd76648e6db37::t_a66331b678e3d8 30-36
+src/forecast/cache.ts
+  s_5fd76648e6db37::t_1051efacee6358 1-48
+.github/workflows/deploy.yml
+  s_5fd76648e6db37::t_470b6386238d19 1-42
+.gitignore
+  s_5fd76648e6db37::t_561cb0c5a85465 1-3
+package-lock.json
+  s_5fd76648e6db37::t_e98adb1e0f304c 1-2545
+package.json
+  s_5fd76648e6db37::t_3097153f7615b4 1-28
+src/data/sites.json
+  s_5fd76648e6db37::t_8a627c49118b6a 1-8826
+tests/fixtures/hydnefossen-icon.json
+  s_5fd76648e6db37::t_5428055b36851c 1
+tests/fixtures/hydnefossen-meps.json
+  s_5fd76648e6db37::t_16e182fd2c5ab7 1
+tests/fixtures/sundvollen-icon.json
+  s_5fd76648e6db37::t_65b3e7857f2610 1
+tsconfig.json
+  s_5fd76648e6db37::t_80cdf3b7b95066 1-16
+vite.config.ts
+  s_5fd76648e6db37::t_8f0194384d36cd 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7232961209edde71fd46351dea208132f56d5c1e",
+  "prompts": {},
+  "sessions": {
+    "s_5fd76648e6db37": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a28ea299-0dd3-45e3-b81c-8e9b62a95532",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Håkon Osland <hakon.osland.ettestol@gmail.com>"
+    }
+  }
+}
