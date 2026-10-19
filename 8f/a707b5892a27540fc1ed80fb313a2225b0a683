@@ -1,0 +1,47 @@
+tests/parse.test.ts
+  s_5fd76648e6db37::t_b1afd060f1452f 29-45
+tests/rating.test.ts
+  s_5fd76648e6db37::t_ceab40b0d5a0e5 54-55
+  s_5fd76648e6db37::t_81e949cd0efd4e 56-58
+  s_5fd76648e6db37::t_7c6a561a1730d1 20,59-63
+README.md
+  s_5fd76648e6db37::t_b077d8dd1f2f35 37
+src/analysis/thermals.ts
+  s_5fd76648e6db37::t_25d1d40635e85b 6,8-9,17,26-28,54-55,73-75,83-84
+src/forecast/parse.ts
+  s_5fd76648e6db37::t_a17f51cdef2fff 24,33-36,85,103,114
+src/style.css
+  s_5fd76648e6db37::t_bf8b315471000c 180
+src/types.ts
+  s_5fd76648e6db37::t_1de98d9cf19809 55-56
+src/ui/detail.ts
+  s_5fd76648e6db37::t_51562c23ac36af 2,161,166-180,195
+tests/fixtures/sundvollen-flux-ecmwf.json
+  s_5fd76648e6db37::t_349125a1e1b7d9 1
+tests/fixtures/sundvollen-flux-gfs.json
+  s_5fd76648e6db37::t_ec95f9464e5721 1
+tests/fixtures/sundvollen-flux-icon.json
+  s_5fd76648e6db37::t_6eea85d0255f42 1
+tests/thermals.test.ts
+  s_5fd76648e6db37::t_8c81f2c34e7dfa 4,39-77
+src/analysis/rating.ts
+  s_5fd76648e6db37::t_558781f3451909 125-127,138-143
+src/ui/legend.ts
+  s_5fd76648e6db37::t_84cf3e0a840cca 2,21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8fa707b5892a27540fc1ed80fb313a2225b0a683",
+  "prompts": {},
+  "sessions": {
+    "s_5fd76648e6db37": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a28ea299-0dd3-45e3-b81c-8e9b62a95532",
+        "model": "unknown"
+      },
+      "human_author": "Håkon Osland <hakon.osland.ettestol@gmail.com>"
+    }
+  }
+}
