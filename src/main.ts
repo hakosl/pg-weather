@@ -1,6 +1,7 @@
 import "leaflet/dist/leaflet.css";
 import "./style.css";
 import sitesData from "./data/sites.json";
+import { loadFavorites, saveFavorites, toggleFavorite } from "./favorites";
 import { browserStore } from "./forecast/cache";
 import { RateLimitError } from "./forecast/client";
 import { loadSiteModels, rateForecast, rateSites, type SiteDay } from "./forecast/overview";
@@ -8,6 +9,7 @@ import { nearbyStations, stationHistory } from "./live/windsMobi";
 import type { ModelForecast, Site } from "./types";
 import { dayRange, setupControls, type Selection } from "./ui/controls";
 import { renderDetail, type DetailSelection } from "./ui/detail";
+import { renderFavorites } from "./ui/favorites";
 import type { LiveState } from "./ui/live";
 import { renderLegend } from "./ui/legend";
 import { SiteLayer, createMap } from "./ui/map";
@@ -21,6 +23,9 @@ const sites = sitesData as Site[];
 const sitesById = new Map(sites.map((s) => [s.id, s]));
 const statusEl = document.getElementById("status")!;
 const detailEl = document.getElementById("detail")!;
+const mapEl = document.getElementById("map")!;
+const favoritesEl = document.getElementById("favorites")!;
+const screenButtons = [...document.querySelectorAll<HTMLButtonElement>("#screens button")];
 
 const message = (err: unknown) => (err instanceof Error ? err.message : String(err));
 
@@ -33,7 +38,12 @@ function setStatus(text: string | null, isError = false): void {
   statusEl.classList.toggle("error", isError);
 }
 
-const map = createMap(document.getElementById("map")!);
+const storage = () => localStorage;
+let favorites = loadFavorites(storage, new Set(sitesById.keys()));
+// Favorites open first when there are any, so only they cost forecast requests until the map is opened.
+let screen: "favorites" | "map" = favorites.length ? "favorites" : "map";
+
+const map = createMap(mapEl);
 const layer = new SiteLayer(map, sites, (site) => void openDetail(site));
 renderLegend(document.getElementById("legend")!);
 
@@ -52,12 +62,15 @@ let detail: {
 let detailAbort: AbortController | null = null;
 const range = dayRange();
 
-async function refreshOverview(): Promise<void> {
-  const key = `${selection.day}|${selection.model}`;
-  if (key !== ratingsKey) {
-    ratings = new Map();
-    ratingsKey = key;
-  }
+function drawRatings(): void {
+  layer.update(ratings, selection.hour, sitesById);
+  const favoriteSites = favorites.map((id) => sitesById.get(id)!);
+  renderFavorites(favoritesEl, favoriteSites, ratings, selection.hour, { onOpen: (site) => void openDetail(site), onRemove: toggle });
+}
+
+/** The sites the current screen shows: the favorites, or the map's nearest sites in view. */
+function wantedSites(): { wanted: Site[]; note: string | null } {
+  if (screen === "favorites") return { wanted: favorites.map((id) => sitesById.get(id)!), note: null };
   const bounds = map.getBounds();
   const c = map.getCenter();
   const cosLat = Math.cos((c.lat * Math.PI) / 180);
@@ -67,8 +80,18 @@ async function refreshOverview(): Promise<void> {
     visible.length > MAX_RATED_SITES
       ? `Rated the ${MAX_RATED_SITES} sites nearest the centre (${visible.length} in view). Zoom in to rate the rest.`
       : null;
-  layer.update(ratings, selection.hour, sitesById);
-  const todo = visible.slice(0, MAX_RATED_SITES).filter((s) => !ratings.has(s.id));
+  return { wanted: visible.slice(0, MAX_RATED_SITES), note };
+}
+
+async function refreshOverview(): Promise<void> {
+  const key = `${selection.day}|${selection.model}`;
+  if (key !== ratingsKey) {
+    ratings = new Map();
+    ratingsKey = key;
+  }
+  const { wanted, note } = wantedSites();
+  drawRatings();
+  const todo = wanted.filter((s) => !ratings.has(s.id));
   if (todo.length === 0) return setStatus(note);
   overviewAbort?.abort();
   window.clearTimeout(retryTimer);
@@ -78,7 +101,7 @@ async function refreshOverview(): Promise<void> {
     const got = await rateSites(todo, range, selection.day, selection.model, { store, signal: abort.signal });
     if (key !== ratingsKey) return;
     got.forEach((v, id) => ratings.set(id, v));
-    layer.update(ratings, selection.hour, sitesById);
+    drawRatings();
     setStatus(note);
   } catch (err) {
     if (abort.signal.aborted) return;
@@ -96,7 +119,7 @@ function drawDetail(): void {
   const { site, forecasts, error, live } = detail;
   const models = forecasts?.map((f) => ({ id: f.model, day: rateForecast(site, f, selection.day) })) ?? null;
   const fetchedAt = forecasts ? Math.min(...forecasts.map((f) => f.fetchedAt ?? Date.now())) : null;
-  renderDetail(detailEl, { site, models, error, fetchedAt, live }, detail.sel, {
+  renderDetail(detailEl, { site, models, error, fetchedAt, live, favorite: favorites.includes(site.id) }, detail.sel, {
     onClose: () => {
       detailAbort?.abort();
       detail = null;
@@ -106,10 +129,31 @@ function drawDetail(): void {
       detail!.sel = sel;
       controls.setHour(sel.hour);
       selection = controls.selection();
-      layer.update(ratings, selection.hour, sitesById);
+      drawRatings();
       drawDetail();
     },
+    onToggleFavorite: () => toggle(site),
   });
+}
+
+function toggle(site: Site): void {
+  favorites = toggleFavorite(favorites, site.id);
+  const saved = saveFavorites(storage, favorites);
+  drawDetail();
+  void refreshOverview();
+  if (!saved) setStatus("This browser won't save favorites, so they last until the page closes.", true);
+}
+
+function showScreen(next: typeof screen): void {
+  screen = next;
+  favoritesEl.hidden = next !== "favorites";
+  // The map stays laid out underneath, so Leaflet keeps its size; inert keeps its markers out of the tab order.
+  mapEl.inert = next === "favorites";
+  screenButtons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.screen === next)));
+  // Stop loading the other screen's sites; batches already fetched stay cached.
+  overviewAbort?.abort();
+  window.clearTimeout(retryTimer);
+  void refreshOverview();
 }
 
 async function loadLive(site: Site, signal: AbortSignal): Promise<void> {
@@ -167,4 +211,5 @@ map.on("moveend", () => {
   window.clearTimeout(moveTimer);
   moveTimer = window.setTimeout(() => void refreshOverview(), MOVE_DEBOUNCE_MS);
 });
-void refreshOverview();
+screenButtons.forEach((b) => b.addEventListener("click", () => showScreen(b.dataset.screen as typeof screen)));
+showScreen(screen);

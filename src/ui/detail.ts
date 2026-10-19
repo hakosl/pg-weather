@@ -3,8 +3,8 @@ import { compass, siteFacing } from "../analysis/wind";
 import { FORECAST_TTL_MS } from "../forecast/cache";
 import { MODELS } from "../forecast/client";
 import type { SiteDay } from "../forecast/overview";
-import type { FlyState, ModelId, Site, Wind } from "../types";
-import { REASON_COLOR, STATE_META, blockersText, el, fmtM, hourOf, measuresText, pad2 } from "./format";
+import type { ModelId, Site, Wind } from "../types";
+import { HOURS, REASON_COLOR, STATE_META, blockersText, el, fmtM, hourOf, measuresText, pad2, pill } from "./format";
 import { renderLive, type LiveState } from "./live";
 
 export interface DetailData {
@@ -14,6 +14,7 @@ export interface DetailData {
   /** When the oldest of the shown forecasts was fetched. */
   fetchedAt: number | null;
   live: LiveState;
+  favorite: boolean;
 }
 
 export interface DetailSelection {
@@ -24,11 +25,9 @@ export interface DetailSelection {
 interface Handlers {
   onClose: () => void;
   onSelect: (sel: DetailSelection) => void;
+  onToggleFavorite: () => void;
 }
 
-const FIRST_HOUR = 6;
-const LAST_HOUR = 21;
-const HOURS = Array.from({ length: LAST_HOUR - FIRST_HOUR + 1 }, (_, i) => FIRST_HOUR + i);
 const SVG_NS = "http://www.w3.org/2000/svg";
 const FIT_LABEL = { good: "good", marginal: "marginal", cross: "cross", behind: "from behind", unknown: "unknown" };
 
@@ -93,18 +92,14 @@ function siteFlags(site: Site): HTMLElement {
   return el("ul", { class: "flags" }, ...items.map(([t, warn]) => el("li", warn ? { class: "warn" } : {}, t)));
 }
 
-function header(site: Site, onClose: () => void): HTMLElement {
+function header(site: Site, favorite: boolean, handlers: Handlers): HTMLElement {
   const facing = siteFacing(site);
+  const star = el("button", { type: "button", class: "close fav-toggle", "aria-pressed": String(favorite) }, el("span", { "aria-hidden": "true" }, favorite ? "★" : "☆"), " Favorite");
+  star.addEventListener("click", handlers.onToggleFavorite);
   const close = el("button", { type: "button", class: "close", "aria-label": "Close" }, "Close");
-  close.addEventListener("click", onClose);
+  close.addEventListener("click", handlers.onClose);
   const parts = [`Launch ${fmtM(site.altDem)}`, facing != null ? `faces ${compass(facing)}` : "facing unknown", `${fmtM(site.dropM)} drop nearby`];
-  return el("div", { class: "detail-head" }, el("h2", {}, site.name), close, el("p", { class: "meta" }, parts.join(" · ")));
-}
-
-function pill(state: FlyState): HTMLElement {
-  const node = el("span", { class: "state-pill" }, STATE_META[state].label);
-  node.style.background = STATE_META[state].color;
-  return node;
+  return el("div", { class: "detail-head" }, el("h2", {}, site.name), el("div", { class: "head-actions" }, star, close), el("p", { class: "meta" }, parts.join(" · ")));
 }
 
 function verdict(models: NonNullable<DetailData["models"]>, sel: DetailSelection): HTMLElement {
@@ -206,7 +201,7 @@ export function renderDetail(container: HTMLElement, data: DetailData, sel: Deta
     el("a", { href: `https://www.windy.com/?${site.lat},${site.lon},12`, target: "_blank", rel: "noopener" }, "Windy"),
   );
   const parts: (Node | null)[] = [
-    header(site, handlers.onClose),
+    header(site, data.favorite, handlers),
     el("div", { class: "site-facts" }, rose(site, wind), siteFlags(site)),
     links,
     renderLive(site, data.live),

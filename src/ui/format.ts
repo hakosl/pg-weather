@@ -1,4 +1,5 @@
-import type { DaySummary } from "../analysis/rating";
+import { limitingMeasures, type DaySummary, type HourRating } from "../analysis/rating";
+import type { SiteDay } from "../forecast/overview";
 import type { FlyState, Measure, ReasonLevel } from "../types";
 
 export const STATE_META: Record<FlyState, { label: string; color: string; meaning: string }> = {
@@ -55,3 +56,27 @@ export const hourOf = (iso: string) => Number(iso.slice(11, 13));
 export const pad2 = (n: number) => String(n).padStart(2, "0");
 // Non-breaking space keeps the number and its unit on one line in narrow columns.
 export const fmtM = (v: number) => `${Math.round(v).toLocaleString("en-GB")}\u00a0m`;
+
+const FIRST_HOUR = 6;
+const LAST_HOUR = 21;
+export const HOURS = Array.from({ length: LAST_HOUR - FIRST_HOUR + 1 }, (_, i) => FIRST_HOUR + i);
+
+export function pill(state: FlyState): HTMLElement {
+  const node = el("span", { class: "state-pill" }, STATE_META[state].label);
+  node.style.background = STATE_META[state].color;
+  return node;
+}
+
+/** The picked hour's rating, or null for the whole day. */
+export const slotAt = (day: SiteDay, hour: number | null): HourRating | null =>
+  hour == null ? null : day.hours.find((h) => hourOf(h.time) === hour) ?? null;
+
+export const stateAt = (day: SiteDay, slot: HourRating | null): FlyState => (slot ? slot.state : day.summary.state ?? "nodata");
+
+/** What holds the hour or the day back, else the day's flyable window. */
+export function ratingNote(day: SiteDay, slot: HourRating | null): string {
+  if (slot) return measuresText(limitingMeasures(slot));
+  if (day.summary.blockers.length) return blockersText(day.summary.blockers);
+  const w = day.summary.window;
+  return w ? `${w.start}–${w.end}` : "";
+}

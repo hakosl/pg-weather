@@ -1,8 +1,7 @@
 import L from "leaflet";
-import { limitingMeasures } from "../analysis/rating";
 import type { SiteDay } from "../forecast/overview";
 import type { FlyState, Site, Wind } from "../types";
-import { STATE_META, blockersText, hourOf, measuresText } from "./format";
+import { STATE_META, ratingNote, slotAt, stateAt } from "./format";
 
 const VIEW_KEY = "pg-weather:view";
 // Opens on the Oslo and Ringerike sites, few enough to rate straight away.
@@ -53,16 +52,6 @@ function markerSvg(state: FlyState, wind: Wind | null): string {
     <circle cx="14" cy="14" r="${r}" fill="${color}" stroke="var(--surface)" stroke-width="2"/></svg>`;
 }
 
-function tooltipDetail(day: SiteDay, slot: SiteDay["hours"][number] | null): string {
-  if (slot) {
-    const measures = limitingMeasures(slot);
-    return measures.length ? `: ${measuresText(measures)}` : "";
-  }
-  if (day.summary.blockers.length) return `: ${blockersText(day.summary.blockers)}`;
-  const w = day.summary.window;
-  return w ? ` ${w.start}–${w.end}` : "";
-}
-
 export class SiteLayer {
   private markers = new Map<string, L.Marker>();
 
@@ -89,10 +78,11 @@ export class SiteLayer {
         marker.setTooltipContent(site.name);
         continue;
       }
-      const slot = hour == null ? null : day.hours.find((h) => hourOf(h.time) === hour) ?? null;
-      const state = slot ? slot.state : day.summary.state ?? "nodata";
+      const slot = slotAt(day, hour);
+      const state = stateAt(day, slot);
+      const note = ratingNote(day, slot);
       marker.setIcon(this.icon(state, slot?.launchWind ?? null));
-      marker.setTooltipContent(`${site.name}: ${STATE_META[state].label}${tooltipDetail(day, slot)}`);
+      marker.setTooltipContent(`${site.name}: ${STATE_META[state].label}${note ? ` · ${note}` : ""}`);
     }
   }
 }

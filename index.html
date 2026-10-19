@@ -9,6 +9,10 @@
     <div class="app">
       <header class="bar">
         <h1 class="brand">PG Weather</h1>
+        <nav class="screens" id="screens" aria-label="Screen">
+          <button type="button" class="chip" data-screen="favorites">Favorites</button>
+          <button type="button" class="chip" data-screen="map">Map</button>
+        </nav>
         <nav class="days" id="days" aria-label="Day"></nav>
         <div class="time">
           <button id="whole-day" class="chip" type="button" aria-pressed="true">Whole day</button>
@@ -19,6 +23,7 @@
       </header>
       <main class="stage">
         <div id="map" aria-label="Map of launch sites"></div>
+        <section id="favorites" class="favorites" aria-label="Favorites" hidden></section>
         <div id="status" class="status" role="status" hidden></div>
         <details class="legend" id="legend"></details>
         <aside id="detail" class="detail" aria-live="polite" hidden></aside>

@@ -2,6 +2,8 @@
 
 A map of Norway's paragliding launches, rated hour by hour for flying: wind at launch height against the launch's directions, wind just above the ridge, gusts, ridge lift, thermals and rain. Each rating lists the reasons behind it, and a site's panel compares ECMWF, ICON, GFS and MEPS side by side.
 
+Star a site in its panel to keep it on the Favorites screen, which then opens first with each favorite's day hour by hour. Favorites are kept in the browser's local storage.
+
 Live at **https://hakosl.github.io/pg-weather/**. Every push to `main` runs the tests and redeploys (`.github/workflows/deploy.yml`).
 
 ## Run
@@ -20,6 +22,7 @@ npm run build    # static site in dist/
 - **Forecasts**: [Open-Meteo](https://open-meteo.com), fetched straight from the browser (no key, no server). The free tier allows 600 requests a minute, 5,000 an hour and 10,000 a day per IP address, and each site costs about 4 because of the upper-air variables. To stay inside that:
   - each site's five days come in one request (Open-Meteo charges the same for up to 14 days);
   - responses are cached in the browser's IndexedDB for 2 hours, so reloads and day switches cost nothing;
+  - with favorites saved, the app opens on them and fetches only them until you open the map;
   - the map rates at most the 100 sites nearest the centre, with one model;
   - a site's panel fetches each model separately, so the map's model comes from the cache;
   - on the per-minute limit, the map retries after a minute.
