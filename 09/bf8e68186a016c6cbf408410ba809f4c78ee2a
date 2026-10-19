@@ -1,0 +1,25 @@
+tests/parse.test.ts
+  s_5fd76648e6db37::t_828bc59604e73e 56-70
+src/forecast/parse.ts
+  s_5fd76648e6db37::t_dbde2c4c906451 44-64,69
+  s_5fd76648e6db37::t_4e2f5e3332951c 128
+  s_5fd76648e6db37::t_2098f7f06dc05c 97,104
+src/forecast/client.ts
+  s_5fd76648e6db37::t_6bcd20c06329da 2,49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "09bf8e68186a016c6cbf408410ba809f4c78ee2a",
+  "prompts": {},
+  "sessions": {
+    "s_5fd76648e6db37": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a28ea299-0dd3-45e3-b81c-8e9b62a95532",
+        "model": "unknown"
+      },
+      "human_author": "Håkon Osland <hakon.osland.ettestol@gmail.com>"
+    }
+  }
+}
