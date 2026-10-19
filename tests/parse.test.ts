@@ -53,6 +53,21 @@ describe("parseForecast", () => {
     ]);
   });
 
+  it("labels hours in Oslo time across the clock change, though Open-Meteo applies one offset to the whole response", () => {
+    // Fetched in summer time, everything comes back at +2 h, so after 25 Oct each label is an hour late.
+    const raw = {
+      elevation: 300,
+      utc_offset_seconds: 7200,
+      hourly: { time: ["2026-10-25T00:00", "2026-10-25T01:00", "2026-10-25T02:00", "2026-10-25T03:00", "2026-10-25T04:00", "2026-10-31T13:00"] },
+      daily: { time: ["2026-10-31"], sunrise: ["2026-10-31T08:48"], sunset: ["2026-10-31T17:28"] },
+    };
+    const f = parseForecast(raw, "icon_seamless");
+    expect(f.hours.map((h) => h.time)).toEqual([
+      "2026-10-25T00:00", "2026-10-25T01:00", "2026-10-25T02:00", "2026-10-25T02:00", "2026-10-25T03:00", "2026-10-31T12:00",
+    ]);
+    expect(f.daylight["2026-10-31"]).toEqual({ sunrise: "2026-10-31T07:48", sunset: "2026-10-31T16:28" });
+  });
+
   it("keeps sunrise and sunset per day", () => {
     const raw = {
       elevation: 300,

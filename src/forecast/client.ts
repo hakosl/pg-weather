@@ -1,5 +1,5 @@
 import type { ModelId } from "../types";
-import { HOURLY_VARIABLES, SURFACE_VARIABLES } from "./parse";
+import { HOURLY_VARIABLES, SURFACE_VARIABLES, TIME_ZONE } from "./parse";
 
 export const MODELS: { id: ModelId; label: string; detail: string }[] = [
   { id: "ecmwf_ifs025", label: "ECMWF", detail: "ECMWF IFS, 25 km grid" },
@@ -46,7 +46,7 @@ export function forecastUrl(points: { lat: number; lon: number }[], range: DayRa
     hourly: (surfaceOnly ? SURFACE_VARIABLES : HOURLY_VARIABLES).join(","),
     daily: "sunrise,sunset",
     wind_speed_unit: "ms",
-    timezone: "Europe/Oslo",
+    timezone: TIME_ZONE,
     start_date: range.start,
     end_date: range.end,
     models: model,

@@ -41,10 +41,32 @@ export const HOURLY_VARIABLES = [
 
 type Column = (number | null)[];
 
+export const TIME_ZONE = "Europe/Oslo";
+
+const osloClock = new Intl.DateTimeFormat("en-GB", {
+  timeZone: TIME_ZONE,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  hourCycle: "h23",
+});
+
+/** Open-Meteo applies one UTC offset to a whole response, so past a clock change its labels are an hour off; this gives the true Oslo time. */
+function osloLabel(label: string, offsetSeconds: number | null): string {
+  const parts = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(label);
+  if (!parts || offsetSeconds == null) return label;
+  const [y, mo, d, h, mi] = parts.slice(1).map(Number);
+  const p = Object.fromEntries(osloClock.formatToParts(Date.UTC(y, mo - 1, d, h, mi) - offsetSeconds * 1000).map((x) => [x.type, x.value]));
+  return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}`;
+}
+
 interface RawResponse {
   error?: boolean;
   reason?: string;
   elevation?: number;
+  utc_offset_seconds?: number;
   hourly?: Record<string, unknown>;
   daily?: Record<string, unknown>;
 }
@@ -72,13 +94,14 @@ export function parseForecast(raw: unknown, model: ModelId): ModelForecast {
     const values = res.daily?.[name];
     return Array.isArray(values) ? values : [];
   };
+  const offset = asNumber(res.utc_offset_seconds);
   const sunrises = daily("sunrise");
   const sunsets = daily("sunset");
   const daylight: ModelForecast["daylight"] = {};
   daily("time").forEach((day, i) => {
     const [sunrise, sunset] = [sunrises[i], sunsets[i]];
     if (typeof day === "string" && typeof sunrise === "string" && typeof sunset === "string")
-      daylight[day] = { sunrise, sunset };
+      daylight[day] = { sunrise: osloLabel(sunrise, offset), sunset: osloLabel(sunset, offset) };
   });
 
   const surface = Object.fromEntries(SURFACE_VARIABLES.map((v) => [v, col(v)]));
@@ -102,7 +125,7 @@ export function parseForecast(raw: unknown, model: ModelId): ModelForecast {
       .filter((l) => l.wind != null || l.temperature != null);
     const flux = surface.sensible_heat_flux[i] ?? null;
     return {
-      time: String(time),
+      time: osloLabel(String(time), offset),
       temperature2m: surface.temperature_2m[i] ?? null,
       dewPoint2m: surface.dew_point_2m[i] ?? null,
       wind10m: makeWind(surface.wind_speed_10m[i] ?? null, surface.wind_direction_10m[i] ?? null),
