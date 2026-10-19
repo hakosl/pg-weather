@@ -45,10 +45,23 @@ describe("rateHour checks", () => {
     expect(limitingMeasures(gusty)).toEqual(["gusts"]);
   });
 
-  it("flags a light tailwind as marginal", () => {
-    const r = rateHour(sundvollen, calmHour({ levels: [level(300, 2, 135), level(900, 2, 135)] }), 300);
+  it("is no-go with more than 1 m/s blowing down the slope from behind, even in near-nil wind", () => {
+    const fromBehind = (speed: number) => calmHour({ levels: [level(300, speed, 135), level(900, speed, 135)] });
+    const r = rateHour(sundvollen, fromBehind(2), 300);
+    expect(r.ontoSlopeMs).toBeCloseTo(-2, 1);
+    expect(r.state).toBe("nogo");
+    expect(texts(r, "nogo").join()).toMatch(/behind/);
+    expect(limitingMeasures(r)).toEqual(["behind"]);
+    expect(rateHour(sundvollen, fromBehind(1.2), 300).state).toBe("nogo");
+    expect(rateHour(sundvollen, fromBehind(0.9), 300).state).toBe("fly");
+  });
+
+  it("flags a light tailwind as marginal when under 1 m/s of it blows down the slope", () => {
+    // 115° off Sundvollen's 319° facing: 2 m/s puts only 0.85 m/s down the slope.
+    const r = rateHour(sundvollen, calmHour({ levels: [level(300, 2, 74), level(900, 2, 74)] }), 300);
     expect(r.state).toBe("marginal");
     expect(texts(r, "warn").join()).toMatch(/tailwind/);
+    expect(limitingMeasures(r)).toEqual(["tailwind"]);
   });
 
   it("gives the thermals' expected climb and where their strength comes from", () => {

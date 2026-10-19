@@ -15,7 +15,7 @@ export const LIMITS = {
   gustFactor: 2.5,
   crossWarn: 3,
   crossTooStrong: 6,
-  tailwindNoGo: 3,
+  tailwindNoGo: 1,
   ridgeMin: 3,
   ridgeMax: 7,
   ridgeMinDropM: 100,
@@ -82,7 +82,11 @@ function gustReasons(hour: HourSample): Reason[] {
   return [];
 }
 
-function directionReasons(wind: Wind, fit: DirectionAssessment): Reason[] {
+function directionReasons(wind: Wind, fit: DirectionAssessment, onto: number | null): Reason[] {
+  // Checked before the nil-wind exemption: even a near-calm tailwind down the slope stops a launch.
+  const tailwind = fit.fit === "behind" && onto != null ? -onto : 0;
+  if (tailwind > LIMITS.tailwindNoGo)
+    return [{ level: "nogo", text: `Wind from behind the launch, ${ms(tailwind)} down the slope (${windText(wind)}): lee and rotor`, measure: "behind" }];
   if (wind.speed < LIMITS.nilWind) return [];
   const dir = compass(wind.direction);
   switch (fit.fit) {
@@ -95,8 +99,6 @@ function directionReasons(wind: Wind, fit: DirectionAssessment): Reason[] {
         return [{ level: "nogo", text: `Strong crosswind, ${windText(wind)}`, measure: "crosswind" }];
       return wind.speed >= LIMITS.crossWarn ? [{ level: "warn", text: `Crosswind from ${dir}`, measure: "crosswind" }] : [];
     case "behind":
-      if (wind.speed >= LIMITS.tailwindNoGo)
-        return [{ level: "nogo", text: `Wind from behind the launch (${windText(wind)}): lee and rotor`, measure: "behind" }];
       return [{ level: "warn", text: `Light tailwind from ${dir}: hard to launch`, measure: "tailwind" }];
     case "unknown":
       return wind.speed >= LIMITS.crossWarn
@@ -173,7 +175,7 @@ export function rateHour(site: Site, hour: HourSample, groundM: number): HourRat
   const reasons = [
     ...rainReasons(hour),
     ...launchWindReasons(launchWind, launchWindSource),
-    ...directionReasons(launchWind, direction),
+    ...directionReasons(launchWind, direction, ontoSlopeMs),
     ...aboveReasons(above, launchM),
     ...gustReasons(hour),
     ...cloudReasons(hour),
