@@ -122,6 +122,9 @@ function ridgeReasons(site: Site, onto: number | null, fit: DirectionAssessment)
   return [];
 }
 
+// Below this, "climbs around 0.0 m/s" reads as a forecast; say there is hardly any climb instead.
+const MIN_CLIMB_MS = 0.1;
+
 function thermalReasons(t: ThermalAssessment | null, levels: HourSample["levels"]): Reason[] {
   if (!t || t.strength === "none") return [];
   const reasons: Reason[] = [];
@@ -132,6 +135,12 @@ function thermalReasons(t: ThermalAssessment | null, levels: HourSample["levels"
       ? { level: "good", text: `${t.strength === "strong" ? "Strong" : "Moderate"} thermals ${where}` }
       : { level: "info", text: `Weak thermals ${where}` },
   );
+  const source = t.heatSource === "model" ? "from the model's heat flux" : "estimated from sunshine";
+  const climb =
+    t.climbMs < MIN_CLIMB_MS
+      ? `Hardly any climb: w* ${ms(t.wStar)} is about a glider's sink (${source})`
+      : `Climbs around ${ms(t.climbMs)} (w* ${ms(t.wStar)}, ${source})`;
+  reasons.push({ level: "info", text: climb });
   reasons.push({ level: "info", text: t.cumulus ? `Cumulus base around ${m(t.cloudBaseM!)}` : "Blue thermals, no cumulus" });
   const topWind = windAt(levels, t.ceilingM);
   if (topWind && topWind.speed >= LIMITS.aboveStrong)

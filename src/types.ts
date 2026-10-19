@@ -52,6 +52,8 @@ export interface HourSample {
   cloudCover: number | null;
   cloudCoverLow: number | null;
   shortwave: number | null;
+  /** The model's surface sensible heat flux in W/m², positive when the ground heats the air; null when the model has none. */
+  heatFlux: number | null;
   cape: number | null;
   levels: LevelSample[];
 }

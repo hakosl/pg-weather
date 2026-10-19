@@ -21,6 +21,7 @@ export const SURFACE_VARIABLES = [
   "cloud_cover",
   "cloud_cover_low",
   "shortwave_radiation",
+  "sensible_heat_flux",
   "cape",
   "wind_speed_10m",
   "wind_direction_10m",
@@ -28,6 +29,10 @@ export const SURFACE_VARIABLES = [
 ];
 
 const LEVEL_VARIABLES = ["wind_speed", "wind_direction", "temperature", "geopotential_height"];
+
+// Turns each model's heat flux upward-positive: DWD reports fluxes toward the ground as positive, NOAA away from it.
+// ECMWF and MEPS have no heat flux in Open-Meteo, so their thermals fall back to an estimate from sunshine.
+const HEAT_FLUX_SIGN: Partial<Record<ModelId, number>> = { icon_seamless: -1, gfs_seamless: 1 };
 
 export const HOURLY_VARIABLES = [
   ...SURFACE_VARIABLES,
@@ -77,6 +82,7 @@ export function parseForecast(raw: unknown, model: ModelId): ModelForecast {
   });
 
   const surface = Object.fromEntries(SURFACE_VARIABLES.map((v) => [v, col(v)]));
+  const fluxSign = HEAT_FLUX_SIGN[model];
   const levelColumns = PRESSURE_LEVELS.map((p) => ({
     pressure: p,
     speed: col(`wind_speed_${p}hPa`),
@@ -94,6 +100,7 @@ export function parseForecast(raw: unknown, model: ModelId): ModelForecast {
         temperature: c.temperature[i] ?? null,
       }))
       .filter((l) => l.wind != null || l.temperature != null);
+    const flux = surface.sensible_heat_flux[i] ?? null;
     return {
       time: String(time),
       temperature2m: surface.temperature_2m[i] ?? null,
@@ -104,6 +111,7 @@ export function parseForecast(raw: unknown, model: ModelId): ModelForecast {
       cloudCover: surface.cloud_cover[i] ?? null,
       cloudCoverLow: surface.cloud_cover_low[i] ?? null,
       shortwave: surface.shortwave_radiation[i] ?? null,
+      heatFlux: fluxSign == null || flux == null ? null : fluxSign * flux,
       cape: surface.cape[i] ?? null,
       levels,
     };

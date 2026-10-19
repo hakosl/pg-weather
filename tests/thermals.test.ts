@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { assessThermals, cloudBase, thermalTop } from "../src/analysis/thermals";
 import { parseForecast } from "../src/forecast/parse";
+import type { HourSample } from "../src/types";
 import { level, loadFixture, sundvollen } from "./helpers";
 
 describe("thermalTop", () => {
@@ -32,6 +33,45 @@ describe("thermalTop", () => {
 describe("cloudBase", () => {
   it("rises 125 m per degree of dew-point spread", () => {
     expect(cloudBase(300, 8, 0)).toBe(1300);
+  });
+});
+
+describe("assessThermals strength", () => {
+  const sunnyHour = (overrides: Partial<HourSample>): HourSample => ({
+    time: "2026-10-17T13:00",
+    temperature2m: 10,
+    dewPoint2m: 0,
+    wind10m: null,
+    gust10m: null,
+    precipitation: 0,
+    cloudCover: 0,
+    cloudCoverLow: 0,
+    shortwave: 0,
+    heatFlux: null,
+    cape: 0,
+    levels: [level(1000, 5, 0, 3.0), level(1500, 5, 0, -2), level(2000, 5, 0, -4)],
+    ...overrides,
+  });
+
+  it("uses the model's heat flux when it has one, and 30% of the sunshine when it doesn't", () => {
+    const fromModel = assessThermals(sunnyHour({ heatFlux: 120, shortwave: 900 }), 300, 400)!;
+    const fromSun = assessThermals(sunnyHour({ heatFlux: null, shortwave: 400 }), 300, 400)!;
+    expect(fromModel.heatSource).toBe("model");
+    expect(fromSun.heatSource).toBe("sunshine");
+    expect(fromModel.wStar).toBeCloseTo(fromSun.wStar, 6);
+    expect(fromModel.wStar).toBeGreaterThan(1.5);
+  });
+
+  it("expects a paraglider to climb at w* less about 1 m/s of sink", () => {
+    const t = assessThermals(sunnyHour({ heatFlux: 120 }), 300, 400)!;
+    expect(t.climbMs).toBeCloseTo(t.wStar - 1, 6);
+  });
+
+  it("finds no thermals when the model says the ground is cooling the air", () => {
+    const t = assessThermals(sunnyHour({ heatFlux: -30, shortwave: 400 }), 300, 400)!;
+    expect(t.wStar).toBe(0);
+    expect(t.climbMs).toBe(0);
+    expect(t.strength).toBe("none");
   });
 });
 

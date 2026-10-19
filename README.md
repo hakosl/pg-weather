@@ -34,6 +34,6 @@ npm run build    # static site in dist/
 - **Wind above launch**: the strongest wind within 500 m above launch.
 - **Gusts**: the model's 10 m gusts. Low gusts are ignored, and the gust factor only counts above 6 m/s.
 - **Ridge lift**: 3–7 m/s blowing onto the slope, on a site with at least 100 m of drop nearby.
-- **Thermals**: a parcel 1 K warmer than the ground rises along the dry adiabat until it meets the model's temperature profile, and the cloud base comes from the dew-point spread. Strength is a rough convective-velocity estimate from sunshine and boundary-layer depth. Use it to rank days, not as a climb rate.
+- **Thermals**: a parcel 1 K warmer than the ground rises along the dry adiabat until it meets the model's temperature profile, and the cloud base comes from the dew-point spread. Strength is the convective velocity w*, from how hard the ground heats the air and how deep the thermals go. The heating is the model's own surface heat flux for ICON and GFS, and 30% of the sunshine for ECMWF, which has no heat flux in Open-Meteo. The expected climb is w* less 1 m/s of glider sink: use it to rank hours, not as a promise.
 
 All thresholds are in `LIMITS` (`src/analysis/rating.ts`) and in the map's legend. Treat the ratings as a starting point: a coarse model doesn't see the ridge, so check a live station before launching.

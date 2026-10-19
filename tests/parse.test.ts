@@ -26,6 +26,23 @@ describe("parseForecast", () => {
     expect(h.gust10m).toBe(11.7);
   });
 
+  it("reads the model's surface heat flux as positive when the ground heats the air", () => {
+    // ICON reports fluxes positive downward, GFS positive upward: both show the midday sun heating the air.
+    const icon = parseForecast(loadFixture("sundvollen-flux-icon.json"), "icon_seamless");
+    const gfs = parseForecast(loadFixture("sundvollen-flux-gfs.json"), "gfs_seamless");
+    expect(at(icon.hours, "2026-10-19T13:00").heatFlux).toBeCloseTo(69.4);
+    expect(at(icon.hours, "2026-10-19T07:00").heatFlux).toBeCloseTo(-27.8);
+    expect(at(gfs.hours, "2026-10-19T13:00").heatFlux).toBeCloseTo(76.4);
+  });
+
+  it("leaves the heat flux out for models without one, or whose sign convention is unknown", () => {
+    const ecmwf = parseForecast(loadFixture("sundvollen-flux-ecmwf.json"), "ecmwf_ifs025");
+    expect(ecmwf.hours.every((h) => h.heatFlux === null)).toBe(true);
+    const unknownSign = parseForecast(loadFixture("sundvollen-flux-icon.json"), "metno_nordic");
+    expect(unknownSign.hours.every((h) => h.heatFlux === null)).toBe(true);
+    expect(at(parseForecast(loadFixture("sundvollen-icon.json"), "icon_seamless").hours, "2026-10-17T14:00").heatFlux).toBeNull();
+  });
+
   it("falls back to standard heights when a level has wind but no geopotential height", () => {
     const raw = {
       elevation: 300,

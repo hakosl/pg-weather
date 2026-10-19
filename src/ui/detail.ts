@@ -1,4 +1,5 @@
 import { limitingMeasures, type HourRating } from "../analysis/rating";
+import { GLIDER_SINK_MS, SENSIBLE_HEAT_FRACTION, type HeatSource } from "../analysis/thermals";
 import { compass, siteFacing } from "../analysis/wind";
 import { FORECAST_TTL_MS } from "../forecast/cache";
 import { MODELS } from "../forecast/client";
@@ -157,9 +158,25 @@ const ROWS: [string, (r: HourRating) => Node | string][] = [
   ["Up to 500\u00a0m above", (r) => (r.above ? twoLine(windText(r.above.wind), `at ${fmtM(r.above.heightM)}`) : "–")],
   ["Gusts", (r) => (r.sample.gust10m != null ? twoLine(`${r.sample.gust10m.toFixed(1)} gust`, `${r.sample.wind10m?.speed.toFixed(1) ?? "–"} mean`) : "–")],
   ["Thermals", (r) => (r.thermals && r.thermals.strength !== "none" ? twoLine(r.thermals.strength, `to ${fmtM(r.thermals.ceilingM)}`) : r.thermals ? "none" : "–")],
+  ["Thermal climb", (r) => (r.thermals && r.thermals.strength !== "none" ? twoLine(r.thermals.climbMs.toFixed(1), `w* ${r.thermals.wStar.toFixed(1)}`) : "–")],
   ["Cloud", (r) => (r.thermals?.cumulus ? twoLine("Cu base", fmtM(r.thermals.cloudBaseM!)) : r.sample.cloudCover != null ? `${Math.round(r.sample.cloudCover)}%` : "–")],
   ["Rain", (r) => (r.sample.precipitation != null ? `${r.sample.precipitation.toFixed(1)} mm` : "–")],
 ];
+
+const modelLabel = (id: ModelId) => MODELS.find((m) => m.id === id)!.label;
+const listText = (items: string[]) => new Intl.ListFormat("en-GB", { type: "conjunction" }).format(items);
+
+// Says which models' thermal strength comes from their own heat flux, so a column that reads stronger can be explained.
+function heatNote(ratings: { id: ModelId; r: HourRating | null }[]): HTMLElement | null {
+  const from = (source: HeatSource) => ratings.filter(({ r }) => r?.thermals?.heatSource === source).map(({ id }) => modelLabel(id));
+  const [model, sunshine] = [from("model"), from("sunshine")];
+  const parts = [
+    model.length ? `${listText(model)} from ${model.length > 1 ? "their" : "its"} own heat flux` : null,
+    sunshine.length ? `${listText(sunshine)} estimated as ${SENSIBLE_HEAT_FRACTION * 100}% of the sunshine` : null,
+  ].filter((p): p is string => p != null);
+  if (parts.length === 0) return null;
+  return el("p", { class: "muted table-note" }, `Thermal climb is w* less ${GLIDER_SINK_MS} m/s of glider sink. Ground heating: ${parts.join("; ")}.`);
+}
 
 function compare(models: NonNullable<DetailData["models"]>, sel: DetailSelection, onSelect: Handlers["onSelect"]): HTMLElement {
   const ratings = models.map((m) => ({ id: m.id, r: ratingAt(m.day, sel.hour) }));
@@ -175,7 +192,7 @@ function compare(models: NonNullable<DetailData["models"]>, sel: DetailSelection
   }));
   const body = ROWS.map(([label, fn]) => el("tr", {}, el("th", {}, label), ...ratings.map(({ r }) => el("td", {}, r ? fn(r) : "–"))));
   const table = el("table", { class: "compare" }, el("thead", {}, head), el("tbody", {}, stateRow, ...body));
-  return el("section", {}, el("h3", {}, "Models side by side (m/s, m above sea level)"), el("div", { class: "table-wrap" }, table));
+  return el("section", {}, el("h3", {}, "Models side by side (m/s, m above sea level)"), el("div", { class: "table-wrap" }, table), heatNote(ratings));
 }
 
 function reasons(models: NonNullable<DetailData["models"]>, sel: DetailSelection): HTMLElement {

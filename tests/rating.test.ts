@@ -17,6 +17,7 @@ function calmHour(overrides: Partial<HourSample> = {}): HourSample {
     cloudCover: 0,
     cloudCoverLow: 0,
     shortwave: 300,
+    heatFlux: null,
     cape: 0,
     levels: [level(400, 2, 315, 7), level(900, 2, 315, 3), level(1500, 3, 315, -1)],
     ...overrides,
@@ -48,6 +49,16 @@ describe("rateHour checks", () => {
     const r = rateHour(sundvollen, calmHour({ levels: [level(300, 2, 135), level(900, 2, 135)] }), 300);
     expect(r.state).toBe("marginal");
     expect(texts(r, "warn").join()).toMatch(/tailwind/);
+  });
+
+  it("gives the thermals' expected climb and where their strength comes from", () => {
+    const fromModel = rateHour(sundvollen, calmHour({ heatFlux: 300 }), 300);
+    expect(texts(fromModel, "good").join()).toMatch(/Moderate thermals/);
+    expect(texts(fromModel, "info").join()).toMatch(/Climbs around \d\.\d m\/s \(w\* \d\.\d m\/s, from the model's heat flux\)/);
+    const fromSun = rateHour(sundvollen, calmHour({ shortwave: 1000 }), 300);
+    expect(texts(fromSun, "info").join()).toMatch(/estimated from sunshine/);
+    const barely = rateHour(sundvollen, calmHour({ heatFlux: 60 }), 300);
+    expect(texts(barely, "info").join()).toMatch(/Hardly any climb: w\* \d\.\d m\/s is about a glider's sink/);
   });
 
   it("uses the near-ground wind when a model has no pressure levels", () => {

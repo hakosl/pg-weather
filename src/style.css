@@ -177,6 +177,7 @@ table.compare { border-collapse: collapse; width: 100%; table-layout: fixed; fon
 .compare thead th.active button { color: var(--fg); border-bottom-color: var(--fg); }
 .compare tbody th { color: var(--muted); font-weight: 500; }
 .compare small { color: var(--muted); }
+.table-note { margin: 6px 0 0; font-size: 12px; }
 
 .live { display: grid; gap: 12px; }
 .station { display: grid; gap: 2px; }
