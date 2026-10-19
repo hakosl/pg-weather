@@ -1,0 +1,40 @@
+src/favorites.ts
+  s_5fd76648e6db37::t_146eeeacb8ced1 1-30
+tests/favorites.test.ts
+  s_5fd76648e6db37::t_671e4d1b088ccc 1-26,28-31,34-60
+  s_5fd76648e6db37::t_d93b80859ec4ce 27,32-33
+src/ui/favorites.ts
+  s_5fd76648e6db37::t_6b5d963fdc66e7 1-44
+README.md
+  s_5fd76648e6db37::t_818735bd6c1421 5-6,25
+index.html
+  s_5fd76648e6db37::t_17087b669cf7b8 12-15,26
+src/main.ts
+  s_5fd76648e6db37::t_4197626b38a313 4,12,26-28,41-46,65-73,83-94,104,122,132,135,139-158,214-215
+src/style.css
+  s_5fd76648e6db37::t_ff1a47fcd9c2fc 54,69-97,147-148
+src/ui/detail.ts
+  s_5fd76648e6db37::t_bf3e36f429cb7a 6-7,17,28,95,97-98,100,102,204
+src/ui/format.ts
+  s_5fd76648e6db37::t_be9ac19dad78bc 1-2,59-82
+src/ui/map.ts
+  s_5fd76648e6db37::t_ed1d6acadb23f8 4,81-83,85
+vite.config.ts
+  s_5fd76648e6db37::t_cf8291c0cf0261 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ce4a7addf95b79a6621d5f1ed44ed1e76fbcf535",
+  "prompts": {},
+  "sessions": {
+    "s_5fd76648e6db37": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a28ea299-0dd3-45e3-b81c-8e9b62a95532",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Håkon Osland <hakon.osland.ettestol@gmail.com>"
+    }
+  }
+}
