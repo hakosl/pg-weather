@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
-    "sites": "node scripts/build-sites.mjs"
+    "sites": "node scripts/build-sites.mjs",
+    "check": "vite-node scripts/check-sites.ts"
   },
   "dependencies": {
     "idb-keyval": "^6.3.0",

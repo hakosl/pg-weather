@@ -6,6 +6,8 @@ Star a site in its panel to keep it on the Favorites screen, which then opens fi
 
 Live at **https://hakosl.github.io/pg-weather/**. Every push to `main` runs the tests and redeploys (`.github/workflows/deploy.yml`).
 
+Every morning at 07:07 Oslo time, `.github/workflows/check-sites.yml` rates today and the next two days for the site ids it lists, and sends a push notification through [ntfy](https://ntfy.sh) when at least two models rate a site soarable for more than two hours in a row. Subscribe to the topic in the `NTFY_TOPIC` repository secret in the ntfy app. To change the sites, edit the ids in the workflow; a failed run shows up as GitHub's usual failed-workflow email. GitHub turns off schedules in public repositories after 60 days without a commit; re-enable it from the Actions tab.
+
 ## Run
 
 ```sh
@@ -13,6 +15,7 @@ npm install
 npm run dev      # http://localhost:5173
 npm test         # unit tests, including real forecasts from October 2026 as fixtures
 npm run build    # static site in dist/
+npm run check -- 9616 9654   # rates today and the next two days for these site ids
 ```
 
 ## Data
