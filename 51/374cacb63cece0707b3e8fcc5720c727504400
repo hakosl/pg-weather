@@ -1,0 +1,38 @@
+src/report.ts
+  s_5fd76648e6db37::t_15e1affbee6b8d 1-77
+  s_5fd76648e6db37::t_e341391455b1d4 78-103
+scripts/check-sites.ts
+  s_5fd76648e6db37::t_5e75f6a8823900 1-31
+  s_5fd76648e6db37::t_b9aaa0596f1ca6 32-43
+.github/workflows/check-sites.yml
+  s_5fd76648e6db37::t_624677a12b772f 1-25
+tests/report.test.ts
+  s_5fd76648e6db37::t_aca7ac43108b19 2-4,6-8,10-12,14-17,19,22-23,27-34,41-44,48,52-54,86-87,91-106
+  s_5fd76648e6db37::t_296f75c67c89c1 1,5,9,13,18,20-21,24-26,35-40,45-47,49-51,55-85,88-90
+.gitignore
+  s_5fd76648e6db37::t_ed495fc8ae6de3 4
+README.md
+  s_5fd76648e6db37::t_5059af8c67baa9 9-10,18
+package.json
+  s_5fd76648e6db37::t_8dcefd28b24727 13-14
+tsconfig.json
+  s_5fd76648e6db37::t_fb268f6ba64770 15
+vite.config.ts
+  s_5fd76648e6db37::t_bf693d9fd6e0de 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "51374cacb63cece0707b3e8fcc5720c727504400",
+  "prompts": {},
+  "sessions": {
+    "s_5fd76648e6db37": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a28ea299-0dd3-45e3-b81c-8e9b62a95532",
+        "model": "unknown"
+      },
+      "human_author": "Håkon Osland <hakon.osland.ettestol@gmail.com>"
+    }
+  }
+}
