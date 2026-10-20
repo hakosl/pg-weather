@@ -1,0 +1,21 @@
+.github/workflows/check-sites.yml
+  s_5fd76648e6db37::t_758ed846782f67 5
+README.md
+  s_5fd76648e6db37::t_45b363ff5e7666 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "33f09033d4deecaa1a76dad2831ce469d344a398",
+  "prompts": {},
+  "sessions": {
+    "s_5fd76648e6db37": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a28ea299-0dd3-45e3-b81c-8e9b62a95532",
+        "model": "unknown"
+      },
+      "human_author": "Håkon Osland <hakon.osland.ettestol@gmail.com>"
+    }
+  }
+}
