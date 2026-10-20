@@ -2,7 +2,7 @@ name: Check sites
 
 on:
   schedule:
-    - cron: "7 7 * * *"
+    - cron: "7 5 * * *"
       timezone: "Europe/Oslo"
   workflow_dispatch:
 
