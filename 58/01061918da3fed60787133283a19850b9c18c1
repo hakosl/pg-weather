@@ -1,0 +1,32 @@
+src/analysis/rating.ts
+  s_5fd76648e6db37::t_a10c47163bbe04 160-175
+  s_5fd76648e6db37::t_ac88568aee4688 191
+src/forecast/overview.ts
+  s_5fd76648e6db37::t_96e43c8eb307f5 24
+tests/rating.test.ts
+  s_5fd76648e6db37::t_490a7fbe552f0c 77-91
+tests/forecasts.test.ts
+  s_5fd76648e6db37::t_479e7e318f2047 45-53
+src/ui/legend.ts
+  s_5fd76648e6db37::t_f1087d3adcf776 18-19
+src/types.ts
+  s_5fd76648e6db37::t_ef55e559a4ab59 87-88
+src/ui/format.ts
+  s_5fd76648e6db37::t_1dc334c7a62ad8 9,32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5801061918da3fed60787133283a19850b9c18c1",
+  "prompts": {},
+  "sessions": {
+    "s_5fd76648e6db37": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a28ea299-0dd3-45e3-b81c-8e9b62a95532",
+        "model": "unknown"
+      },
+      "human_author": "Håkon Osland <hakon.osland.ettestol@gmail.com>"
+    }
+  }
+}
