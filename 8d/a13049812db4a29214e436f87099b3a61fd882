@@ -1,0 +1,23 @@
+README.md
+  s_5fd76648e6db37::t_637bf07736c78f 9
+src/report.ts
+  s_5fd76648e6db37::t_1839a832d8a192 45-46,70
+tests/report.test.ts
+  s_5fd76648e6db37::t_781588c43dab40 9,13,18,21,36,39-45,54,72,82
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8da13049812db4a29214e436f87099b3a61fd882",
+  "prompts": {},
+  "sessions": {
+    "s_5fd76648e6db37": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a28ea299-0dd3-45e3-b81c-8e9b62a95532",
+        "model": "unknown"
+      },
+      "human_author": "Håkon Osland <hakon.osland.ettestol@gmail.com>"
+    }
+  }
+}
