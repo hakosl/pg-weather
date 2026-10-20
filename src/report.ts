@@ -7,8 +7,6 @@ import { STATE_META, blockersText } from "./ui/format";
 
 // One model alone is too often an outlier days ahead, so a day only counts when another agrees.
 export const MIN_AGREEING_MODELS = 2;
-// Soaring for more than two hours in a row.
-export const MIN_SOAR_HOURS = 3;
 const APP_URL = "https://hakosl.github.io/pg-weather/";
 const NTFY_URL = "https://ntfy.sh/";
 
@@ -44,11 +42,8 @@ export function buildReports(sites: Site[], days: string[], results: ModelResult
   );
 }
 
-function soarHours({ state, window }: SiteDay["summary"]): number {
-  return state === "soar" && window ? Number(window.end.slice(0, 2)) - Number(window.start.slice(0, 2)) : 0;
-}
-
-const soaring = (r: SiteReport) => r.models.filter((m) => soarHours(m.day.summary) >= MIN_SOAR_HOURS);
+// A day only rates soarable with at least two soarable hours in a row.
+const soaring = (r: SiteReport) => r.models.filter((m) => m.day.summary.state === "soar");
 
 export const isSoarable = (r: SiteReport) => soaring(r).length >= MIN_AGREEING_MODELS;
 
@@ -72,7 +67,7 @@ function modelLine({ model, day }: SiteReport["models"][number]): string {
 }
 
 const block = (r: SiteReport) => [
-  `${r.site.name}, ${dayLabel(r.day)}: ${soaring(r).length} of ${r.models.length} models soarable for ${MIN_SOAR_HOURS}+ h`,
+  `${r.site.name}, ${dayLabel(r.day)}: ${soaring(r).length} of ${r.models.length} models soarable`,
   ...r.models.map(modelLine),
 ];
 const siteDays = (reports: SiteReport[]) => reports.map((r) => `${r.site.name} ${dayLabel(r.day)}`).join("; ");

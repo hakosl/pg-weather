@@ -6,19 +6,19 @@ import { alertFor, buildReports, formatReport, isSoarable, osloDays, sendAlert, 
 import type { FlyState, ModelId } from "../src/types";
 import { loadFixture, sundvollen } from "./helpers";
 
-function siteDay(state: FlyState | null, windowHours: number): SiteDay {
+function siteDay(state: FlyState | null): SiteDay {
   const hours = ["11", "12", "13"].map(
     (h, i) => ({ time: `2026-10-21T${h}:00`, state: state ?? "nodata", launchWind: { speed: 2 + i, direction: 315 } }) as HourRating,
   );
-  const window = state === "fly" || state === "soar" ? { start: "11:00", end: `${11 + windowHours}:00` } : null;
+  const window = state === "fly" || state === "soar" ? { start: "11:00", end: "14:00" } : null;
   const blockers = state === "nogo" ? [{ measure: "rain" as const, hours: 5 }] : [];
   return { hours, summary: { state, window, blockers } };
 }
 
-const report = (day: string, ...models: [ModelId, FlyState | null, number?][]): SiteReport => ({
+const report = (day: string, ...models: [ModelId, FlyState | null][]): SiteReport => ({
   site: sundvollen,
   day,
-  models: models.map(([model, state, windowHours = 3]) => ({ model, day: siteDay(state, windowHours) })),
+  models: models.map(([model, state]) => ({ model, day: siteDay(state) })),
 });
 
 const soarableWednesday = report("2026-10-21", ["ecmwf_ifs025", "soar"], ["icon_seamless", "soar"], ["gfs_seamless", "nogo"], ["metno_nordic", null]);
@@ -33,11 +33,16 @@ describe("osloDays", () => {
 });
 
 describe("isSoarable", () => {
-  it("needs at least two models to rate more than two hours in a row soarable", () => {
+  it("needs at least two models to rate the day soarable, which means two hours of it in a row", () => {
     expect(isSoarable(soarableWednesday)).toBe(true);
     expect(isSoarable(flyableThursday)).toBe(false);
-    expect(isSoarable(report("2026-10-21", ["ecmwf_ifs025", "soar", 2], ["icon_seamless", "soar", 2]))).toBe(false);
-    expect(isSoarable(report("2026-10-21", ["ecmwf_ifs025", "soar", 4], ["icon_seamless", "soar", 3]))).toBe(true);
+    const twoHours = parseForecast(loadFixture("sundvollen-icon.json"), "icon_seamless");
+    const [saturday] = buildReports([sundvollen], ["2026-10-17"], [
+      { model: "icon_seamless", forecasts: new Map([["sundvollen", twoHours]]) },
+      { model: "gfs_seamless", forecasts: new Map([["sundvollen", { ...twoHours, model: "gfs_seamless" }]]) },
+    ]);
+    expect(saturday.models[0].day.summary).toMatchObject({ state: "soar", window: { start: "14:00", end: "16:00" } });
+    expect(isSoarable(saturday)).toBe(true);
   });
 });
 
@@ -46,7 +51,7 @@ describe("formatReport", () => {
     expect(formatReport([soarableWednesday], []).split("\n")).toEqual([
       "SOARABLE: Sundvollen Wed 21 Oct",
       "",
-      "Sundvollen, Wed 21 Oct: 2 of 4 models soarable for 3+ h",
+      "Sundvollen, Wed 21 Oct: 2 of 4 models soarable",
       "  ECMWF  soarable 11:00–14:00, launch wind 2.0–4.0 m/s from NW",
       "  ICON   soarable 11:00–14:00, launch wind 2.0–4.0 m/s from NW",
       "  GFS    no-go: rain (5 h)",
@@ -64,7 +69,7 @@ describe("alertFor", () => {
   it("covers only the soarable days", () => {
     const alert = alertFor([soarableWednesday, flyableThursday])!;
     expect(alert.title).toBe("Soarable: Sundvollen Wed 21 Oct");
-    expect(alert.message.split("\n")[0]).toBe("Sundvollen, Wed 21 Oct: 2 of 4 models soarable for 3+ h");
+    expect(alert.message.split("\n")[0]).toBe("Sundvollen, Wed 21 Oct: 2 of 4 models soarable");
     expect(alert.message).not.toMatch(/Thu 22 Oct/);
   });
 
@@ -74,7 +79,7 @@ describe("alertFor", () => {
 });
 
 describe("sendAlert", () => {
-  const alert = { title: "Soarable: Sundvollen Wed 21 Oct", message: "Sundvollen, Wed 21 Oct: 2 of 4 models soarable for 3+ h" };
+  const alert = { title: "Soarable: Sundvollen Wed 21 Oct", message: "Sundvollen, Wed 21 Oct: 2 of 4 models soarable" };
 
   it("publishes to the ntfy topic as JSON, opening the app on tap", async () => {
     const fetchFn = vi.fn(async () => ({ ok: true, status: 200, text: async () => "" }) as Response);
