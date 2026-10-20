@@ -157,7 +157,22 @@ function stateOf(reasons: Reason[], hasLift: boolean): FlyState {
   return hasLift ? "soar" : "fly";
 }
 
-export function rateHour(site: Site, hour: HourSample, groundM: number): HourRating {
+export interface Daylight {
+  sunrise: string;
+  sunset: string;
+}
+
+function daylightReasons(time: string, light: Daylight | undefined): Reason[] {
+  if (!light) return [];
+  const [start, rise, set] = [clock(time), clock(light.sunrise), clock(light.sunset)];
+  const [riseText, setText] = [light.sunrise.slice(11, 16), light.sunset.slice(11, 16)];
+  if (start + 1 <= rise || start >= set) return [{ level: "nogo", text: `Dark: daylight ${riseText}–${setText}`, measure: "dark" }];
+  if (start < rise) return [{ level: "warn", text: `Sunrise at ${riseText}`, measure: "dark" }];
+  if (start + 1 > set) return [{ level: "warn", text: `Sunset at ${setText}`, measure: "dark" }];
+  return [];
+}
+
+export function rateHour(site: Site, hour: HourSample, groundM: number, light?: Daylight): HourRating {
   const launchM = site.altDem;
   const profileWind = windAt(hour.levels, launchM);
   const launchWind = profileWind ?? hour.wind10m;
@@ -173,6 +188,7 @@ export function rateHour(site: Site, hour: HourSample, groundM: number): HourRat
 
   const lift = [...ridgeReasons(site, ontoSlopeMs, direction), ...thermalReasons(thermals, hour.levels)];
   const reasons = [
+    ...daylightReasons(hour.time, light),
     ...rainReasons(hour),
     ...launchWindReasons(launchWind, launchWindSource),
     ...directionReasons(launchWind, direction, ontoSlopeMs),

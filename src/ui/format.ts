@@ -6,7 +6,7 @@ export const STATE_META: Record<FlyState, { label: string; color: string; meanin
   soar: { label: "Soarable", color: "var(--soar)", meaning: "Flyable, with ridge lift or usable thermals" },
   fly: { label: "Flyable", color: "var(--fly)", meaning: "Safe to fly, but expect a top-to-bottom glide" },
   marginal: { label: "Marginal", color: "var(--marginal)", meaning: "Something needs a closer look: see the reasons" },
-  nogo: { label: "No-go", color: "var(--nogo)", meaning: "Rain, too much wind, strong gusts or wind from behind" },
+  nogo: { label: "No-go", color: "var(--nogo)", meaning: "Rain, too much wind, strong gusts, wind from behind or darkness" },
   nodata: { label: "No data", color: "var(--nodata)", meaning: "Not rated yet, or outside this model's range" },
 };
 
@@ -29,6 +29,7 @@ export const MEASURE_LABEL: Record<Measure, string> = {
   unknownDirection: "unknown launch direction",
   lowCloud: "low cloud",
   overdevelopment: "overdevelopment",
+  dark: "darkness",
 };
 
 const MAX_BLOCKERS = 3;

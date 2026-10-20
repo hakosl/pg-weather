@@ -84,7 +84,8 @@ export type Measure =
   | "direction"
   | "unknownDirection"
   | "lowCloud"
-  | "overdevelopment";
+  | "overdevelopment"
+  | "dark";
 
 export interface Reason {
   level: ReasonLevel;

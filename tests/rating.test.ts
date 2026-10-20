@@ -74,6 +74,21 @@ describe("rateHour checks", () => {
     expect(texts(barely, "info").join()).toMatch(/Hardly any climb: w\* \d\.\d m\/s is about a glider's sink/);
   });
 
+  it("is no-go in the dark, and marginal in the hour the sun rises or sets", () => {
+    const light = { sunrise: "2026-10-31T07:48", sunset: "2026-10-31T16:28" };
+    const at = (h: string) => rateHour(sundvollen, calmHour({ time: `2026-10-31T${h}:00` }), 300, light);
+    for (const dark of ["06", "17", "21"]) {
+      expect(at(dark).state).toBe("nogo");
+      expect(limitingMeasures(at(dark))).toEqual(["dark"]);
+    }
+    expect(texts(at("17"), "nogo")).toEqual(["Dark: daylight 07:48–16:28"]);
+    expect(at("07").state).toBe("marginal");
+    expect(texts(at("07"), "warn")).toEqual(["Sunrise at 07:48"]);
+    expect(texts(at("16"), "warn")).toEqual(["Sunset at 16:28"]);
+    expect(at("12").reasons.some((r) => r.measure === "dark")).toBe(false);
+    expect(at("08").reasons.some((r) => r.measure === "dark")).toBe(false);
+  });
+
   it("uses the near-ground wind when a model has no pressure levels", () => {
     const r = rateHour(sundvollen, calmHour({ levels: [] }), 300);
     expect(r.launchWindSource).toBe("near-ground");

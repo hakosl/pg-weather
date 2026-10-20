@@ -42,6 +42,15 @@ describe("rateSites", () => {
     expect(fetchFn).toHaveBeenCalledTimes(1);
   });
 
+  it("rates the hours before sunrise and after sunset as dark", async () => {
+    const light = { ...(fixture as object), daily: { time: ["2026-10-17"], sunrise: ["2026-10-17T08:05"], sunset: ["2026-10-17T18:04"] } };
+    const fetchFn = vi.fn(async () => ({ ok: true, status: 200, json: async () => light }) as Response);
+    const day = (await rateSites([sundvollen], range, "2026-10-17", "icon_seamless", { store: memoryStore(), fetchFn })).get("sundvollen")!;
+    const state = (h: string) => day.hours.find((r) => r.time === `2026-10-17T${h}:00`)!.state;
+    expect([state("07"), state("19")]).toEqual(["nogo", "nogo"]);
+    expect(day.hours.find((r) => r.time === "2026-10-17T19:00")!.reasons[0].measure).toBe("dark");
+  });
+
   it("serves a reloaded page from the browser cache", async () => {
     const fetchFn = fakeFetch();
     await rateSites([sundvollen], range, "2026-10-17", "icon_seamless", { store: browserStore("reload-test"), fetchFn, now: 1000 });

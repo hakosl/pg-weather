@@ -20,8 +20,8 @@ const cacheKey = (model: ModelId, siteId: string) => `${model}|${siteId}`;
 const toForecast = (e: CacheEntry, model: ModelId): ModelForecast => ({ ...parseForecast(e.raw, model), fetchedAt: e.at });
 
 export function rateForecast(site: Site, forecast: ModelForecast, day: string): SiteDay {
-  const hours = hoursForDay(forecast, day).map((h) => rateHour(site, h, forecast.groundElevation));
   const light = forecast.daylight[day];
+  const hours = hoursForDay(forecast, day).map((h) => rateHour(site, h, forecast.groundElevation, light));
   return { hours, summary: summarizeDay(hours, light?.sunrise ?? null, light?.sunset ?? null) };
 }
 
