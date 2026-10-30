@@ -87,8 +87,10 @@ function directionReasons(wind: Wind, fit: DirectionAssessment, onto: number | n
   const tailwind = fit.fit === "behind" && onto != null ? -onto : 0;
   if (tailwind > LIMITS.tailwindNoGo)
     return [{ level: "nogo", text: `Wind from behind the launch, ${ms(tailwind)} down the slope (${windText(wind)}): lee and rotor`, measure: "behind" }];
-  if (wind.speed < LIMITS.nilWind) return [];
   const dir = compass(wind.direction);
+  // Any tailwind makes a launch hard, so unlike the other directions it is flagged in nil wind too.
+  if (fit.fit === "behind") return [{ level: "warn", text: `Light tailwind from ${dir}: hard to launch`, measure: "tailwind" }];
+  if (wind.speed < LIMITS.nilWind) return [];
   switch (fit.fit) {
     case "good":
       return [{ level: "good", text: `${dir} wind suits this launch` }];
@@ -98,8 +100,6 @@ function directionReasons(wind: Wind, fit: DirectionAssessment, onto: number | n
       if (wind.speed >= LIMITS.crossTooStrong)
         return [{ level: "nogo", text: `Strong crosswind, ${windText(wind)}`, measure: "crosswind" }];
       return wind.speed >= LIMITS.crossWarn ? [{ level: "warn", text: `Crosswind from ${dir}`, measure: "crosswind" }] : [];
-    case "behind":
-      return [{ level: "warn", text: `Light tailwind from ${dir}: hard to launch`, measure: "tailwind" }];
     case "unknown":
       return wind.speed >= LIMITS.crossWarn
         ? [{ level: "warn", text: "Launch direction unknown: check locally which winds work here", measure: "unknownDirection" }]

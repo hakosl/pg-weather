@@ -53,7 +53,15 @@ describe("rateHour checks", () => {
     expect(texts(r, "nogo").join()).toMatch(/behind/);
     expect(limitingMeasures(r)).toEqual(["behind"]);
     expect(rateHour(sundvollen, fromBehind(1.2), 300).state).toBe("nogo");
-    expect(rateHour(sundvollen, fromBehind(0.9), 300).state).toBe("fly");
+  });
+
+  it("flags any lighter tailwind as marginal, even in near-nil wind", () => {
+    const fromBehind = (speed: number) => calmHour({ levels: [level(300, speed, 135), level(900, speed, 135)] });
+    for (const speed of [0.9, 0.3]) {
+      const r = rateHour(sundvollen, fromBehind(speed), 300);
+      expect(r.state).toBe("marginal");
+      expect(limitingMeasures(r)).toEqual(["tailwind"]);
+    }
   });
 
   it("flags a light tailwind as marginal when under 1 m/s of it blows down the slope", () => {
