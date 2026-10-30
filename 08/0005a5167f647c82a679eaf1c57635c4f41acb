@@ -1,0 +1,37 @@
+tests/format.test.ts
+  s_b0692b3de4ae41::t_635f433f894b62 1-33
+src/style.css
+  s_b0692b3de4ae41::t_b7841a9a350731 94
+  s_b0692b3de4ae41::t_936fcfe36321e5 93,95
+  s_b0692b3de4ae41::t_a8fe38fdfaa598 161-167,170-173,175-177,179-180,182
+src/ui/format.ts
+  s_b0692b3de4ae41::t_60e7cdd6650bae 1,3
+  s_b0692b3de4ae41::t_485be9b2acd906 71-85
+src/ui/detail.ts
+  s_b0692b3de4ae41::t_e7bbf4dc3b26d1 128-142,144,146-151,156-157,159-160
+  s_b0692b3de4ae41::t_c15bcde8de6f64 145
+  s_b0692b3de4ae41::t_a132ac5d788122 222-236,238
+  s_b0692b3de4ae41::t_3442531a1b482e 266
+  s_b0692b3de4ae41::t_92ef4c6e533778 143
+  s_b0692b3de4ae41::t_b0afe6f436a881 8
+src/ui/favorites.ts
+  s_b0692b3de4ae41::t_2d6dea5dcca8ef 3
+  s_b0692b3de4ae41::t_c62cbc710c7844 20-27
+  s_b0692b3de4ae41::t_a93d9f8ea1dfde 33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "080005a5167f647c82a679eaf1c57635c4f41acb",
+  "prompts": {},
+  "sessions": {
+    "s_b0692b3de4ae41": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "95ea0f5d-a96e-4cc8-819c-a60ff4e7124a",
+        "model": "unknown"
+      },
+      "human_author": "Håkon Osland <hakon.osland.ettestol@gmail.com>"
+    }
+  }
+}
