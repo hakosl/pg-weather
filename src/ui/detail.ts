@@ -5,7 +5,7 @@ import { FORECAST_TTL_MS } from "../forecast/cache";
 import { MODELS } from "../forecast/client";
 import type { SiteDay } from "../forecast/overview";
 import type { ModelId, Site, Wind } from "../types";
-import { HOURS, REASON_COLOR, STATE_META, blockersText, el, fmtM, hourOf, measuresText, pad2, pill, sky } from "./format";
+import { HOURS, REASON_COLOR, STATE_META, arrow, blockersText, el, fmtM, hourOf, measuresText, pad2, pill, sky, svg } from "./format";
 import { renderLive, type LiveState } from "./live";
 
 export interface DetailData {
@@ -29,14 +29,7 @@ interface Handlers {
   onToggleFavorite: () => void;
 }
 
-const SVG_NS = "http://www.w3.org/2000/svg";
 const FIT_LABEL = { good: "good", marginal: "marginal", cross: "cross", behind: "from behind", unknown: "unknown" };
-
-function svg(tag: string, attrs: Record<string, string | number>): SVGElement {
-  const node = document.createElementNS(SVG_NS, tag);
-  for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, String(v));
-  return node;
-}
 
 const ZONE_RING_R = 42;
 
@@ -123,13 +116,6 @@ function fetchedNote(fetchedAt: number | null): HTMLElement | null {
   if (fetchedAt == null) return null;
   const time = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit" }).format(fetchedAt);
   return el("p", { class: "muted fetched" }, `Fetched ${time}, refreshed after ${FORECAST_TTL_MS / 3_600_000} hours`);
-}
-
-// Points downwind, like the map's arrows.
-function arrow(wind: Wind): SVGElement {
-  const root = svg("svg", { width: 12, height: 12, viewBox: "-6 -6 12 12", "aria-hidden": "true" });
-  if (wind.speed >= 0.5) root.append(svg("path", { d: "M0 -5.5 L4.5 5 L0 2.5 L-4.5 5 Z", fill: "currentColor", transform: `rotate(${wind.direction + 180})` }));
-  return root;
 }
 
 // One hour of one model: the sky above a tile in the hour's rating color, with launch wind, its direction and the gust.

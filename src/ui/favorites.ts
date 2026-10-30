@@ -1,16 +1,19 @@
 import type { SiteDay } from "../forecast/overview";
 import type { Site } from "../types";
-import { HOURS, STATE_META, el, hourOf, pad2, pill, ratingNote, sky, slotAt, stateAt } from "./format";
+import { HOURS, STATE_META, arrow, el, pad2, pill, ratingNote, sky, slotAt, stateAt } from "./format";
 
 interface Handlers {
   onOpen: (site: Site) => void;
   onRemove: (site: Site) => void;
 }
 
+// Whole m/s: on a phone each hour is too narrow for a decimal.
 function hourCells(day: SiteDay | undefined, hour: number | null): HTMLElement {
   const cells = HOURS.map((h) => {
-    const state = day?.hours.find((r) => hourOf(r.time) === h)?.state ?? "nodata";
-    const cell = el("span", { class: h === hour ? "selected" : "" });
+    const r = day ? slotAt(day, h) : null;
+    const state = r?.state ?? "nodata";
+    const wind = r?.launchWind ? [arrow(r.launchWind), String(Math.round(r.launchWind.speed))] : [];
+    const cell = el("span", { class: h === hour ? "selected" : "" }, ...wind);
     cell.style.background = STATE_META[state].color;
     return cell;
   });

@@ -1,6 +1,6 @@
 import { LIMITS, limitingMeasures, type DaySummary, type HourRating } from "../analysis/rating";
 import type { SiteDay } from "../forecast/overview";
-import type { FlyState, HourSample, Measure, Reason, ReasonLevel } from "../types";
+import type { FlyState, HourSample, Measure, Reason, ReasonLevel, Wind } from "../types";
 
 export const STATE_META: Record<FlyState, { label: string; color: string; meaning: string }> = {
   soar: { label: "Soarable", color: "var(--soar)", meaning: "Flyable, with ridge lift or usable thermals" },
@@ -51,6 +51,21 @@ export function el<K extends keyof HTMLElementTagNameMap>(
   for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
   for (const c of children) if (c != null) node.append(c);
   return node;
+}
+
+const SVG_NS = "http://www.w3.org/2000/svg";
+
+export function svg(tag: string, attrs: Record<string, string | number>): SVGElement {
+  const node = document.createElementNS(SVG_NS, tag);
+  for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, String(v));
+  return node;
+}
+
+// Points downwind, like the map's arrows.
+export function arrow(wind: Wind): SVGElement {
+  const root = svg("svg", { width: 12, height: 12, viewBox: "-6 -6 12 12", "aria-hidden": "true" });
+  if (wind.speed >= 0.5) root.append(svg("path", { d: "M0 -5.5 L4.5 5 L0 2.5 L-4.5 5 Z", fill: "currentColor", transform: `rotate(${wind.direction + 180})` }));
+  return root;
 }
 
 export const hourOf = (iso: string) => Number(iso.slice(11, 13));

@@ -88,7 +88,10 @@ button, select, input { font: inherit; color: inherit; }
 }
 .fav-name { font-weight: 600; font-size: 15px; }
 .fav-summary { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 13px; }
-.fav-hours span { height: 12px; border-radius: 2px; }
+.fav-hours span {
+  display: grid; justify-items: center; align-content: center; gap: 1px; height: 30px; border-radius: 3px;
+  color: var(--surface); font-size: 11px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums;
+}
 .fav-hours .selected { outline: 2px solid var(--fg); outline-offset: 1px; }
 /* Columns as narrow as the bars below, even when an icon is wider than its hour: it then overflows evenly on both sides. */
 .cells.fav-sky { grid-auto-columns: minmax(0, 1fr); margin-bottom: -3px; }
