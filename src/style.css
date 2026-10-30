@@ -62,6 +62,8 @@ button, select, input { font: inherit; color: inherit; }
 .time output { font-variant-numeric: tabular-nums; min-width: 3.2em; color: var(--muted); }
 .model { display: flex; align-items: center; gap: 6px; color: var(--muted); }
 .model select { background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; padding: 3px 6px; }
+.usage { display: flex; align-items: center; gap: 6px; margin-left: auto; color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.usage meter { width: 64px; }
 
 .stage { position: relative; min-height: 0; }
 #map { position: absolute; inset: 0; background: var(--bg); }

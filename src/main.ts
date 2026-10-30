@@ -7,12 +7,14 @@ import { RateLimitError } from "./forecast/client";
 import { loadSiteModels, rateForecast, rateSites, type SiteDay } from "./forecast/overview";
 import { nearbyStations, stationHistory } from "./live/windsMobi";
 import type { ModelForecast, Site } from "./types";
-import { dayRange, setupControls, type Selection } from "./ui/controls";
+import { dayRange, osloDate, setupControls, type Selection } from "./ui/controls";
 import { renderDetail, type DetailSelection } from "./ui/detail";
 import { renderFavorites } from "./ui/favorites";
 import type { LiveState } from "./ui/live";
 import { renderLegend } from "./ui/legend";
 import { SiteLayer, createMap } from "./ui/map";
+import { renderUsage } from "./ui/usage";
+import { recordUsage, usageToday } from "./usage";
 
 // About 400 of Open-Meteo's 600 free requests a minute: each site costs ~4 because of the many upper-air variables.
 const MAX_RATED_SITES = 100;
@@ -40,6 +42,10 @@ function setStatus(text: string | null, isError = false): void {
 
 const storage = () => localStorage;
 let favorites = loadFavorites(storage, new Set(sitesById.keys()));
+
+const usageEl = document.getElementById("usage")!;
+renderUsage(usageEl, usageToday(storage, osloDate(new Date())));
+const countUsage = (sites: number) => renderUsage(usageEl, recordUsage(storage, osloDate(new Date()), sites));
 // Favorites open first when there are any, so only they cost forecast requests until the map is opened.
 let screen: "favorites" | "map" = favorites.length ? "favorites" : "map";
 
@@ -98,7 +104,7 @@ async function refreshOverview(): Promise<void> {
   const abort = (overviewAbort = new AbortController());
   setStatus(`Loading forecasts for ${todo.length} site${todo.length === 1 ? "" : "s"}…`);
   try {
-    const got = await rateSites(todo, range, selection.day, selection.model, { store, signal: abort.signal });
+    const got = await rateSites(todo, range, selection.day, selection.model, { store, signal: abort.signal, onFetched: countUsage });
     if (key !== ratingsKey) return;
     got.forEach((v, id) => ratings.set(id, v));
     drawRatings();
@@ -188,7 +194,7 @@ async function openDetail(site: Site): Promise<void> {
   drawDetail();
   void loadLive(site, abort.signal);
   try {
-    const forecasts = await loadSiteModels(site, range, { store, signal: abort.signal });
+    const forecasts = await loadSiteModels(site, range, { store, signal: abort.signal, onFetched: countUsage });
     if (abort.signal.aborted || !detail) return;
     detail.forecasts = forecasts;
   } catch (err) {

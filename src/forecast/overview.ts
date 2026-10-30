@@ -14,6 +14,8 @@ export interface LoadOptions {
   fetchFn?: FetchFn;
   signal?: AbortSignal;
   now?: number;
+  /** Called with the number of sites in each request sent to Open-Meteo. */
+  onFetched?: (sites: number) => void;
 }
 
 const cacheKey = (model: ModelId, siteId: string) => `${model}|${siteId}`;
@@ -55,6 +57,7 @@ export async function loadForecasts(
   for (let i = 0; i < missing.length; i += BATCH_SIZE) {
     const batch = missing.slice(i, i + BATCH_SIZE);
     const raws = await fetchLocations(batch, range, model, opts.fetchFn, opts.signal);
+    opts.onFetched?.(batch.length);
     const items = batch.map((site, j): [string, CacheEntry] => [
       cacheKey(model, site.id),
       { at: now, start: range.start, end: range.end, raw: raws[j] },

@@ -12,7 +12,7 @@ const FORECAST_DAYS = 5;
 const MODEL_KEY = "pg-weather:model";
 const DEFAULT_MODEL: ModelId = "icon_seamless";
 
-const osloDate = (d: Date) => new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Oslo" }).format(d);
+export const osloDate = (d: Date) => new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Oslo" }).format(d);
 
 export function upcomingDays(now = new Date()): { day: string; label: string }[] {
   return Array.from({ length: FORECAST_DAYS }, (_, i) => {

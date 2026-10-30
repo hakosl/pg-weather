@@ -85,6 +85,15 @@ describe("rateSites", () => {
     expect(new URL(retry.mock.calls[0][0]).searchParams.get("latitude")!.split(",")).toHaveLength(10);
   });
 
+  it("reports how many sites each request fetched, not the cached ones", async () => {
+    const sites = Array.from({ length: 60 }, (_, i) => makeSite({ id: `s${i}` }));
+    const store = memoryStore();
+    const onFetched = vi.fn();
+    await rateSites(sites.slice(0, 5), range, "2026-10-17", "icon_seamless", { store, fetchFn: fakeFetch(), onFetched });
+    await rateSites(sites, range, "2026-10-17", "icon_seamless", { store, fetchFn: fakeFetch(), onFetched });
+    expect(onFetched.mock.calls).toEqual([[5], [50], [5]]);
+  });
+
   it("treats an unavailable cache as empty instead of failing", async () => {
     const broken = { getMany: async () => Promise.reject(new Error("blocked")), setMany: async () => Promise.reject(new Error("blocked")), prune: async () => {} };
     const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
