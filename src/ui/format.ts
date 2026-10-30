@@ -1,6 +1,6 @@
-import { limitingMeasures, type DaySummary, type HourRating } from "../analysis/rating";
+import { LIMITS, limitingMeasures, type DaySummary, type HourRating } from "../analysis/rating";
 import type { SiteDay } from "../forecast/overview";
-import type { FlyState, Measure, ReasonLevel } from "../types";
+import type { FlyState, HourSample, Measure, Reason, ReasonLevel } from "../types";
 
 export const STATE_META: Record<FlyState, { label: string; color: string; meaning: string }> = {
   soar: { label: "Soarable", color: "var(--soar)", meaning: "Flyable, with ridge lift or usable thermals" },
@@ -66,6 +66,21 @@ export function pill(state: FlyState): HTMLElement {
   const node = el("span", { class: "state-pill" }, STATE_META[state].label);
   node.style.background = STATE_META[state].color;
   return node;
+}
+
+const CLEAR_MAX_PCT = 25;
+const PARTLY_MAX_PCT = 70;
+
+/** An icon for the hour's sky: rain first, then night, then how much cloud; null when the model gives no cloud cover. */
+export function sky(r: { sample: Pick<HourSample, "cloudCover" | "precipitation">; reasons: Reason[] }): { icon: string; label: string } | null {
+  const { cloudCover, precipitation } = r.sample;
+  if (precipitation != null && precipitation >= LIMITS.rainWarn) return { icon: "🌧️", label: `Rain, ${precipitation.toFixed(1)} mm` };
+  if (r.reasons.some((x) => x.measure === "dark" && x.level === "nogo")) return { icon: "🌙", label: "Dark" };
+  if (cloudCover == null) return null;
+  const cloud = `${Math.round(cloudCover)}% cloud`;
+  if (cloudCover <= CLEAR_MAX_PCT) return { icon: "☀️", label: `Clear, ${cloud}` };
+  if (cloudCover <= PARTLY_MAX_PCT) return { icon: "⛅", label: `Partly cloudy, ${cloud}` };
+  return { icon: "☁️", label: `Overcast, ${cloud}` };
 }
 
 /** The picked hour's rating, or null for the whole day. */

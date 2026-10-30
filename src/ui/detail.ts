@@ -5,7 +5,7 @@ import { FORECAST_TTL_MS } from "../forecast/cache";
 import { MODELS } from "../forecast/client";
 import type { SiteDay } from "../forecast/overview";
 import type { ModelId, Site, Wind } from "../types";
-import { HOURS, REASON_COLOR, STATE_META, blockersText, el, fmtM, hourOf, measuresText, pad2, pill } from "./format";
+import { HOURS, REASON_COLOR, STATE_META, blockersText, el, fmtM, hourOf, measuresText, pad2, pill, sky } from "./format";
 import { renderLive, type LiveState } from "./live";
 
 export interface DetailData {
@@ -125,27 +125,39 @@ function fetchedNote(fetchedAt: number | null): HTMLElement | null {
   return el("p", { class: "muted fetched" }, `Fetched ${time}, refreshed after ${FORECAST_TTL_MS / 3_600_000} hours`);
 }
 
+// Points downwind, like the map's arrows.
+function arrow(wind: Wind): SVGElement {
+  const root = svg("svg", { width: 12, height: 12, viewBox: "-6 -6 12 12", "aria-hidden": "true" });
+  if (wind.speed >= 0.5) root.append(svg("path", { d: "M0 -5.5 L4.5 5 L0 2.5 L-4.5 5 Z", fill: "currentColor", transform: `rotate(${wind.direction + 180})` }));
+  return root;
+}
+
+// One hour of one model: the sky above a tile in the hour's rating color, with launch wind, its direction and the gust.
+function hourSlot(id: ModelId, h: number, r: HourRating | null, selected: boolean, onSelect: Handlers["onSelect"]): HTMLElement {
+  const state = r?.state ?? "nodata";
+  const measures = r ? limitingMeasures(r) : [];
+  const why = measures.length ? `: ${measuresText(measures)}` : "";
+  const gust = r?.sample.gust10m ?? null;
+  const gustText = gust != null ? gust.toFixed(1) : "–";
+  const conditions = r ? sky(r) : null;
+  const wind = r?.launchWind ? `. Wind ${windText(r.launchWind)}${gust != null ? `, gusts ${gustText}` : ""} m/s` : "";
+  const title = `${modelLabel(id)} ${pad2(h)}:00 ${STATE_META[state].label}${why}${wind}${conditions ? `. ${conditions.label}` : ""}`;
+  const content = r?.launchWind ? [arrow(r.launchWind), el("b", {}, r.launchWind.speed.toFixed(1)), el("small", {}, gust != null ? `(${gustText})` : gustText)] : [];
+  const b = el("button", { type: "button", class: `cell${selected ? " selected" : ""}`, title, "aria-label": title, "aria-pressed": String(selected) }, ...content);
+  b.style.background = STATE_META[state].color;
+  b.addEventListener("click", () => onSelect({ model: id, hour: h }));
+  return el("div", { class: "slot" }, el("span", { class: "sky", "aria-hidden": "true" }, conditions?.icon ?? ""), b);
+}
+
 function strips(models: NonNullable<DetailData["models"]>, sel: DetailSelection, onSelect: Handlers["onSelect"]): HTMLElement {
   const rows = models.map(({ id, day }) => {
-    const label = MODELS.find((m) => m.id === id)!.label;
     const w = day.summary.window;
     const sub = day.summary.state ? `${STATE_META[day.summary.state].label}${w ? ` ${w.start.slice(0, 2)}–${w.end.slice(0, 2)}` : ""}` : "No data";
-    const cells = HOURS.map((h) => {
-      const r = ratingAt(day, h);
-      const state = r?.state ?? "nodata";
-      const selected = id === sel.model && h === sel.hour;
-      const measures = r ? limitingMeasures(r) : [];
-      const why = measures.length ? `: ${measuresText(measures)}` : "";
-      const title = `${label} ${pad2(h)}:00 ${STATE_META[state].label}${why}`;
-      const b = el("button", { type: "button", class: `cell${selected ? " selected" : ""}`, title, "aria-pressed": String(selected) });
-      b.style.background = STATE_META[state].color;
-      b.addEventListener("click", () => onSelect({ model: id, hour: h }));
-      return b;
-    });
-    return el("div", { class: "strip" }, el("div", { class: "strip-label" }, label, el("small", {}, sub)), el("div", { class: "cells" }, ...cells));
+    const slots = HOURS.map((h) => hourSlot(id, h, ratingAt(day, h), id === sel.model && h === sel.hour, onSelect));
+    return el("div", { class: "strip" }, el("div", { class: "strip-label" }, modelLabel(id), el("small", {}, sub)), el("div", { class: "cells" }, ...slots));
   });
-  const axis = el("div", { class: "hours-axis" }, el("span"), el("div", { class: "cells" }, ...HOURS.map((h) => el("span", {}, h % 3 === 0 ? pad2(h) : ""))));
-  return el("section", { class: "strips" }, el("h3", {}, "Hour by hour, per model"), ...rows, axis);
+  const axis = el("div", { class: "hours-axis" }, el("span"), el("div", { class: "cells" }, ...HOURS.map((h) => el("span", {}, pad2(h)))));
+  return el("section", { class: "strips" }, el("h3", {}, "Hour by hour, per model (wind and gust, m/s)"), el("div", { class: "strips-scroll" }, ...rows, axis));
 }
 
 // A value with an optional muted second line, so narrow columns wrap cleanly.
@@ -207,7 +219,23 @@ function reasons(models: NonNullable<DetailData["models"]>, sel: DetailSelection
   return el("section", {}, el("h3", {}, `Why: ${label} at ${pad2(sel.hour)}:00`), el("ul", { class: "reasons" }, ...items));
 }
 
+const SELECTED_MARGIN_PX = 6;
+
+// Each render builds a new strip, so put it back where the user scrolled it, then bring the selected hour into view.
+function restoreStripScroll(container: HTMLElement, scrollLeft: number | null): void {
+  const scroller = container.querySelector<HTMLElement>(".strips-scroll");
+  if (!scroller) return;
+  if (scrollLeft != null) scroller.scrollLeft = scrollLeft;
+  const tile = scroller.querySelector(".cell.selected")?.getBoundingClientRect();
+  if (!tile) return;
+  const pinnedRight = scroller.querySelector(".strip-label")!.getBoundingClientRect().right;
+  const viewRight = scroller.getBoundingClientRect().right;
+  if (tile.left < pinnedRight) scroller.scrollLeft -= pinnedRight - tile.left + SELECTED_MARGIN_PX;
+  else if (tile.right > viewRight) scroller.scrollLeft += tile.right - viewRight + SELECTED_MARGIN_PX;
+}
+
 export function renderDetail(container: HTMLElement, data: DetailData, sel: DetailSelection, handlers: Handlers): void {
+  const stripScroll = container.querySelector(".strips-scroll")?.scrollLeft ?? null;
   const { site } = data;
   const selected = data.models?.find((m) => m.id === sel.model) ?? null;
   const wind = selected ? ratingAt(selected.day, sel.hour)?.launchWind ?? null : null;
@@ -235,4 +263,5 @@ export function renderDetail(container: HTMLElement, data: DetailData, sel: Deta
     );
   container.replaceChildren(...parts.filter((p): p is Node => p != null));
   container.hidden = false;
+  restoreStripScroll(container, stripScroll);
 }

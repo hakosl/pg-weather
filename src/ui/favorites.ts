@@ -1,6 +1,6 @@
 import type { SiteDay } from "../forecast/overview";
 import type { Site } from "../types";
-import { HOURS, STATE_META, el, hourOf, pad2, pill, ratingNote, slotAt, stateAt } from "./format";
+import { HOURS, STATE_META, el, hourOf, pad2, pill, ratingNote, sky, slotAt, stateAt } from "./format";
 
 interface Handlers {
   onOpen: (site: Site) => void;
@@ -17,12 +17,20 @@ function hourCells(day: SiteDay | undefined, hour: number | null): HTMLElement {
   return el("span", { class: "cells fav-hours", "aria-hidden": "true" }, ...cells);
 }
 
+function skyCells(day: SiteDay): HTMLElement {
+  const icons = HOURS.map((h) => {
+    const r = slotAt(day, h);
+    return el("span", {}, r ? sky(r)?.icon ?? "" : "");
+  });
+  return el("span", { class: "cells fav-sky", "aria-hidden": "true" }, ...icons);
+}
+
 function row(site: Site, day: SiteDay | undefined, hour: number | null, handlers: Handlers): HTMLElement {
   const slot = day ? slotAt(day, hour) : null;
   const summary = day
     ? el("span", { class: "fav-summary" }, pill(stateAt(day, slot)), el("span", { class: "muted" }, ratingNote(day, slot)))
     : el("span", { class: "fav-summary muted" }, "Not rated yet");
-  const open = el("button", { type: "button", class: "fav-open" }, el("span", { class: "fav-name" }, site.name), summary, hourCells(day, hour));
+  const open = el("button", { type: "button", class: "fav-open" }, el("span", { class: "fav-name" }, site.name), summary, day ? skyCells(day) : null, hourCells(day, hour));
   open.addEventListener("click", () => handlers.onOpen(site));
   const remove = el("button", { type: "button", class: "fav-remove", "aria-label": `Remove ${site.name} from favorites`, title: "Remove from favorites" }, "★");
   remove.addEventListener("click", () => handlers.onRemove(site));
